@@ -1,3 +1,5 @@
+-- SPDX-License-Identifier: GPL-1.0-only
+-- Adapted from CachyOS cachyos-hypr-noctalia 1.2.6; see LICENSES/README.md.
 -- Window rules wiki https://wiki.hypr.land/Configuring/Basics/Window-Rules/
 
 -- Generic floating position

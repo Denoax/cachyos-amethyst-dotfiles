@@ -1,0 +1,58 @@
+[
+  {
+    "scene": "01-desktop",
+    "frames": 358,
+    "median_frame_interval": 0.033333,
+    "max_frame_interval": 0.033334,
+    "status": "PASS frame timing; human motion review pending"
+  },
+  {
+    "scene": "02-navigation",
+    "frames": 418,
+    "median_frame_interval": 0.033333,
+    "max_frame_interval": 0.033334,
+    "status": "PASS frame timing; human motion review pending"
+  },
+  {
+    "scene": "03-window-actions",
+    "frames": 838,
+    "median_frame_interval": 0.033333,
+    "max_frame_interval": 0.033334,
+    "status": "PASS frame timing; human motion review pending"
+  },
+  {
+    "scene": "04-vscode-cpp",
+    "frames": 1738,
+    "median_frame_interval": 0.033333,
+    "max_frame_interval": 0.033334,
+    "status": "PASS frame timing; human motion review pending"
+  },
+  {
+    "scene": "05-languages",
+    "frames": 1078,
+    "median_frame_interval": 0.033333,
+    "max_frame_interval": 0.033334,
+    "status": "PASS frame timing; human motion review pending"
+  },
+  {
+    "scene": "06-discover",
+    "frames": 1348,
+    "median_frame_interval": 0.033333,
+    "max_frame_interval": 0.033334,
+    "status": "PASS frame timing; human motion review pending"
+  },
+  {
+    "scene": "06-flatpak-launch",
+    "frames": 448,
+    "median_frame_interval": 0.033333,
+    "max_frame_interval": 0.033334,
+    "status": "PASS frame timing; human motion review pending"
+  },
+  {
+    "scene": "07-daily",
+    "frames": 298,
+    "median_frame_interval": 0.033333,
+    "max_frame_interval": 0.033334,
+    "status": "PASS frame timing; human motion review pending"
+  }
+]

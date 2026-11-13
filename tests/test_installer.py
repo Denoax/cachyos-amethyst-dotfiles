@@ -90,5 +90,22 @@ class InstallerTests(unittest.TestCase):
         with self.assertRaises(m.Error):m.safe(self.home,'../escape')
         with patch.object(os,'geteuid',return_value=0):
             with self.assertRaisesRegex(m.Error,'ordinary target user'):self.cli('apply')
+    def test_allowlisted_empty_file_is_created_and_removed_on_rollback(self):
+        source=self.home/'empty-source';source.write_bytes(b'')
+        with patch.object(m,'source_files',return_value={'.config/amethyst-empty':source}):
+            self.cli('apply')
+        target=self.home/'.config/amethyst-empty'
+        self.assertTrue(target.is_file());self.assertEqual(target.read_bytes(),b'')
+        self.rollback();self.assertFalse(target.exists());self.assertTrue(source.is_file())
+    def test_package_failure_precedes_any_file_transaction(self):
+        with patch.object(m,'install_packages',side_effect=m.Error('package stage failed')):
+            with self.assertRaisesRegex(m.Error,'package stage failed'):
+                with contextlib.redirect_stdout(io.StringIO()):
+                    m.main(['apply','--with','','--install-packages','--chezmoi',self.cm])
+        self.assertEqual(self.tree(),{})
+    def test_config_only_cannot_request_package_installation(self):
+        with self.assertRaisesRegex(m.Error,'cannot be combined'):
+            self.cli('apply','--install-packages')
+        self.assertEqual(self.tree(),{})
 
 if __name__=='__main__':unittest.main()

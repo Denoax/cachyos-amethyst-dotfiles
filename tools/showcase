@@ -16,7 +16,10 @@ ROOT=Path(__file__).resolve().parents[1]
 PRIVATE=Path.home()/'.local/state/cachyos-amethyst-build/captures'
 PUBLIC=ROOT/'showcase/assets'
 def run(args,**kw):return subprocess.run(list(map(str,args)),check=True,**kw)
-def probe(p):return json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams','-show_format','-of','json',str(p)]))
+def probe(p):
+    info=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams','-show_format','-of','json',str(p)]))
+    if 'filename' in info.get('format',{}):info['format']['filename']=p.name
+    return info
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def save(p,data):p.write_text(json.dumps(data,indent=2)+'\n')
 def record(scene,output,seconds):
@@ -30,15 +33,19 @@ def record(scene,output,seconds):
     with (directory/'recorder.log').open('w') as log:
         proc=subprocess.Popen(args,stdout=log,stderr=subprocess.STDOUT)
         save(directory/'owned-pid.json',{'pid':proc.pid,'scene':scene})
+        old_term=signal.signal(signal.SIGTERM,lambda *_: (_ for _ in ()).throw(KeyboardInterrupt()))
         try:
             proc.wait(timeout=seconds)
             if proc.returncode:raise SystemExit('Recorder failed; inspect private recorder.log')
         except (subprocess.TimeoutExpired,KeyboardInterrupt):
             proc.send_signal(signal.SIGINT)
         finally:
+            if proc.poll() is None:
+                proc.send_signal(signal.SIGINT)
             try:proc.wait(timeout=12)
             except subprocess.TimeoutExpired:proc.kill();proc.wait()
             (directory/'owned-pid.json').unlink(missing_ok=True)
+            signal.signal(signal.SIGTERM,old_term)
     info=probe(dest)
     try:commit=subprocess.check_output(['git','-C',str(ROOT),'rev-parse','HEAD'],stderr=subprocess.DEVNULL,text=True).strip()
     except subprocess.CalledProcessError:commit='uncommitted'
@@ -56,7 +63,7 @@ def encode(a):
     still=args+['-ss',str(a.poster_at),'-frames:v','1',str(poster)]
     run(still);commands.append(still)
     if a.gif:
-        filt=f'fps=15,scale=960:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=128[p];[b][p]paletteuse=dither=bayer:bayer_scale=4'
+        filt=f'fps={a.gif_fps},scale={a.gif_width}:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors={a.gif_colors}[p];[b][p]paletteuse=dither=none:diff_mode=rectangle'
         animation=['ffmpeg','-v','error','-y','-ss',str(a.gif_start),'-t',str(a.gif_seconds),'-i',str(source),'-filter_complex',filt,'-loop','0',str(gif)]
         run(animation);commands.append(animation)
     assets=[mp4,poster]+([gif] if a.gif else [])
@@ -83,6 +90,7 @@ def main():
     p.add_argument('--scene',default='probe');p.add_argument('--output');p.add_argument('--seconds',type=float,default=12)
     p.add_argument('--probe',action='store_true',help='doctor also records a two-second private compatibility probe')
     p.add_argument('--privacy-reviewed',action='store_true');p.add_argument('--gif',action='store_true')
+    p.add_argument('--gif-width',type=int,default=640);p.add_argument('--gif-fps',type=int,default=10);p.add_argument('--gif-colors',type=int,default=48)
     p.add_argument('--gif-start',type=float,default=0);p.add_argument('--gif-seconds',type=float,default=8);p.add_argument('--poster-at',type=float,default=1)
     a=p.parse_args()
     if not re.fullmatch(r'[a-z0-9][a-z0-9-]{0,60}',a.scene):p.error('scene must be a safe lowercase ID')

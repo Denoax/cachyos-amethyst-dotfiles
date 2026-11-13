@@ -228,6 +228,11 @@
       "name": "discover",
       "reason": "Flatpak software center; restricted launcher",
       "origin": "official"
+    },
+    {
+      "name": "plasma-integration",
+      "reason": "KDE Qt platform theme for Discover dark palette",
+      "origin": "official"
     }
   ]
 }

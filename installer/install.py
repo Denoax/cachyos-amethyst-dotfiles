@@ -77,7 +77,7 @@ def snapshot(p):
 def target_name(rel):
     parts=[]
     for part in Path(rel).parts:
-        for prefix in ('private_', 'readonly_', 'executable_', 'symlink_', 'exact_'):
+        for prefix in ('empty_', 'private_', 'readonly_', 'executable_', 'symlink_', 'exact_'):
             if part.startswith(prefix):
                 part=part[len(prefix):]
         if part.startswith('dot_'):
@@ -96,7 +96,7 @@ def source_files(withs):
     if 'dev-cp' not in withs:
         files={k:v for k,v in files.items() if 'amethyst-code' not in k and 'amethyst-cp-init' not in k}
     if 'flatpak' not in withs:
-        files={k:v for k,v in files.items() if 'discover-flatpak' not in k and k!='.local/share/applications/org.kde.discover.desktop'}
+        files={k:v for k,v in files.items() if 'amethyst-discover' not in k and k!='.local/share/applications/org.kde.discover.desktop'}
     return files
 
 def overlay_files():
@@ -112,7 +112,7 @@ def overlay_files():
 
 def personal_managed(home):
     cfgdir=home/'.config/chezmoi'
-    if (cfgdir/'chezmoi.yaml').exists() or (cfgdir/'chezmoi.yml').exists():
+    if ((cfgdir/'chezmoi.yaml').exists() or (cfgdir/'chezmoi.yml').exists()) and not (home/'.config/cachyos-amethyst/other-managed.json').is_file():
         raise Error('Personal chezmoi YAML detected; export its owned paths to .config/cachyos-amethyst/other-managed.json before migration (TOML/JSON detected automatically).')
     conf={}
     for p in [cfgdir/'chezmoi.toml',cfgdir/'chezmoi.json']:
@@ -176,7 +176,10 @@ def cm_render(a, home, files, withs, txn):
     for rel,p in files.items():
         # Keep chezmoi attributes only on declarative home source.
         srel=str(p.relative_to(ROOT/'home')) if p.is_relative_to(ROOT/'home') else '/'.join('dot_'+x[1:] if x.startswith('.') else x for x in Path(rel).parts)
-        q=src/srel;q.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(p,q)
+        q=src/srel
+        if p.stat().st_size==0 and not q.name.startswith('empty_'):
+            q=q.with_name('empty_'+q.name)
+        q.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(p,q)
     if 'shell-patch' in withs:
         overlay=src/'dot_config/quickshell/caelestia'
         run(['patch','--batch','--fuzz=0','-p1','-i',ROOT/'patches/caelestia-2.5.0.patch'],cwd=overlay,stdout=subprocess.DEVNULL)
@@ -310,6 +313,8 @@ def main(argv=None):
     parser.add_argument('--migrate-ownership',action='append',default=[],metavar='PATH')
     parser.add_argument('--chezmoi',default='chezmoi')
     a=parser.parse_args(argv)
+    if a.config_only and a.install_packages:
+        raise Error('--config-only and --install-packages cannot be combined')
     if os.geteuid()==0:
         raise Error('Run as the ordinary target user, never sudo install.sh')
     home=Path.home()

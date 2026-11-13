@@ -1,3 +1,5 @@
+-- SPDX-License-Identifier: GPL-1.0-only
+-- Adapted from CachyOS cachyos-hypr-noctalia 1.2.6; see LICENSES/README.md.
 -- Cachy colors
 
 CACHYLGREEN = "rgba(82dcccff)"

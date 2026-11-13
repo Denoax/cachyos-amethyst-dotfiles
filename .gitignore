@@ -6,3 +6,5 @@ private/
 *.log
 *.raw.mp4
 handoff-source.bundle
+showcase/assets/*.mp4
+CODEX_RETURN.md

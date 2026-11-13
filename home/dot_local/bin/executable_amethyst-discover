@@ -1,2 +1,2 @@
 #!/bin/sh
-exec plasma-discover --backends flatpak-backend "$@"
+exec env QT_QPA_PLATFORMTHEME=kde plasma-discover --backends flatpak-backend "$@"

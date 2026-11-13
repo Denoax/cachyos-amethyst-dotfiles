@@ -1,0 +1,23 @@
+name: Validate source and isolated installation
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  files-and-runner:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Fetch checksum-verified chezmoi
+        run: python3 tools/bootstrap-chezmoi --destination .build/tools
+      - name: Source checks
+        run: python3 tools/check
+      - name: Installer isolation, idempotence and failure recovery
+        env:
+          CHEZMOI: ${{ github.workspace }}/.build/tools/chezmoi
+        run: python3 -B -m unittest discover -s tests -v
+      - name: Developer test prerequisites
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y g++ gdb openjdk-21-jdk python-is-python3
+      - name: CP runner regressions
+        run: python3 -B vscode/workspace/tools/verify.py
