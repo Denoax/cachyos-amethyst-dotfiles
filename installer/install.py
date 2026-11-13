@@ -96,7 +96,7 @@ def source_files(withs):
     if 'dev-cp' not in withs:
         files={k:v for k,v in files.items() if 'amethyst-code' not in k and 'amethyst-cp-init' not in k}
     if 'flatpak' not in withs:
-        files={k:v for k,v in files.items() if 'discover-flatpak' not in k}
+        files={k:v for k,v in files.items() if 'discover-flatpak' not in k and k!='.local/share/applications/org.kde.discover.desktop'}
     return files
 
 def overlay_files():

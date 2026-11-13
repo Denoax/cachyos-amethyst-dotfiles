@@ -506,6 +506,33 @@
       "runOptions": {
         "instanceLimit": 1
       }
+    },
+    {
+      "label": "CP: Demonstrate sanitizer (expected failure)",
+      "type": "process",
+      "command": "python3",
+      "args": [
+        "${workspaceFolder}/tools/cpw.py",
+        "run",
+        "${workspaceFolder}/fixtures/invalid-access.cpp",
+        "--mode",
+        "sanitize"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true,
+        "showReuseMessage": false
+      },
+      "runOptions": {
+        "instanceLimit": 1
+      }
     }
   ],
   "inputs": [

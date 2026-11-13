@@ -11,12 +11,14 @@ import tempfile
 import urllib.request
 
 p=argparse.ArgumentParser(description=__doc__)
-p.add_argument('--version',default='stable',help='Microsoft version, or stable for current stable')
+p.add_argument('--check',action='store_true',help='fetch and print current vendor metadata without installing')
 a=p.parse_args()
 if os.geteuid()==0:raise SystemExit('Run as an ordinary user')
-url='https://update.code.visualstudio.com/api/update/linux-x64/'+a.version+'/latest' if a.version=='stable' else 'https://update.code.visualstudio.com/api/versions/'+a.version+'/linux-x64/stable'
+url='https://update.code.visualstudio.com/api/update/linux-x64/stable/latest'
 metadata=json.load(urllib.request.urlopen(url,timeout=30))
 version=metadata['productVersion'];expected=metadata['sha256hash']
+if a.check:
+    print(json.dumps({k:metadata[k] for k in ['productVersion','version','url','sha256hash']},indent=2));raise SystemExit(0)
 target=Path.home()/'.local/opt'/('vscode-ms-'+version)
 if target.exists():raise SystemExit('Version already exists; inspect it before changing the stable pointer: '+str(target))
 print('Official Microsoft archive:',metadata['url'],'version:',version,'SHA-256:',expected)

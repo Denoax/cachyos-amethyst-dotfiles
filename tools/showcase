@@ -61,7 +61,7 @@ def encode(a):
         run(animation);commands.append(animation)
     assets=[mp4,poster]+([gif] if a.gif else [])
     meta.pop('probe',None)
-    meta['edits']={'full_video':'uncut, normal speed; no interpolation, masks, or replaced frames','gif_excerpt_seconds':[a.gif_start,a.gif_start+a.gif_seconds] if a.gif else None,'poster_seconds':a.poster_at,'background':'temporary project-owned plain #080808 PNG; original restored after capture'}
+    meta['edits']={'full_video':'uncut, normal speed; no interpolation, masks, or replaced frames','gif_excerpt_seconds':[a.gif_start,a.gif_start+a.gif_seconds] if a.gif else None,'poster_seconds':a.poster_at,'background':'Original local animated DesktopHut wallpaper shown at the explicit user request on 2026-11-13. Source video is excluded; repository code license grants no wallpaper rights. https://www.desktophut.com/black-and-white-look-live-wallpaper'}
     meta['review']={'privacy':'source and sampled derivative inspection; see scene evidence','continuous_motion':'PENDING human start-to-end playback and two loop wraps; automation cannot establish smoothness','smoothness_claim':False}
     meta['encoding_commands']=[['<private-source>' if str(x)==str(source) else str(x).replace(str(ROOT)+'/','') for x in cmd] for cmd in commands]
     meta['published']=[{'path':'showcase/assets/'+p.name,'bytes':p.stat().st_size,'sha256':sha(p),'probe':probe(p) if p.suffix!='.png' else None} for p in assets]
