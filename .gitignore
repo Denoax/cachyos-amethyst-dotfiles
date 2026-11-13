@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.build/
+.toolchains/
+private/
+*.log
+*.raw.mp4
+handoff-source.bundle

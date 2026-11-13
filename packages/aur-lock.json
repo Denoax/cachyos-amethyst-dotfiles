@@ -1,0 +1,51 @@
+[
+  {
+    "package": "caelestia-cli",
+    "url": "https://aur.archlinux.org/caelestia-cli.git",
+    "recipe_commit": "a6f5c172fed5505a12c24a08ae2de6952b2c9bba",
+    "PKGBUILD_sha256": "659bc6a7999c8f6913acb36d490b90153660e402c8509ed180fa8ee462cb8a95",
+    "review": "Inspected source-session recipe; build as ordinary user; review dependencies and updates again before execution"
+  },
+  {
+    "package": "caelestia-shell",
+    "url": "https://aur.archlinux.org/caelestia-shell.git",
+    "recipe_commit": "d2c7b31bef7009c8e63a5e73ad38896671237659",
+    "PKGBUILD_sha256": "fa35f7a58eef58afd183582e9f51063466b7df51e02279e26797affb55672f2b",
+    "review": "Inspected source-session recipe; build as ordinary user; review dependencies and updates again before execution"
+  },
+  {
+    "package": "quickshell-git",
+    "url": "https://aur.archlinux.org/quickshell-git.git",
+    "recipe_commit": "237fb7f2ddc4ef7b0e92a3f4b1e142da92e38495",
+    "PKGBUILD_sha256": "b18695fb11a04ff5b80fa0ed9aed64e7ae092879f456b837db42a1bb69504278",
+    "review": "Inspected source-session recipe; build as ordinary user; review dependencies and updates again before execution"
+  },
+  {
+    "package": "qt6-m3shapes-git",
+    "url": "https://aur.archlinux.org/qt6-m3shapes-git.git",
+    "recipe_commit": "f4184f7e028ca685d9739a66725645830327b532",
+    "PKGBUILD_sha256": "3f27ce422fadda43694c97ec6e122ab506731c218cb46fbb206ca6a6948a50ad",
+    "review": "Inspected source-session recipe; build as ordinary user; review dependencies and updates again before execution"
+  },
+  {
+    "package": "libcava",
+    "url": "https://aur.archlinux.org/libcava.git",
+    "recipe_commit": "39403443c8208f5d9adaaed7c8347c439efe52cf",
+    "PKGBUILD_sha256": "605b4b7755c3bfad0d3dfd293dee7e9fbbb280e4b5e349608c2fdeadf6bcfd9b",
+    "review": "Inspected source-session recipe; build as ordinary user; review dependencies and updates again before execution"
+  },
+  {
+    "package": "python-materialyoucolor",
+    "url": "https://aur.archlinux.org/python-materialyoucolor.git",
+    "recipe_commit": "7a148d4abba3db45fc042faa0dfb37d329f6d615",
+    "PKGBUILD_sha256": "bd94e05c2c82dc0b5e81ee601dfc0a9e8fe0695440abaa2fa119ad4e35f24b84",
+    "review": "Inspected source-session recipe; build as ordinary user; review dependencies and updates again before execution"
+  },
+  {
+    "package": "ttf-rubik-vf",
+    "url": "https://aur.archlinux.org/ttf-rubik-vf.git",
+    "recipe_commit": "df5b264003f0d39ba75f42970074ff2465ed527c",
+    "PKGBUILD_sha256": "d71a5adb9ad84846d0068c0eee0fddf854285d3bdc7d0758bf7810d0415d4942",
+    "review": "Inspected source-session recipe; build as ordinary user; review dependencies and updates again before execution"
+  }
+]

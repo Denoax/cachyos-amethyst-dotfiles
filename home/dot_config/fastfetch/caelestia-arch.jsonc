@@ -1,0 +1,21 @@
+{
+  "logo": {
+    "type": "small"
+  },
+  "display": {
+    "color": {
+      "keys": "white",
+      "title": "white"
+    }
+  },
+  "modules": [
+    "os",
+    "kernel",
+    "wm",
+    "terminal",
+    "cpu",
+    "gpu",
+    "memory",
+    "colors"
+  ]
+}

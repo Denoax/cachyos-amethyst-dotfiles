@@ -1,0 +1,2 @@
+#!/bin/sh
+exec plasma-discover --backends flatpak-backend "$@"

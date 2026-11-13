@@ -1,0 +1,11 @@
+{
+  "native_languages": [
+    "rust",
+    "go",
+    "nodejs",
+    "typescript",
+    "pypy3"
+  ],
+  "flatpak_apps": [],
+  "policy": "No personal application inventory is an installation default; select explicit app IDs with tools/flatpak-app."
+}

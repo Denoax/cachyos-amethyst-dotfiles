@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Visual Studio Code (Amethyst CP)
+Exec=amethyst-code %F
+Icon=visual-studio-code
+Categories=Development;IDE;

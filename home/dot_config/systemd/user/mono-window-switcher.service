@@ -1,0 +1,11 @@
+[Unit]
+Description=Caelestia-themed visual window switcher
+PartOf=amethyst-session.target graphical-session.target
+After=caelestia-shell.service
+[Service]
+Type=simple
+ExecStart=/usr/bin/qs -c mono-switcher -n
+Restart=on-failure
+RestartSec=2
+[Install]
+WantedBy=amethyst-session.target

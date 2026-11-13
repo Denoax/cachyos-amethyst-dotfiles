@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "NOT_RUN",
+  "note": "Template only; no footage has been captured by this handoff.",
+  "scenes": [],
+  "required_scene_fields": [
+    "id", "captured_at", "configuration_commit", "versions",
+    "source_sha256", "source_geometry", "source_average_frame_rate",
+    "source_duration_seconds", "recorder", "encoder_commands",
+    "edits_and_privacy_masks", "asset_rights", "outputs",
+    "continuous_review_status", "continuous_review_method",
+    "privacy_review_status", "restoration_status"
+  ],
+  "required_output_fields": [
+    "public_relative_path_or_url", "sha256", "size_bytes",
+    "width", "height", "duration_seconds", "measured_frame_rate"
+  ],
+  "public_manifest_rule": "Omit source private paths and sensitive device or user identifiers."
+}

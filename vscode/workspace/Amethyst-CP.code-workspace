@@ -1,0 +1,10 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "window.title": "Amethyst CP \u2014 ${activeEditorShort}"
+  }
+}

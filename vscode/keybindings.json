@@ -1,0 +1,53 @@
+[
+  {
+    "key": "f6",
+    "command": "workbench.action.tasks.runTask",
+    "args": "CP: Run input",
+    "when": "workspaceFolderCount > 0 && (resourcePath =~ /problems/ || terminalFocus)"
+  },
+  {
+    "key": "shift+f6",
+    "command": "workbench.action.tasks.runTask",
+    "args": "CP: Run interactive",
+    "when": "workspaceFolderCount > 0 && (resourcePath =~ /problems/ || terminalFocus)"
+  },
+  {
+    "key": "ctrl+shift+f6",
+    "command": "workbench.action.tasks.runTask",
+    "args": "CP: Sanitize samples",
+    "when": "workspaceFolderCount > 0 && (resourcePath =~ /problems/ || terminalFocus)"
+  },
+  {
+    "key": "ctrl+alt+n",
+    "command": "workbench.action.tasks.runTask",
+    "args": "CP: New problem",
+    "when": "workspaceFolderCount > 0 && (resourcePath =~ /problems/ || terminalFocus)"
+  },
+  {
+    "key": "ctrl+f5",
+    "command": "workbench.action.tasks.runTask",
+    "args": "CP: Run interactive",
+    "when": "workspaceFolderCount > 0 && (resourcePath =~ /problems/ || terminalFocus)"
+  },
+  {
+    "key": "ctrl+k r",
+    "command": "editor.action.startFindReplaceAction",
+    "when": "editorFocus && resourcePath =~ /problems/"
+  },
+  {
+    "key": "ctrl+shift+b",
+    "command": "workbench.action.tasks.runTask",
+    "args": "CP: Build",
+    "when": "workspaceFolderCount > 0 && (resourcePath =~ /problems/ || terminalFocus)"
+  },
+  {
+    "key": "ctrl+alt+c",
+    "command": "workbench.action.tasks.runTask",
+    "args": "CP: Copy submission",
+    "when": "workspaceFolderCount > 0 && (resourcePath =~ /problems/ || terminalFocus)"
+  },
+  {
+    "key": "shift+alt+f",
+    "command": "-editor.action.formatDocument"
+  }
+]

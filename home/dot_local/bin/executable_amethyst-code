@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+"""Launch verified Microsoft VS Code without touching Code OSS."""
+import json
+import os
+from pathlib import Path
+import shutil
+import sys
+
+for candidate in [Path.home()/'.local/opt/vscode-ms/bin/code',Path('/opt/visual-studio-code/bin/code'),Path(shutil.which('code') or '/nonexistent')]:
+    binary=candidate.resolve()
+    for root in [binary.parent.parent,binary.parent,Path('/usr/share/code')]:
+        product=root/'resources/app/product.json'
+        if product.is_file():
+            data=json.loads(product.read_text())
+            if data.get('nameLong')=='Visual Studio Code' and data.get('quality')=='stable':
+                os.execv(str(candidate),[str(candidate),'--profile','Amethyst CP',*sys.argv[1:]])
+raise SystemExit('Official Microsoft VS Code not found. Run tools/vscode-install from the checkout, then import vscode/Amethyst.code-profile.')

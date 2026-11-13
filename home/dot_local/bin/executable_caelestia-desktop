@@ -1,0 +1,178 @@
+#!/usr/bin/env python3
+"""Small on-demand Caelestia integrations. No Kona runtime or session automation."""
+import os,sys,json,subprocess,time,signal,fcntl,socket,shlex,configparser,shutil
+from pathlib import Path
+HOME=Path.home();STATE=HOME/'.local/state/caelestia-monochrome';STATE.mkdir(parents=True,mode=0o700,exist_ok=True);RUN=Path(os.environ['XDG_RUNTIME_DIR'])/'caelestia-monochrome';RUN.mkdir(mode=0o700,exist_ok=True)
+SELF=str(HOME/'.local/bin/caelestia-desktop');WALL=HOME/'Pictures/Wallpapers/Monochrome'
+def call(*a,**kw):return subprocess.run(list(map(str,a)),check=True,**kw)
+def text(*a):return subprocess.check_output(list(map(str,a)),text=True).strip()
+def query(a):return json.loads(text('hyprctl','-j',a))
+def dispatch(code):return call('hyprctl','dispatch',code,stdout=subprocess.DEVNULL)
+def lit(x):return json.dumps(x,ensure_ascii=True)
+def move(w,ws,follow=False):dispatch(f'hl.dsp.window.move({{window = "address:{w}", workspace = {lit(ws)}, follow = {str(follow).lower()} }})')
+def focus(w):dispatch(f'hl.dsp.focus({{window = "address:{w}"}})')
+def launch(*args):return subprocess.Popen(list(map(str,args)),stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,start_new_session=True)
+def notify(title,msg):call('notify-send','-a','Caelestia',title,msg)
+def menu(rows,prompt):
+ p=subprocess.run(['fuzzel','--dmenu','--prompt',prompt+': '],input='\n'.join(rows),capture_output=True,text=True)
+ return p.stdout.strip() if p.returncode==0 else ''
+def ipc(*args):return text('caelestia','shell',*args)
+def mpvcmd(command):
+ with socket.socket(socket.AF_UNIX) as s:
+  s.connect(str(RUN/'wallpaper.sock'));s.sendall(json.dumps({'command':command}).encode()+b'\n');return json.loads(s.recv(8192))
+def window_menu(overview=False):
+ clients=query('clients');mons=query('monitors');rows={}
+ if overview:
+  for w in sorted(query('workspaces'),key=lambda a:a.get('id',0)):
+   if w.get('id',0)>0:rows[f'Workspace {w["id"]} — {w["windows"]} windows']=('ws',w['id'])
+ for w in clients:
+  title=w.get('title','').replace('\n',' ')[:100]
+  rows[f'[{w["workspace"]["name"]}] {w["class"]}: {title}  ({w["address"][-5:]})']=('win',w['address'])
+ if overview:
+  for folder in [HOME/'.local/share/applications',Path('/usr/share/applications')]:
+   if not folder.exists():continue
+   for entry in folder.glob('*.desktop'):
+    try:
+     conf=configparser.ConfigParser(interpolation=None,strict=False);conf.read(entry);app=conf['Desktop Entry']
+     if app.get('Type')!='Application' or app.get('NoDisplay','false')=='true' or app.get('Hidden','false')=='true':continue
+     rows['App: '+app.get('Name',entry.stem)+' — '+entry.name]=('app',entry.name)
+    except (KeyError,configparser.Error):continue
+  rows['Caelestia application launcher']=('apps',None)
+ choice=menu(rows,'Overview' if overview else 'Windows')
+ if choice not in rows:return
+ kind,value=rows[choice]
+ if kind=='win':focus(value)
+ elif kind=='app':launch('gtk-launch',value)
+ elif kind=='ws':dispatch(f'hl.dsp.focus({{workspace = {value}}})')
+ else:ipc('drawers','toggle','launcher')
+def showdesktop():
+ p=RUN/'desktop.json';clients=query('clients');live={w['address']:w for w in clients}
+ if p.exists():
+  data=json.loads(p.read_text())
+  for w in data['windows']:
+   if w['address'] in live:move(w['address'],w['workspace'])
+  if data.get('focus') in live:focus(data['focus'])
+  p.unlink();return
+ ids=[m['activeWorkspace']['id'] for m in query('monitors')]
+ windows=[{'address':w['address'],'workspace':w['workspace']['id']} for w in clients if w['mapped'] and not w['hidden'] and w['workspace'].get('id') in ids]
+ if not windows:return
+ active=query('activewindow');p.write_text(json.dumps({'windows':windows,'focus':active.get('address')}))
+ for w in windows:move(w['address'],'special:mono-desktop')
+def special(which):
+ specs=[('MonoScratch',None)]
+ current=query('clients')
+ for cls,cmd in specs:
+  if any(w['class']==cls for w in current):continue
+  launch('kitty','--override','confirm_os_window_close=0','--class',cls,'--title',cls,*(cmd or []))
+  for _ in range(60):
+   current=query('clients');w=next((w for w in current if w['class']==cls),None)
+   if w:move(w['address'],'special:scratch');break
+   time.sleep(.05)
+ dispatch('hl.dsp.workspace.toggle_special("scratch")')
+def record(mode):
+ if subprocess.run(['systemctl','--user','is-active','--quiet','mono-record.service']).returncode==0:
+  call('systemctl','--user','stop','mono-record.service');return
+ m=next(m for m in query('monitors') if m['focused']);out=HOME/'Videos/Desktop Captures';out.mkdir(parents=True,exist_ok=True)
+ args=['wf-recorder','--no-dmabuf','-c','libx264','-p','preset=ultrafast','-r','30']
+ if mode=='region':
+  p=subprocess.run(['slurp'],capture_output=True,text=True)
+  if p.returncode:return
+  args+=['-g',p.stdout.strip()]
+ else:args+=['-o',m['name']]
+ dest=out/('capture-'+time.strftime('%Y%m%d-%H%M%S')+'.mp4')
+ call('systemd-run','--user','--collect','--unit=mono-record','--property=KillSignal=SIGINT',*args,'-f',str(dest))
+ notify('Recording started','Press either recording shortcut again to save. Video only; no microphone capture.')
+def screenshot(region=False):
+ out=HOME/'Pictures/Screenshots';out.mkdir(parents=True,exist_ok=True);dest=out/('screenshot-'+time.strftime('%Y%m%d-%H%M%S')+'.png');args=['grim']
+ if region:
+  p=subprocess.run(['slurp'],capture_output=True,text=True)
+  if p.returncode:return
+  args+=['-g',p.stdout.strip()]
+ call(*args,str(dest))
+ if region:launch('swappy','-f',dest)
+ else:notify('Screenshot saved',str(dest))
+def session(action):
+ p=STATE/'manual-session.json';commands={'kitty':['kitty'],'firefox':['firefox'],'org.kde.dolphin':['dolphin'],'code-oss':['code-oss'],'brave-browser':['brave'],'Spotify':['spotify'],'discord':['discord'],'Slack':['slack'],'org.telegram.desktop':['telegram-desktop'],'steam':['steam']}
+ commands={k:v for k,v in commands.items() if shutil.which(v[0])}
+ if action=='save':
+  rows=[]
+  for w in query('clients'):
+   if w['class'] in commands and not any(x['class']==w['class'] for x in rows):rows.append({k:w[k] for k in ['class','workspace','at','size','floating','fullscreen']})
+  p.write_text(json.dumps(rows));p.chmod(0o600);notify('Session saved',f'{len(rows)} supported application classes. Window layout only; not unsaved content or tab/terminal state.');return
+ if not p.exists():notify('No saved session','Save first with Super+Ctrl+S.');return
+ for row in json.loads(p.read_text()):
+  if row['class'] not in commands or any(w['class']==row['class'] for w in query('clients')):continue
+  launch(*commands[row['class']])
+  for _ in range(80):
+   w=next((x for x in query('clients') if x['class']==row['class']),None)
+   if w:
+    move(w['address'],max(1,row['workspace'].get('id',1)))
+    if row['floating']:
+     dispatch(f'hl.dsp.window.float({{action = "enable",window = "address:{w["address"]}"}})')
+     dispatch(f'hl.dsp.window.resize({{window = "address:{w["address"]}",x = {row["size"][0]}, y = {row["size"][1]}, relative = false}})')
+    if row['floating']:dispatch(f'hl.dsp.window.move({{window = "address:{w["address"]}",x = {row["at"][0]}, y = {row["at"][1]}, relative = false}})')
+    if row['fullscreen'] in [1,2]:dispatch(f'hl.dsp.window.fullscreen({{window = "address:{w["address"]}",mode = "{"maximized" if row["fullscreen"]==1 else "fullscreen"}",action = "set"}})')
+    break
+   time.sleep(.1)
+def main():
+ a=sys.argv[1:];cmd=a[0]
+ if cmd=='overview':window_menu(True)
+ elif cmd=='windows':window_menu()
+ elif cmd=='run':
+  v=menu([],'Run command')
+  if v:launch(os.environ.get('SHELL','/bin/sh'),'-lc',v)
+ elif cmd=='browser':
+  entry=text('xdg-settings','get','default-web-browser') or 'firefox.desktop';launch('gtk-launch',entry)
+ elif cmd=='desktop':showdesktop()
+ elif cmd in ['arch','gather']:call(HOME/'.local/bin/caelestia-workspace',cmd)
+ elif cmd=='scratch':
+  with (RUN/(cmd+'.lock')).open('w') as guard:
+   fcntl.flock(guard,fcntl.LOCK_EX);special(cmd)
+ elif cmd=='record':record(a[1])
+ elif cmd=='screenshot':screenshot(len(a)>1 and a[1]=='region')
+ elif cmd=='session':session(a[1])
+ elif cmd=='confirm':
+  action=a[1]
+  if action not in ['logout','shutdown','hibernate','reboot']:return
+  if menu(['Cancel','Confirm '+action],action.title())!='Confirm '+action:return
+  if action=='logout':
+   sid=os.environ.get('XDG_SESSION_ID')
+   if not sid:notify('Logout not started','No session ID available; use your normal session exit.');return
+   call('loginctl','terminate-session',sid)
+  else:call('systemctl',{'shutdown':'poweroff','hibernate':'hibernate','reboot':'reboot'}[action])
+ elif cmd=='wallpaper':
+  paths=[p for p in [*(sorted(WALL.glob('*')) if WALL.exists() else [])] if p.is_file()];choices={p.name:p for p in paths};v=menu(choices,'Wallpaper')
+  if v in choices:
+   p=choices[v];(STATE/'selected-wallpaper').write_text(str(p));call('systemctl','--user','restart','mono-wallpaper.service')
+ elif cmd=='wallpaper-run':
+  selection=STATE/'selected-wallpaper'
+  p=Path(selection.read_text().strip()) if selection.exists() else HOME/'.local/share/cachyos-amethyst/neutral.png'
+  if not p.is_file():p=HOME/'.local/share/cachyos-amethyst/neutral.png'
+  if not p.is_file():raise SystemExit('Selected wallpaper and recovery still are both unavailable.')
+  os.execvp('mpvpaper',['mpvpaper','-p','-o',f'no-audio loop-file=inf hwdec=auto-safe terminal=no msg-level=all=warn image-display-duration=inf input-ipc-server={RUN}/wallpaper.sock','*',str(p)])
+ elif cmd=='nightlight':
+  p=RUN/'nightlight'
+  if p.exists():call('gammastep','-x');p.unlink()
+  else:call('gammastep','-P','-O','4000');p.touch()
+ elif cmd=='game':
+  on=ipc('gameMode','isEnabled')=='true';ipc('gameMode','toggle')
+  try:mpvcmd(['set_property','pause',not on])
+  except OSError:pass
+ elif cmd=='lock-state':
+  k=a[1];p=next(Path('/sys/class/leds').glob('*::'+k),None)
+  notify(k.title()+' Lock',('ON' if p and (p/'brightness').read_text().strip()=='1' else 'OFF'))
+ elif cmd=='cheatsheet':launch('kitty','--class','MonoShortcutHelp','less','-R',HOME/'.local/share/cachyos-amethyst/SHORTCUTS.md')
+ elif cmd=='updates':launch('kitty','--class','MonoUpdates','sh','-c',f'printf "Available updates (read only):\\n"; pacman -Qu; printf "\\nRecovery: the source checkout: ./install.sh rollback --transaction ID\\nNo update was started.\\n"; exec "${{SHELL:-/bin/sh}}"')
+ elif cmd=='legacy':
+  name=a[1];p=RUN/('notice-'+name)
+  if not p.exists():notify('Not migrated: '+name,{'assistant':'Requires the old Kona/end-4 assistant, translator and anime surface.','profiles':'Requires Kona profile/theme/service orchestration; current monochrome settings are retained.','mosaic':'Requires the old Kona Mosaic shell component.'}[name]);p.touch()
+ elif cmd=='menu':
+  if len(a)<2:
+   c=query('cursorpos');monitors=query('monitors');m=next((m for m in monitors if m['x']<=c['x']<m['x']+m['width'] and m['y']<=c['y']<m['y']+m['height']),None)
+   if m and (c['x']<m['x']+m['reserved'][0] or c['y']<m['y']+m['reserved'][1]):return
+   visible=[m['activeWorkspace']['id'] for m in query('monitors')]
+   if any(w['workspace'].get('id') in visible and w['at'][0]<=c['x']<w['at'][0]+w['size'][0] and w['at'][1]<=c['y']<w['at'][1]+w['size'][1] for w in query('clients') if w['mapped'] and not w['hidden']):return
+  choices=['Terminal','Files','Overview','Wallpapers','Settings','Audio','Shortcut help','Session controls'];v=menu(choices,'Desktop')
+  mapping={'Terminal':['kitty'],'Files':['dolphin'],'Overview':[SELF,'overview'],'Wallpapers':[SELF,'wallpaper'],'Settings':['caelestia','shell','nexus','open'],'Audio':['pavucontrol'],'Shortcut help':[SELF,'cheatsheet'],'Session controls':['caelestia','shell','drawers','toggle','session']}
+  if v in mapping:launch(*mapping[v])
+if __name__=='__main__':main()

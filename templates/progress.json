@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "phase": "not_started",
+  "candidate_commit": null,
+  "source_inventory_status": "NOT_RUN",
+  "completed": [],
+  "changed_files": [],
+  "checks": [],
+  "blockers": [],
+  "next_action": "Inspect current local source state using extract-desktop",
+  "production_session_changes": [],
+  "restoration_status": "NOT_APPLICABLE",
+  "public_release_status": "NOT_RUN"
+}

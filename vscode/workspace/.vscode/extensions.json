@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "openai.chatgpt",
+    "ms-vscode.cpptools",
+    "ms-python.python",
+    "ms-python.debugpy",
+    "ms-python.vscode-pylance",
+    "ms-python.black-formatter",
+    "redhat.java",
+    "vscjava.vscode-java-debug"
+  ]
+}

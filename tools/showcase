@@ -1,0 +1,101 @@
+#!/usr/bin/env python3
+"""Bounded real Wayland capture, encoding and stream verification. No generated media."""
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import shutil
+import signal
+import subprocess
+import sys
+import time
+
+ROOT=Path(__file__).resolve().parents[1]
+PRIVATE=Path.home()/'.local/state/cachyos-amethyst-build/captures'
+PUBLIC=ROOT/'showcase/assets'
+def run(args,**kw):return subprocess.run(list(map(str,args)),check=True,**kw)
+def probe(p):return json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams','-show_format','-of','json',str(p)]))
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def save(p,data):p.write_text(json.dumps(data,indent=2)+'\n')
+def record(scene,output,seconds):
+    monitors=json.loads(subprocess.check_output(['hyprctl','-j','monitors']))
+    monitor=next((m for m in monitors if m['name']==output),None)
+    if not monitor:raise SystemExit('Output is not currently connected')
+    directory=PRIVATE/scene;directory.mkdir(parents=True,mode=0o700,exist_ok=True)
+    dest=directory/'source.mp4'
+    if dest.exists():raise SystemExit('Scene already exists. Choose a new scene ID; sources are never overwritten.')
+    args=['wf-recorder','--no-dmabuf','--no-damage','-o',output,'-c','libx264','-p','preset=ultrafast','-p','crf=18','-x','yuv420p','-r','30','-f',str(dest)]
+    with (directory/'recorder.log').open('w') as log:
+        proc=subprocess.Popen(args,stdout=log,stderr=subprocess.STDOUT)
+        save(directory/'owned-pid.json',{'pid':proc.pid,'scene':scene})
+        try:
+            proc.wait(timeout=seconds)
+            if proc.returncode:raise SystemExit('Recorder failed; inspect private recorder.log')
+        except (subprocess.TimeoutExpired,KeyboardInterrupt):
+            proc.send_signal(signal.SIGINT)
+        finally:
+            try:proc.wait(timeout=12)
+            except subprocess.TimeoutExpired:proc.kill();proc.wait()
+            (directory/'owned-pid.json').unlink(missing_ok=True)
+    info=probe(dest)
+    try:commit=subprocess.check_output(['git','-C',str(ROOT),'rev-parse','HEAD'],stderr=subprocess.DEVNULL,text=True).strip()
+    except subprocess.CalledProcessError:commit='uncommitted'
+    save(directory/'source.json',{'scene':scene,'sha256':sha(dest),'configuration_commit':commit,'output_geometry':{k:monitor[k] for k in ['width','height','scale']},'recorder':'wf-recorder CPU libx264, no-dmabuf, 30 fps, no audio','arguments':args[:-1]+['<private-source>'],'probe':info,'captured_utc':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime())})
+    print('Captured',scene,info['format']['duration'],'seconds')
+def encode(a):
+    if not a.privacy_reviewed:raise SystemExit('Inspect the entire source for private content before --privacy-reviewed')
+    source=PRIVATE/a.scene/'source.mp4';meta=json.loads((source.parent/'source.json').read_text())
+    PUBLIC.mkdir(parents=True,exist_ok=True)
+    args=['ffmpeg','-v','error','-y','-i',str(source)]
+    mp4=PUBLIC/(a.scene+'.mp4');poster=PUBLIC/(a.scene+'.png');gif=PUBLIC/(a.scene+'.gif')
+    commands=[]
+    full=args+['-an','-c:v','libx264','-preset','medium','-crf','20','-pix_fmt','yuv420p','-movflags','+faststart',str(mp4)]
+    run(full);commands.append(full)
+    still=args+['-ss',str(a.poster_at),'-frames:v','1',str(poster)]
+    run(still);commands.append(still)
+    if a.gif:
+        filt=f'fps=15,scale=960:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=128[p];[b][p]paletteuse=dither=bayer:bayer_scale=4'
+        animation=['ffmpeg','-v','error','-y','-ss',str(a.gif_start),'-t',str(a.gif_seconds),'-i',str(source),'-filter_complex',filt,'-loop','0',str(gif)]
+        run(animation);commands.append(animation)
+    assets=[mp4,poster]+([gif] if a.gif else [])
+    meta.pop('probe',None)
+    meta['edits']={'full_video':'uncut, normal speed; no interpolation, masks, or replaced frames','gif_excerpt_seconds':[a.gif_start,a.gif_start+a.gif_seconds] if a.gif else None,'poster_seconds':a.poster_at,'background':'temporary project-owned plain #080808 PNG; original restored after capture'}
+    meta['review']={'privacy':'source and sampled derivative inspection; see scene evidence','continuous_motion':'PENDING human start-to-end playback and two loop wraps; automation cannot establish smoothness','smoothness_claim':False}
+    meta['encoding_commands']=[['<private-source>' if str(x)==str(source) else str(x).replace(str(ROOT)+'/','') for x in cmd] for cmd in commands]
+    meta['published']=[{'path':'showcase/assets/'+p.name,'bytes':p.stat().st_size,'sha256':sha(p),'probe':probe(p) if p.suffix!='.png' else None} for p in assets]
+    save(PUBLIC/(a.scene+'.json'),meta)
+    print('Encoded',a.scene)
+def verify():
+    entries=[]
+    for p in sorted(PUBLIC.glob('*.json')):
+        meta=json.loads(p.read_text())
+        for asset in meta['published']:
+            file=ROOT/asset['path']
+            assert file.exists() and sha(file)==asset['sha256'],file
+            if file.suffix in ['.mp4','.gif']:
+                info=probe(file);assert float(info['format']['duration'])>0
+            entries.append(asset['path'])
+    print('PASS hashes/streams:',len(entries),'assets. Continuous motion review remains separately recorded.')
+def main():
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('command',choices=['doctor','record','encode','verify'])
+    p.add_argument('--scene',default='probe');p.add_argument('--output');p.add_argument('--seconds',type=float,default=12)
+    p.add_argument('--probe',action='store_true',help='doctor also records a two-second private compatibility probe')
+    p.add_argument('--privacy-reviewed',action='store_true');p.add_argument('--gif',action='store_true')
+    p.add_argument('--gif-start',type=float,default=0);p.add_argument('--gif-seconds',type=float,default=8);p.add_argument('--poster-at',type=float,default=1)
+    a=p.parse_args()
+    if not re.fullmatch(r'[a-z0-9][a-z0-9-]{0,60}',a.scene):p.error('scene must be a safe lowercase ID')
+    if not 0<a.seconds<=180:p.error('seconds must be between 0 and 180')
+    if a.command=='doctor':
+        print('Wayland:',os.environ.get('XDG_SESSION_TYPE'))
+        for tool in ['wf-recorder','ffmpeg','ffprobe','hyprctl']:print(tool,shutil.which(tool) or 'MISSING')
+        monitors=json.loads(subprocess.check_output(['hyprctl','-j','monitors']))
+        print('Outputs:',[{k:m[k] for k in ['name','width','height','scale']} for m in monitors])
+        if a.probe:record(a.scene,a.output or next(m['name'] for m in monitors if m['focused']),2)
+    elif a.command=='record':
+        if not a.output:p.error('--output required')
+        record(a.scene,a.output,a.seconds)
+    elif a.command=='encode':encode(a)
+    else:verify()
+if __name__=='__main__':main()

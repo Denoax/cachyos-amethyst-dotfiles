@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Discover (Flatpak)
+Exec=plasma-discover --backends flatpak-backend %U
+Icon=plasmadiscover
+Categories=System;PackageManager;
+MimeType=x-scheme-handler/appstream;

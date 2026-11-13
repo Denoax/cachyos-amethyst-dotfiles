@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+"""Explicit user-scope optional Flatpak installation, detecting existing system apps."""
+import argparse
+import subprocess
+
+p=argparse.ArgumentParser(description=__doc__)
+p.add_argument('app',help='explicit Flathub application ID')
+a=p.parse_args()
+def call(*args,**kwargs):return subprocess.run(['flatpak',*args],check=True,**kwargs)
+system=call('list','--system','--app','--columns=application',capture_output=True,text=True).stdout.splitlines()
+if a.app in system:raise SystemExit('Already installed system-wide; reusing it. No duplicate user install created.')
+remotes=call('remotes','--user','--columns=name,url',capture_output=True,text=True).stdout
+if not any(line.split('\t')[0]=='flathub' for line in remotes.splitlines()):
+    call('remote-add','--user','--if-not-exists','flathub','https://flathub.org/repo/flathub.flatpakrepo')
+else:
+    url=next(line.split('\t')[1] for line in remotes.splitlines() if line.startswith('flathub\t'))
+    if url.rstrip('/')!='https://dl.flathub.org/repo':raise SystemExit('Existing user flathub remote has a different URL; inspect it first')
+call('install','--user','flathub',a.app)

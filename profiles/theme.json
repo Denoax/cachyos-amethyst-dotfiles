@@ -1,0 +1,12 @@
+{
+  "theme": "Monochromator Dark Amethyst",
+  "extension": "beem.monochromator",
+  "version": "0.36.1",
+  "primary": "#d559ff",
+  "ui_border": "#ac79c4",
+  "ui_focus": "#9361ad",
+  "font_size": 14,
+  "font_ligatures": false,
+  "font_family": "VS Code Linux default (no profile font-family override)",
+  "source": "Installed theme themes/dark/amethyst.json plus active CP profile colorCustomizations; observed 2026-11-13"
+}

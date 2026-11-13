@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+"""Native Fastfetch with a supplied image, after hidden layout readiness; one render per refresh."""
+import json,os,subprocess,sys,time
+from pathlib import Path
+ready=Path(os.environ['XDG_RUNTIME_DIR'])/'caelestia-workspace/arch-layout.json';generation=os.environ.get('MONO_ARCH_GENERATION','');deadline=time.monotonic()+6;last=None;stable=0
+while time.monotonic()<deadline:
+ try:
+  data=json.loads(ready.read_text());matched=data.get('generation')==generation;size=os.get_terminal_size()
+  if matched and size.columns>=20 and size.lines>=10:
+   stable=stable+1 if size==last else 0
+   if stable>=3:break
+   last=size
+ except (OSError,ValueError,KeyError):pass
+ time.sleep(.03)
+
+def draw():
+ # Delete placements and image data in this terminal before each native Fastfetch render.
+ sys.stdout.write('\033_Ga=d,d=A\033\\\033[2J\033[3J\033[H');sys.stdout.flush()
+ try:
+  p=subprocess.run(['fastfetch','--config',str(Path.home()/'.config/fastfetch/caelestia-arch.jsonc'),'--pipe','false'],timeout=6)
+  if p.returncode:print('Fastfetch could not render the configured image and system details.')
+ except subprocess.TimeoutExpired:print('Fastfetch rendering timed out; press R then Enter to retry.')
+ print('\nR + Enter: refresh   Q + Enter: close');sys.stdout.flush()
+
+draw()
+marker=ready.with_name('arch-info-ready.json');tmp=marker.with_suffix('.tmp');tmp.write_text(json.dumps({'generation':generation,'terminal_columns':os.get_terminal_size().columns,'terminal_rows':os.get_terminal_size().lines}));tmp.replace(marker)
+for line in sys.stdin:
+ if line.strip().lower()=='q':break
+ if line.strip().lower()=='r':draw()

@@ -1,0 +1,93 @@
+{
+  "appearance": {
+    "anim": {
+      "durations": {
+        "scale": 0.85
+      }
+    },
+    "transparency": {
+      "enabled": true
+    }
+  },
+  "background": {
+    "visualiser": {
+      "enabled": false
+    },
+    "wallpaperEnabled": false
+  },
+  "bar": {
+    "tray": {
+      "recolour": true
+    }
+  },
+  "border": {
+    "rounding": 24,
+    "thickness": 8
+  },
+  "dashboard": {
+    "dragThreshold": 50,
+    "showClockSeconds": false
+  },
+  "general": {
+    "apps": {
+      "audio": [
+        "pavucontrol"
+      ],
+      "explorer": [
+        "dolphin"
+      ],
+      "terminal": [
+        "kitty"
+      ]
+    },
+    "idle": {
+      "lockBeforeSleep": true,
+      "timeouts": [
+        {
+          "enabled": true,
+          "idleAction": "lock",
+          "inhibitWhenAudio": false,
+          "inhibitWhenCharging": false,
+          "respectInhibitors": true,
+          "timeout": 600
+        }
+      ]
+    }
+  },
+  "launcher": {
+    "favouriteApps": [
+      "kitty",
+      "org.kde.dolphin",
+      "amethyst-code",
+      "firefox",
+      "org.kde.discover-flatpak"
+    ]
+  },
+  "paths": {
+    "wallpaperDir": "{{ .targetHome }}/Pictures/Wallpapers"
+  },
+  "session": {
+    "commands": {
+      "logout": [
+        "{{ .targetHome }}/.local/bin/caelestia-desktop",
+        "confirm",
+        "logout"
+      ],
+      "shutdown": [
+        "{{ .targetHome }}/.local/bin/caelestia-desktop",
+        "confirm",
+        "shutdown"
+      ],
+      "hibernate": [
+        "{{ .targetHome }}/.local/bin/caelestia-desktop",
+        "confirm",
+        "hibernate"
+      ],
+      "reboot": [
+        "{{ .targetHome }}/.local/bin/caelestia-desktop",
+        "confirm",
+        "reboot"
+      ]
+    }
+  }
+}

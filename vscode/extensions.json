@@ -1,0 +1,10 @@
+[
+  "beem.monochromator",
+  "ms-vscode.cpptools",
+  "ms-python.python",
+  "ms-python.vscode-pylance",
+  "ms-python.debugpy",
+  "ms-python.black-formatter",
+  "redhat.java",
+  "vscjava.vscode-java-debug"
+]

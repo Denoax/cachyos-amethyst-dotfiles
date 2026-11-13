@@ -1,0 +1,74 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "CP: C++ interactive",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/.build/debug/selected-cpp",
+      "args": [],
+      "cwd": "${workspaceFolder}/.cp-selected",
+      "stopAtEntry": false,
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "preLaunchTask": "CP: Debug C++ build",
+      "setupCommands": [
+        {
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": false
+        }
+      ]
+    },
+    {
+      "name": "CP: C++ input.txt",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/.build/debug/selected-cpp",
+      "args": [],
+      "cwd": "${workspaceFolder}/.cp-selected",
+      "stopAtEntry": false,
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "preLaunchTask": "CP: Debug C++ build",
+      "setupCommands": [
+        {
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": false
+        },
+        {
+          "text": "-interpreter-exec console \"set args < input.txt\"",
+          "ignoreFailures": false
+        }
+      ]
+    },
+    {
+      "name": "CP: Python interactive",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/.cp-source",
+      "python": "python3",
+      "cwd": "${workspaceFolder}/.cp-selected",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "preLaunchTask": "CP: Debug Python build"
+    },
+    {
+      "name": "CP: Java interactive",
+      "type": "java",
+      "request": "launch",
+      "mainClass": "Main",
+      "classPaths": [
+        "${workspaceFolder}/.cp-selected/.build/debug/Main-java"
+      ],
+      "sourcePaths": [
+        "${workspaceFolder}/.cp-selected"
+      ],
+      "cwd": "${workspaceFolder}/.cp-selected",
+      
+      "console": "integratedTerminal",
+      "preLaunchTask": "CP: Debug Java build"
+    }
+  ]
+}
