@@ -24,6 +24,11 @@ def probe(p):
     return info
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def save(p,data):p.write_text(json.dumps(data,indent=2)+'\n')
+def gif_filter(a):
+    # Palette-analysis weighting reserves the source theme's sparse purple. The
+    # delivered frame stream [b] is untouched; no UI colors are painted over it.
+    bias='drawbox=x=0:y=0:w=iw:h=16:color=0xd559ff:t=fill,drawbox=x=0:y=16:w=iw:h=16:color=0xac79c4:t=fill,' if a.reserve_accent else ''
+    return f'fps={a.gif_fps},scale={a.gif_width}:-1:flags=lanczos,split[a][b];[a]'+bias+f'palettegen=max_colors={a.gif_colors}:reserve_transparent=0:stats_mode={a.palette_stats}[p];[b][p]paletteuse=dither={a.dither}:diff_mode=rectangle'
 def record(scene,output,seconds,fps=30,crf=16):
     PRIVATE.mkdir(parents=True,mode=0o700,exist_ok=True)
     lock=(PRIVATE/'.capture.lock').open('a+')
@@ -65,6 +70,7 @@ def record(scene,output,seconds,fps=30,crf=16):
 def encode(a):
     if not a.privacy_reviewed:raise SystemExit('Inspect the entire source for private content before --privacy-reviewed')
     source=PRIVATE/a.scene/'source.mp4';meta=json.loads((source.parent/'source.json').read_text())
+    if meta.get('interrupted'):raise SystemExit('An interrupted rehearsal cannot be published as a completed feature')
     PUBLIC.mkdir(parents=True,exist_ok=True)
     duration=float(meta['probe']['format']['duration']);end=a.out if a.out is not None else duration
     if not 0<=a.start<end<=duration:raise SystemExit('Source in/out must lie inside the immutable take')
@@ -82,7 +88,7 @@ def encode(a):
     run(thumbnail);commands.append(thumbnail)
     if a.gif:
         if not 0<=a.gif_start<a.gif_start+a.gif_seconds<=duration:raise SystemExit('GIF excerpt exceeds source')
-        filt=f'fps={a.gif_fps},scale={a.gif_width}:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors={a.gif_colors}:reserve_transparent=0:stats_mode={a.palette_stats}[p];[b][p]paletteuse=dither={a.dither}:diff_mode=rectangle'
+        filt=gif_filter(a)
         animation=['ffmpeg','-v','error','-y','-ss',str(a.gif_start),'-t',str(a.gif_seconds),'-i',str(source),'-filter_complex',filt,'-loop','0',str(gif)]
         run(animation);commands.append(animation)
     assets=[mp4,poster,thumb]+([gif] if a.gif else [])
@@ -117,7 +123,7 @@ def film(a):
         for i,cut in enumerate(cuts):
             if not re.fullmatch(r'[a-z0-9][a-z0-9-]{0,60}',cut['scene']):raise SystemExit('Unsafe source scene')
             source=PRIVATE/cut['scene']/'source.mp4';meta=json.loads((source.parent/'source.json').read_text());duration=float(meta['probe']['format']['duration'])
-            if sha(source)!=meta['sha256'] or not 0<=cut['in']<cut['out']<=duration:raise SystemExit('Invalid or changed source take')
+            if meta.get('interrupted') or sha(source)!=meta['sha256'] or not 0<=cut['in']<cut['out']<=duration:raise SystemExit('Invalid, interrupted or changed source take')
             dest=tmp/f'{i:02}.mp4';filters=f'fps={a.fps},format=yuv420p'
             if cut.get('caption'):
                 label=tmp/f'{i:02}.txt';label.write_text(cut['caption'])
@@ -128,14 +134,28 @@ def film(a):
         run(['ffmpeg','-v','error','-y','-f','concat','-safe','0','-i',listing,'-c','copy','-movflags','+faststart',dest])
     save(PUBLIC/'amethyst-tour.json',{'scene':'amethyst-tour','classification':'edited presentation; hard cuts, no accelerated interaction','edit_decision':lineage,'review':{'continuous_motion':'MOTION_REVIEW_PENDING','smoothness_claim':False},'published':[{'path':str(dest.relative_to(ROOT)),'bytes':dest.stat().st_size,'sha256':sha(dest),'probe':probe(dest)}]})
     print('Assembled normal-speed film:',probe(dest)['format']['duration'],'seconds')
+def compare(a):
+    source=PRIVATE/a.scene/'source.mp4';meta=json.loads(source.with_suffix('.json').read_text());PUBLIC.mkdir(parents=True,exist_ok=True)
+    if a.gif_start<0 or a.gif_start+a.gif_seconds>float(meta['probe']['format']['duration']):raise SystemExit('Comparison exceeds source')
+    rows=[]
+    for name,width,fps,colors,dither,reserve in [('legacy-settings',640,10,32,'none',False),('full-palette',960,25,256,'none',False),('ordered-dither',960,25,256,'bayer',False),('reserved-amethyst',960,25,256,'bayer',True)]:
+        a.gif_width=width;a.gif_fps=fps;a.gif_colors=colors;a.dither=dither;a.reserve_accent=reserve;a.palette_stats='full';dest=PUBLIC/(name+'.gif');started=time.monotonic()
+        command=['ffmpeg','-v','error','-y','-ss',str(a.gif_start),'-t',str(a.gif_seconds),'-i',str(source),'-filter_complex',gif_filter(a),'-loop','0',str(dest)];run(command)
+        sample=PUBLIC/(name+'.png');run(['ffmpeg','-v','error','-y','-ss','3','-i',dest,'-frames:v','1','-vf','scale=960:-1:flags=lanczos',sample])
+        rgb=subprocess.check_output(['ffmpeg','-v','error','-i',sample,'-frames:v','1','-f','rawvideo','-pix_fmt','rgb24','-'])
+        purple=sum(r>g+25 and b>g+25 for r,g,b in zip(rgb[0::3],rgb[1::3],rgb[2::3]))
+        rows.append({'variant':name,'width':width,'fps':fps,'colors':colors,'dither':dither,'palette_analysis_accent_weighting':reserve,'source_seconds':[a.gif_start,a.gif_start+a.gif_seconds],'bytes':dest.stat().st_size,'sha256':sha(dest),'sample_purple_pixels':purple,'encoding_wall_seconds':round(time.monotonic()-started,2),'command':['<private-source>' if str(x)==str(source) else str(x).replace(str(ROOT)+'/','') for x in command]})
+        print('Compared',name,'bytes',dest.stat().st_size,'sample purple',purple,flush=True)
+    save(PUBLIC/'comparison.json',{'source_sha256':meta['sha256'],'scene':a.scene,'variants':rows,'gifski':shutil.which('gifski') or 'NOT_INSTALLED; no unreviewed binary added','continuous_motion':'MOTION_REVIEW_PENDING; sampled color measurements are not a motion pass'})
 def main():
     global PRIVATE,PUBLIC
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('command',choices=['doctor','record','encode','verify','film','site'])
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('command',choices=['doctor','record','encode','verify','film','site','compare'])
     p.add_argument('--scene',default='probe');p.add_argument('--output');p.add_argument('--seconds',type=float,default=12)
     p.add_argument('--probe',action='store_true',help='doctor also records a two-second private compatibility probe')
     p.add_argument('--privacy-reviewed',action='store_true');p.add_argument('--gif',action='store_true')
     p.add_argument('--gif-width',type=int,default=960);p.add_argument('--gif-fps',type=int,default=25);p.add_argument('--gif-colors',type=int,default=256)
     p.add_argument('--dither',choices=['none','bayer','sierra2_4a'],default='bayer');p.add_argument('--palette-stats',choices=['full','diff'],default='full')
+    p.add_argument('--reserve-accent',action='store_true')
     p.add_argument('--gif-start',type=float,default=0);p.add_argument('--gif-seconds',type=float,default=8);p.add_argument('--poster-at',type=float,default=1)
     p.add_argument('--capture-root',type=Path,default=PRIVATE);p.add_argument('--assets-dir',type=Path,default=PUBLIC)
     p.add_argument('--fps',type=int,choices=[30,60],default=30);p.add_argument('--crf',type=int,choices=range(0,31),default=16)
@@ -157,6 +177,7 @@ def main():
         if not a.output:p.error('--output required')
         record(a.scene,a.output,a.seconds,a.fps,a.crf)
     elif a.command=='encode':encode(a)
+    elif a.command=='compare':compare(a)
     elif a.command=='film':
         if not a.edl:p.error('--edl required')
         film(a)
