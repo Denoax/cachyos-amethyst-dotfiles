@@ -1,0 +1,112 @@
+{
+  "ref": "showcase/v2",
+  "method": "Actual anonymous GitHub-rendered Markdown in task-isolated Brave; sampled screenshots and native player state, no human motion approval",
+  "checks": {
+    "images": [
+      {
+        "alt": "Actual animated wallpaper and Caelestia launcher, returning to the desktop",
+        "loaded": true,
+        "width": 960,
+        "height": 540
+      },
+      {
+        "alt": "The actual Caelestia dashboard over the animated wallpaper",
+        "loaded": true,
+        "width": 960,
+        "height": 540
+      },
+      {
+        "alt": "Visual selection of three harmless demo terminals",
+        "loaded": true,
+        "width": 960,
+        "height": 540
+      },
+      {
+        "alt": "Demo windows gathered from three outputs",
+        "loaded": true,
+        "width": 960,
+        "height": 540
+      },
+      {
+        "alt": "Real CPU/memory, system information and visualizer group",
+        "loaded": true,
+        "width": 960,
+        "height": 540
+      },
+      {
+        "alt": "C++ breakpoint and input vector in the isolated official VS Code window",
+        "loaded": true,
+        "width": 960,
+        "height": 540
+      },
+      {
+        "alt": "Readable detail from the real C++ editor capture",
+        "loaded": true,
+        "width": 1260,
+        "height": 820
+      },
+      {
+        "alt": "Dolphin browsing the harmless sample files",
+        "loaded": true,
+        "width": 960,
+        "height": 540
+      },
+      {
+        "alt": "Discover browsing Calculator in its Flatpak catalog",
+        "loaded": true,
+        "width": 960,
+        "height": 540
+      },
+      {
+        "alt": "A real local demonstration notification",
+        "loaded": true,
+        "width": 960,
+        "height": 540
+      },
+      {
+        "alt": "Launcher search over the actual wallpaper",
+        "loaded": true,
+        "width": 960,
+        "height": 540
+      },
+      {
+        "alt": "The actual shipped shortcut guide",
+        "loaded": true,
+        "width": 960,
+        "height": 540
+      },
+      {
+        "alt": "Isolated clipboard selection in the current Fuzzel theme",
+        "loaded": true,
+        "width": 960,
+        "height": 540
+      },
+      {
+        "alt": "Actual speaker and microphone OSD, with no device changes",
+        "loaded": true,
+        "width": 960,
+        "height": 540
+      }
+    ],
+    "light": {
+      "background": "rgb(255, 255, 255)"
+    },
+    "dark": {
+      "background": "rgb(13, 17, 23)"
+    },
+    "reduced_motion_picture": true,
+    "native_video": {
+      "time": 0.4379,
+      "width": 1920,
+      "height": 1080,
+      "error": null,
+      "frames": 32
+    },
+    "narrow": {
+      "width": 390,
+      "documentWidth": 390,
+      "articleWidth": 324
+    }
+  },
+  "status": "PASS"
+}

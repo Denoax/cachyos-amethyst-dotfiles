@@ -1,0 +1,298 @@
+{
+  "base": "https://denoax.github.io/cachyos-amethyst-dotfiles/",
+  "method": "Actual headless Brave browser, CDP input, media state and screenshots. This is not continuous human motion observation.",
+  "checks": {
+    "initial": {
+      "paused": true,
+      "muted": true,
+      "video_requests": []
+    },
+    "keyboard_play": {
+      "time": 1.1703,
+      "frames": 40,
+      "width": 1920,
+      "height": 1080,
+      "rate": 1
+    },
+    "keyboard_pause": true,
+    "seek": true,
+    "fullscreen": true,
+    "speed": true,
+    "chapter_seek": true,
+    "direct_deep_link": true,
+    "clip_selection": true,
+    "history": true,
+    "offscreen_pause": true,
+    "reduced_motion": {
+      "paused": true,
+      "scroll": "auto",
+      "autoplay": false
+    },
+    "all_clip_playback": true,
+    "error_fallback": true,
+    "responsive": [
+      {
+        "name": "desktop",
+        "width": 1440,
+        "documentWidth": 1425,
+        "playerWidth": 1307.8125,
+        "actionsRight": 1348.40625
+      },
+      {
+        "name": "tablet",
+        "width": 768,
+        "documentWidth": 753,
+        "playerWidth": 689.5625,
+        "actionsRight": 404.0625
+      },
+      {
+        "name": "phone",
+        "width": 390,
+        "documentWidth": 390,
+        "playerWidth": 349,
+        "actionsRight": 326.015625
+      },
+      {
+        "name": "small-phone",
+        "width": 323,
+        "documentWidth": 323,
+        "playerWidth": 286,
+        "actionsRight": 322.515625
+      },
+      {
+        "name": "reflow-200-equivalent",
+        "width": 720,
+        "documentWidth": 705,
+        "playerWidth": 645.40625,
+        "actionsRight": 402.140625
+      }
+    ],
+    "zoom": {
+      "visualViewportScale": 2,
+      "reflow": "720px CSS viewport additionally tested, equivalent to 200% at 1440px; native browser-toolbar zoom was not exercised"
+    }
+  },
+  "clips": [
+    {
+      "id": "desktop-loop",
+      "time": 0.645,
+      "frames": 45,
+      "width": 1920,
+      "height": 1080,
+      "muted": true,
+      "rate": 1,
+      "error": null,
+      "playingVideos": 1
+    },
+    {
+      "id": "launcher",
+      "time": 0.6329,
+      "frames": 44,
+      "width": 1920,
+      "height": 1080,
+      "muted": true,
+      "rate": 1,
+      "error": null,
+      "playingVideos": 1
+    },
+    {
+      "id": "picker",
+      "time": 0.5791,
+      "frames": 40,
+      "width": 1920,
+      "height": 1080,
+      "muted": true,
+      "rate": 1,
+      "error": null,
+      "playingVideos": 1
+    },
+    {
+      "id": "gather",
+      "time": 0.5674,
+      "frames": 39,
+      "width": 1920,
+      "height": 1080,
+      "muted": true,
+      "rate": 1,
+      "error": null,
+      "playingVideos": 1
+    },
+    {
+      "id": "terminal-group",
+      "time": 0.6078,
+      "frames": 42,
+      "width": 1920,
+      "height": 1080,
+      "muted": true,
+      "rate": 1,
+      "error": null,
+      "playingVideos": 1
+    },
+    {
+      "id": "shortcuts",
+      "time": 0.6428,
+      "frames": 44,
+      "width": 1920,
+      "height": 1080,
+      "muted": true,
+      "rate": 1,
+      "error": null,
+      "playingVideos": 1
+    },
+    {
+      "id": "cpp-build",
+      "time": 0.5485,
+      "frames": 38,
+      "width": 1920,
+      "height": 1080,
+      "muted": true,
+      "rate": 1,
+      "error": null,
+      "playingVideos": 1
+    },
+    {
+      "id": "cpp-debug",
+      "time": 0.6372,
+      "frames": 44,
+      "width": 1920,
+      "height": 1080,
+      "muted": true,
+      "rate": 1,
+      "error": null,
+      "playingVideos": 1
+    },
+    {
+      "id": "cpp-interactive",
+      "time": 0.6376,
+      "frames": 44,
+      "width": 1920,
+      "height": 1080,
+      "muted": true,
+      "rate": 1,
+      "error": null,
+      "playingVideos": 1
+    },
+    {
+      "id": "templates",
+      "time": 0.6271,
+      "frames": 44,
+      "width": 1920,
+      "height": 1080,
+      "muted": true,
+      "rate": 1,
+      "error": null,
+      "playingVideos": 1
+    },
+    {
+      "id": "python",
+      "time": 0.5204,
+      "frames": 36,
+      "width": 1920,
+      "height": 1080,
+      "muted": true,
+      "rate": 1,
+      "error": null,
+      "playingVideos": 1
+    },
+    {
+      "id": "java",
+      "time": 0.5643,
+      "frames": 39,
+      "width": 1920,
+      "height": 1080,
+      "muted": true,
+      "rate": 1,
+      "error": null,
+      "playingVideos": 1
+    },
+    {
+      "id": "samples-stress",
+      "time": 0.6037,
+      "frames": 42,
+      "width": 1920,
+      "height": 1080,
+      "muted": true,
+      "rate": 1,
+      "error": null,
+      "playingVideos": 1
+    },
+    {
+      "id": "dolphin",
+      "time": 0.5949,
+      "frames": 41,
+      "width": 1920,
+      "height": 1080,
+      "muted": true,
+      "rate": 1,
+      "error": null,
+      "playingVideos": 1
+    },
+    {
+      "id": "discover",
+      "time": 0.531,
+      "frames": 37,
+      "width": 1920,
+      "height": 1080,
+      "muted": true,
+      "rate": 1,
+      "error": null,
+      "playingVideos": 1
+    },
+    {
+      "id": "flatpak-archive",
+      "time": 0.5161,
+      "frames": 20,
+      "width": 1920,
+      "height": 1080,
+      "muted": true,
+      "rate": 1,
+      "error": null,
+      "playingVideos": 1
+    },
+    {
+      "id": "clipboard",
+      "time": 0.6157,
+      "frames": 43,
+      "width": 1920,
+      "height": 1080,
+      "muted": true,
+      "rate": 1,
+      "error": null,
+      "playingVideos": 1
+    },
+    {
+      "id": "notification",
+      "time": 0.5458,
+      "frames": 38,
+      "width": 1920,
+      "height": 1080,
+      "muted": true,
+      "rate": 1,
+      "error": null,
+      "playingVideos": 1
+    },
+    {
+      "id": "audio",
+      "time": 0.5885,
+      "frames": 41,
+      "width": 1920,
+      "height": 1080,
+      "muted": true,
+      "rate": 1,
+      "error": null,
+      "playingVideos": 1
+    },
+    {
+      "id": "dashboard",
+      "time": 0.5265,
+      "frames": 37,
+      "width": 1920,
+      "height": 1080,
+      "muted": true,
+      "rate": 1,
+      "error": null,
+      "playingVideos": 1
+    }
+  ],
+  "status": "PASS"
+}

@@ -23,9 +23,9 @@
   "checks": {
     "media_hashes_pts_and_decode": "PASS all 65 initial final files; affected gather, launcher and tour streams decoded again after composition changes",
     "boundary_tests": "PASS 5 process/publication boundary tests",
-    "github_light_dark": "PENDING final README; three trial candidates already rendered on GitHub",
+    "github_light_dark": "PASS actual GitHub images, native coding video playback, narrow layout, and reduced-motion PNG source",
     "local_browser": "PASS actual Brave keyboard play/pause, seek, fullscreen, speed, chapters, direct links, history, offscreen pause, all 20 focused clips, responsive and reduced motion, explicit error fallback",
-    "hosted_playback": "NOT_RUN",
+    "hosted_playback": "PASS actual Pages player, all 20 focused clips and controls; downloaded hosted JS/CSS/HTML/social-image hashes match the reviewed source",
     "restoration": {
       "production_hashes_checked": 23,
       "changed_hash_count": 0,
@@ -33,9 +33,11 @@
       "wallpaper_path_unchanged": true,
       "original_editor_running": true,
       "owned_process_cleanup_requested": 3,
-      "scope": "Latest completed capture batch. Historical batches also retained private restoration reports. Arbitrary clipboard MIME persistence and original byte-perfect clipboard acceptance are not claimed."
+      "scope": "Latest completed capture batch. Historical batches also retained private restoration reports. Arbitrary clipboard MIME persistence and original byte-perfect clipboard acceptance are not claimed.",
+      "optional_ui_exception": "Desktop was locked during repository-image setup. Harmless search text reached the lock field; it was not submitted. Clear the field manually before unlocking. The settings window closed and its workspace/focus/DND stage was restored."
     },
-    "zoom": "PASS 200% visual page zoom plus 720px reflow equivalent to 200% of 1440px; native browser-toolbar zoom not exercised"
+    "zoom": "PASS 200% visual page zoom plus 720px reflow equivalent to 200% of 1440px; native browser-toolbar zoom not exercised",
+    "ci": "PASS main: 19 tests and CP regressions; tag timeout passed on retry; exact runs in publication-readback.json"
   },
   "known_product_limits": [
     "Current fresh Flatpak Calculator launch fails at missing document-portal bind; archive is historical only",
@@ -47,9 +49,12 @@
     "One Java warning badge retained; actual task succeeds"
   ],
   "publication": {
-    "state": "NOT_STARTED",
+    "state": "PASS",
+    "gallery": "https://denoax.github.io/cachyos-amethyst-dotfiles/",
     "release": "showcase-v2-preview.1",
-    "expected_gallery": "https://denoax.github.io/cachyos-amethyst-dotfiles/"
+    "release_source_commit": "9cae83f659609a80b7008d46f7f7ff0a13e83940",
+    "reviewed_gallery_commit": "b0c695f49c44f1901fb8a4f97672830074ebcbec",
+    "social_preview_setting": "PENDING source desktop locked; delivered asset and Pages OG image work"
   },
   "rubric": {
     "observer": "Codex, subjective image inspection; 1\u20135 judgment, not objective metrics",
