@@ -118,7 +118,7 @@ def film(a):
             if not re.fullmatch(r'[a-z0-9][a-z0-9-]{0,60}',cut['scene']):raise SystemExit('Unsafe source scene')
             source=PRIVATE/cut['scene']/'source.mp4';meta=json.loads((source.parent/'source.json').read_text());duration=float(meta['probe']['format']['duration'])
             if sha(source)!=meta['sha256'] or not 0<=cut['in']<cut['out']<=duration:raise SystemExit('Invalid or changed source take')
-            dest=tmp/f'{i:02}.mp4';filters='fps=30,format=yuv420p'
+            dest=tmp/f'{i:02}.mp4';filters=f'fps={a.fps},format=yuv420p'
             if cut.get('caption'):
                 label=tmp/f'{i:02}.txt';label.write_text(cut['caption'])
                 filters+=f',drawtext=textfile={label}:expansion=none:fontcolor=white:fontsize=26:box=1:boxcolor=black@0.65:boxborderw=10:x=80:y=h-65:enable=lt(t\\,1.8)'
