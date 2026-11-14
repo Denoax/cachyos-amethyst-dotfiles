@@ -33,25 +33,30 @@ class ShowcaseBoundaries(unittest.TestCase):
             m.PRIVATE=Path(tmp);p=Path(tmp)/'rehearsal';p.mkdir();(p/'source.json').write_text('{}');(p/'workflow.json').write_text('{"status":"FAIL"}')
             with self.assertRaisesRegex(SystemExit,'did not complete'):m.encode(argparse.Namespace(privacy_reviewed=True,scene='rehearsal'))
 
-    def test_site_manifest_cannot_export_private_paths(self):
-        m=module('gallery_boundary',ROOT/'showcase/revision-2/build-site.py')
+    def test_output_ancestor_cannot_redirect_to_private_directory(self):
+        m=module('gallery_output_boundary',ROOT/'tools/build-site')
         with tempfile.TemporaryDirectory() as tmp:
-            root=Path(tmp);m.ROOT=root;(root/'site').mkdir();(root/'showcase/revision-2').mkdir(parents=True)
-            (root/'showcase/revision-2/CREDITS.md').write_text('Test credits')
-            for name in ['index.html','style.css','app.js']:(root/'site'/name).write_text('test fixture')
-            (root/'showcase/revision-2/media.json').write_text(json.dumps({'assets':[{'path':'../private-recording.mp4'}]}))
+            root=Path(tmp)/'repo';root.mkdir();m.ROOT=root
+            private=Path(tmp)/'private';private.mkdir()
+            (root/'.build').symlink_to(private,target_is_directory=True)
+            with self.assertRaisesRegex(SystemExit,'checkout'):m.build(root/'.build/site')
+            self.assertFalse((private/'site').exists())
+
+    def test_site_manifest_cannot_export_private_paths(self):
+        m=module('gallery_boundary',ROOT/'tools/build-site')
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);m.ROOT=root;public=root/'site/public/media';public.mkdir(parents=True)
+            (public/'catalog.json').write_text(json.dumps({'assets':[{'path':'../private-recording.mp4'}]}))
             with self.assertRaisesRegex(SystemExit,'escapes'):m.build(root/'.build/site')
             self.assertFalse((root/'.build/site').exists())
 
     def test_asset_directory_cannot_redirect_to_private_capture(self):
-        m=module('gallery_symlink_boundary',ROOT/'showcase/revision-2/build-site.py')
+        m=module('gallery_symlink_boundary',ROOT/'tools/build-site')
         with tempfile.TemporaryDirectory() as tmp:
-            root=Path(tmp);m.ROOT=root;(root/'site').mkdir();public=root/'showcase/revision-2';public.mkdir(parents=True)
-            for name in ['index.html','style.css','app.js']:(root/'site'/name).write_text('Test site')
-            (public/'CREDITS.md').write_text('Test credits')
+            root=Path(tmp);m.ROOT=root;public=root/'site/public';public.mkdir(parents=True)
             private=root/'private-captures';private.mkdir();(private/'source.mp4').write_bytes(b'private take')
-            (public/'assets').symlink_to(private,target_is_directory=True)
-            (public/'media.json').write_text(json.dumps({'assets':[{'path':'showcase/revision-2/assets/source.mp4'}]}))
+            (public/'media').symlink_to(private,target_is_directory=True)
+            (private/'catalog.json').write_text(json.dumps({'assets':[{'path':'media/source.mp4'}]}))
             with self.assertRaisesRegex(SystemExit,'ancestor'):m.build(root/'.build/site')
             self.assertFalse((root/'.build/site').exists())
 

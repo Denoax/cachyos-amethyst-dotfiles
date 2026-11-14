@@ -4,8 +4,7 @@ on:
     branches: [main]
     paths:
       - 'site/**'
-      - 'showcase/revision-2/**'
-      - 'tools/showcase'
+      - 'tools/build-site'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 permissions:
@@ -21,9 +20,16 @@ jobs:
       pages: read
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
       - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b
-      - name: Build the public allowlist and verify optimized release media
-        run: python3 tools/showcase site --fetch-media
+      - name: Build the public site and verify selected media
+        run: |
+          npm ci --prefix site --ignore-scripts --no-audit --no-fund
+          python3 tools/build-site --output .build/showcase-site
       - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b
         with:
           path: .build/showcase-site

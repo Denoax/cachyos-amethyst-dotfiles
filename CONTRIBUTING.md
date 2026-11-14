@@ -4,4 +4,4 @@ Read the project-local AGENTS and scoped instructions before editing. Work in di
 
 Run `python3 tools/check`, the installer unittest suite with a real chezmoi binary in `CHEZMOI`, and the CP runner regression suite with the required tools available. Recheck Hyprland with its installed `--verify-config` interface after Lua edits. Update compatibility records when the package tuple changes.
 
-Use actual desktop captures for feature claims. Keep raw logs, master recordings, local wallpapers and backups outside Git. Describe unrun checks explicitly. Stable releases require the fresh-session/daily-use and applicable storyboard gates in the retained maintainer release instructions.
+Use actual desktop captures for feature claims. Keep raw logs, master recordings, local wallpapers and backups outside Git. Describe unrun checks explicitly. Stable releases require fresh-session/daily-use acceptance. The current visual candidate remains on a review branch; production publishing follows owner approval.

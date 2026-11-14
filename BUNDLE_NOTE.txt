@@ -1,1 +1,0 @@
-Optional handoff-source.bundle preserves the Git history of these instructions only, not the OS configuration. The Doer must create the actual configuration repository from inspected local source. Do not ship this handoff bundle as an OS installer.

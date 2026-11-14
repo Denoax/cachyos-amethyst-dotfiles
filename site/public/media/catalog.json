@@ -1,0 +1,170 @@
+{
+  "schema_version": 3,
+  "policy": "Selected actual desktop derivatives. Normal application/compositor opacity. No raw wallpaper, raw captures, reference clips or private process records.",
+  "review": "Owner visual approval pending. No production release/deployment.",
+  "privacy_edits": {
+    "dolphin": "Address bar and tooltip blurred throughout; autocomplete blurred from0.65 to2.20seconds. Original timing and normal opacity retained."
+  },
+  "assets": [
+    {
+      "path": "media/audio.jpg",
+      "bytes": 165182,
+      "sha256": "46b4ae18bfdd01c0403e7c411cad19cab7e6e4569f8e58fcb937c8b9df39a6d7"
+    },
+    {
+      "path": "media/audio.mp4",
+      "bytes": 3925853,
+      "sha256": "d11e049be4f3d2352493d59779fe59e0e09a2bd7209cad1831316e008a190b65"
+    },
+    {
+      "path": "media/banner.gif",
+      "bytes": 10462233,
+      "sha256": "69a415de25a3afebd1bbf2d127f753a3c39a310a6e5be357ca8e9620c547ea52"
+    },
+    {
+      "path": "media/banner.mp4",
+      "bytes": 3284719,
+      "sha256": "2f0869a720bd72395cd8abbf218a2f876d92db8db4fa0612b1c35b9419e572a3"
+    },
+    {
+      "path": "media/banner.png",
+      "bytes": 819308,
+      "sha256": "464f6fa99d7480d27e249e834ee9c73367cc2732e42cb21dd2e3e8acf7d61216"
+    },
+    {
+      "path": "media/banner.webp",
+      "bytes": 7382740,
+      "sha256": "99bada1e6c47e69be42adc5a3b1225b87a3d9d96eab397a6027141fd0b52cf5e"
+    },
+    {
+      "path": "media/clipboard.jpg",
+      "bytes": 151275,
+      "sha256": "d3ea0b61eece2fc416730de5128ffbde99c7aabc57d4e06bb18a4a6ec05b822b"
+    },
+    {
+      "path": "media/clipboard.mp4",
+      "bytes": 3851309,
+      "sha256": "2a57c743a7987023446942d411b6f6218e6a3dba558b303ddef1cca2cbfc08ae"
+    },
+    {
+      "path": "media/dashboard.gif",
+      "bytes": 5954458,
+      "sha256": "9a8a161c3e64fe5c30936abb0e5a89745887d328cb3175b70389c3ffdd74c09c"
+    },
+    {
+      "path": "media/dashboard.jpg",
+      "bytes": 141615,
+      "sha256": "a7068eaa4c2bed011ede60902fa38d95e3480f4f24d624c8f23a6896af2f974e"
+    },
+    {
+      "path": "media/dashboard.mp4",
+      "bytes": 3724508,
+      "sha256": "86fa89a5e1c84bbfaada3192434ed5ef2124a3f901c8d8c3ab3fef8052a97f0a"
+    },
+    {
+      "path": "media/desktop.jpg",
+      "bytes": 155583,
+      "sha256": "fe706fc6738ea54e9403d0c34ea75cbf4dd84533a7c1a9737f347b79cd64b283"
+    },
+    {
+      "path": "media/desktop.mp4",
+      "bytes": 5332252,
+      "sha256": "7ddfd52e966253450495cbf36878e983d3c2c82ec6f6cd2368544c72e92a1fb2"
+    },
+    {
+      "path": "media/discover.jpg",
+      "bytes": 71081,
+      "sha256": "ea8a6c5e68b192415f7f969fa634bd5757e6c639ba4e38d877c00a111fa8dc6e"
+    },
+    {
+      "path": "media/discover.mp4",
+      "bytes": 899969,
+      "sha256": "6a01905e925f5d79205ecd568ab97e41cfddce4f1d04e036db111f8930fe2f27"
+    },
+    {
+      "path": "media/dolphin.gif",
+      "bytes": 1774341,
+      "sha256": "bbce188116115b06e65f44eb5994e843c47b007b0626df335ada16835a901e6b"
+    },
+    {
+      "path": "media/dolphin.jpg",
+      "bytes": 52931,
+      "sha256": "21d8b9f20de968347c64d0b212954b5278e0e2d161aaa995ee79d33fdc9901e3"
+    },
+    {
+      "path": "media/dolphin.mp4",
+      "bytes": 908460,
+      "sha256": "9b4020076be48def04431625d0a3ec3a995b5e4440a6f102a81948a7d53c73cf"
+    },
+    {
+      "path": "media/editor.jpg",
+      "bytes": 79621,
+      "sha256": "5ce8b27491093e7a7bf801e2675ab69c421d3b7b3ce4c324cabe984f2349796d"
+    },
+    {
+      "path": "media/editor.mp4",
+      "bytes": 918893,
+      "sha256": "aa23d62bfa41196eb88012a059578bf663fff4bc62a58a79442fb34961c4adba"
+    },
+    {
+      "path": "media/gather.gif",
+      "bytes": 4036116,
+      "sha256": "2a78b1f5d2cb30dfd114f1fcea5c2f98e5da9fc308a3f5575f403de9ff9cbb28"
+    },
+    {
+      "path": "media/gather.jpg",
+      "bytes": 85917,
+      "sha256": "49dd456802ed5271d815f9dc80f5223a4e5ce33207642378ecf8a17d50e3c24a"
+    },
+    {
+      "path": "media/gather.mp4",
+      "bytes": 2242839,
+      "sha256": "b72d7c515a21abc046b4a3d85b20edbbb5b9f4269b2d0a57d3b0af03649e5009"
+    },
+    {
+      "path": "media/launcher.gif",
+      "bytes": 6159213,
+      "sha256": "06037f63b87fd9faf56c3625cd9d74f4d692174a5ad0d2eaf33da91b98fff115"
+    },
+    {
+      "path": "media/launcher.jpg",
+      "bytes": 143758,
+      "sha256": "495480598669a793afe0309613cc4e8680447d10292a27d5a166d805064206ff"
+    },
+    {
+      "path": "media/launcher.mp4",
+      "bytes": 3620763,
+      "sha256": "f52a9044bc32a748e9ce50499487813d736d94219b650a4a7017f9a20606002d"
+    },
+    {
+      "path": "media/notification.jpg",
+      "bytes": 156300,
+      "sha256": "2b3d2b93b203310a1889e69b345aae08ccecf6a3304d56a56d822ba495454441"
+    },
+    {
+      "path": "media/notification.mp4",
+      "bytes": 3982062,
+      "sha256": "e6d72cf28c97f45398446d2e29029799f8dc07fe99c18f1c95491718cd407a95"
+    },
+    {
+      "path": "media/shortcuts.jpg",
+      "bytes": 146570,
+      "sha256": "69f31c0e75c682a25d6cca9b1f4fc696455ff7acd863e087098e5a4bbd71cfd2"
+    },
+    {
+      "path": "media/shortcuts.mp4",
+      "bytes": 1047573,
+      "sha256": "7937768d06786c4e4bd96be7fe6bd40320d9821b679f9b0d95ec2b59b417cb91"
+    },
+    {
+      "path": "media/terminal-group.jpg",
+      "bytes": 136826,
+      "sha256": "61fdf3877d6603fdd476de6b8dd08c77a8fb07c1aebca423f6c3438f5f744fbd"
+    },
+    {
+      "path": "media/terminal-group.mp4",
+      "bytes": 3606129,
+      "sha256": "ae552683ac80e61041756ae8ca9159da9b53682183ce07eaa9358b067594d31b"
+    }
+  ]
+}

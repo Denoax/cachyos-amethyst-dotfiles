@@ -13,4 +13,25 @@
 | Source PC's system-info image | Excluded. Its supplied image remains local; the portable default uses native ASCII |
 | Published captures | Actual local Wayland UI, original sample code and public application-store content. Underlying third-party software/artwork retains its own rights; capture metadata records configuration, timing, edits and review limitations |
 
-There are no AI-generated images, videos, audio, fake screenshots, repeated-still animations or invented performance metrics. Videos retain normal timing. GIF frame rates are derivative presentation rates, not display-performance measurements. Per-window transparency is a documented presentation adjustment requested by the user.
+There are no AI-generated images, videos, audio, fake screenshots, repeated-still animations or invented performance metrics. Videos retain normal timing. GIF frame rates are derivative presentation rates, not display-performance measurements. The portfolio review captures use normal compositor/application opacity without per-window overrides.
+
+
+The showcase foundation is the owner's [portfolio at 72a3c7a](https://github.com/Denoax/portfolio/tree/72a3c7a2a75913de64d8baf1591282acd19d181c). Its GooeyNav includes [Rare UI / Swami Malode](https://www.rareui.com/components/gooeynav) source and retained [MIT notice](../site/public/licenses/Rare-UI.txt) and [usage conditions](../site/public/licenses/Rare-UI-usage.txt). It is used within this application, not distributed as a standalone component library.
+
+Inter, Instrument Sans and IBM Plex Mono retain their respective SIL Open Font Licenses in `site/public/licenses`. React, Three.js, React Three Fiber and Motion retain their package licenses. The original ASCII volume, pixel fragments, directional spray, code focus and footer point field are application graphics. Private creator motion references are not distributed as project assets. The banner uses the existing wallpaper's complete natural ten-second forward period, with a native 3840×1280 crop and only the AMETHYST wordmark. Raw wallpaper and native capture masters remain excluded.
+
+The current Dolphin clip includes a documented privacy blur over its address bar and the transient autocomplete list. Original timing, file navigation and opacity are retained; no failure/result is concealed. Uncut footage stays private.
+
+Motion studies informed the mechanics below. Creator footage and artwork are not shipped; these links credit the supplied visual references. They do not imply a license to redistribute the originals.
+
+| Mechanic | Original study |
+|---|---|
+| ASCII backdrop | [Ashish / @Ash_uxi](https://x.com/Ash_uxi/status/2120207897959534675) |
+| Expanding panels | [Stella Peng / @abtste11a](https://x.com/abtste11a/status/2119889892113273275) |
+| Logo entrance | [Hamza A. / @HamzaInstantly](https://x.com/HamzaInstantly/status/2119933333631062042) |
+| Enter interaction | [solutionb / @SolutionB2u](https://x.com/SolutionB2u/status/2119458988165370270) |
+| Settings feedback | [George / @vanjek](https://x.com/vanjek/status/2117955771115987306) |
+| Click response | [kev / @koppkev](https://x.com/koppkev/status/2114253561563398365) |
+| Code focus | [Emil Kowalski / @emilkowalski](https://x.com/emilkowalski/status/2112146246299259017) |
+| Typographic break | [Corca / @Corca_math](https://x.com/Corca_math/status/2111149658294951962) |
+| Amethyst footer | [Kevser / @kevserctk](https://x.com/kevserctk/status/2117201650943168981) |

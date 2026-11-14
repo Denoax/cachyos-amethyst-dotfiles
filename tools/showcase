@@ -17,7 +17,7 @@ import struct
 
 ROOT=Path(__file__).resolve().parents[1]
 PRIVATE=Path.home()/'.local/state/cachyos-amethyst-build/captures'
-PUBLIC=ROOT/'showcase/assets'
+PUBLIC=ROOT/'site/public/media'
 def run(args,**kw):return subprocess.run(list(map(str,args)),check=True,**kw)
 def probe(p):
     info=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams','-show_format','-of','json',str(p)]))
@@ -216,7 +216,7 @@ def main():
         if not a.edl:p.error('--edl required')
         film(a)
     elif a.command=='site':
-        run([sys.executable,ROOT/'showcase/revision-2/build-site.py','--output',a.site_output]+(['--fetch-media'] if a.fetch_media else []))
-    elif a.command=='manifest':run([sys.executable,ROOT/'showcase/revision-2/update-manifest.py'])
+        run([sys.executable,ROOT/'tools/build-site','--output',a.site_output]+(['--fetch-media'] if a.fetch_media else []))
+    elif a.command=='manifest':run([sys.executable,ROOT/'tools/build-site','--manifest-only'])
     else:verify(a.decode)
 if __name__=='__main__':main()
