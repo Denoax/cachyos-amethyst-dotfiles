@@ -1,0 +1,17 @@
+# Showcase revision 2 checkpoint
+
+Starting source and unchanged installation baseline: `a2f360a11550c6c578f6eb3576752fdc6a00fc64`, tag `v0.1.0-alpha.1`. Dedicated worktree branch: `showcase/v2`.
+
+Implementation and local browser review PASS. Final media: 89-second 1080p30 edited tour, 20 focused 1080p clips, 20 full-resolution stills, a natural ten-second 960px/25fps full-color README WebP and 256-color GIF alternative. Source masters and actual wallpaper remain private. The exact source accent is #d559ff; VS Code, Dolphin and Discover use scoped 0.78 opacity. Film uses normal-speed hard cuts, not retiming or synthetic motion.
+
+All three site/Markdown candidates were rendered. Selected A / cinematic with C's gallery depth. Initial comparison used labeled alpha.1 footage; retained alternatives use final media. Final README branch rendering and hosted Pages checks are next. Five process/publication boundary tests pass. All 65 media files passed hash/PTS/decode checks; changed gather, launcher and tour streams were decoded again. Local Brave passed keyboard play/pause, seek, fullscreen, speed, deep links/history, all focused playback, offscreen pause, responsive/reduced-motion/error handling and zoom/reflow checks. See review JSON for exact methods.
+
+Motion: MOTION_REVIEW_PENDING. No continuous visual observer is exposed. Source/backend assertions, sampled screenshots, CDP time/frames and decoder success are not a fluidity or seam approval. No Mani approval has been supplied. Final playable candidate must be offered for full 1x film/clip review and three loop wraps.
+
+Current source gaps: new fresh Flatpak Calculator launch failed at its document-portal bind, including normal launch through the compositor. Discover catalog, configured sources and correct AppStream application detail work. Historical alpha.1 Flatpak session is persistently labeled as archival footage. Prior screen-sharing frame-delivery and Secret portal failures remain open. Fresh installation/first login/laptop acceptance remain pending. Java run returns 5/exit 0 with one remaining project warning badge.
+
+No staging batch or recorder is active. All 23 inventoried production hashes match, the original VS Code PID 33007 is retained, actual wallpaper path/pause state and staged workspace/focus/drawer/DND/cursor settings are restored. Clipboard supported-MIME snapshots were restored at batch boundaries; arbitrary-MIME persistence and byte-perfect original clipboard acceptance are not claimed. Real private history was not opened/erased. User-scoped Flatpak demo installation/catalog changes remain to be reported; preserve unowned applications.
+
+Next: commit/push the final presentation, check actual GitHub README light/dark/mobile and native attachment, create the presentation-only `showcase-v2-preview.1` prerelease and verified assets, enable workflow-based GitHub Pages, merge after CI, then verify literal hosted URL and player. Existing session authorization covers publication; no new blanket approval gate. Final publication readback belongs in the return report and a follow-up checkpoint. Preserve alpha.1 and concurrent source work.
+
+Private working evidence and owned PID identities are under the task's XDG state directory, separate from Git. Use those PID identities for cleanup, never process-name kills. Keep masters, wallpaper, reference downloads, app/editor/browser profiles and runtime snapshots out of all public artifacts.

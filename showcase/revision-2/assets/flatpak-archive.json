@@ -1,0 +1,213 @@
+{
+  "scene": "flatpak-archive",
+  "sha256": "87bd709bb6539e7e23e074f4b741f84ffdf2f994927d7bdda9ca7bf0be3119f1",
+  "configuration_commit": "b3a7a5ddc859fc1caae46e1cbdba6746cc769e8b",
+  "output_geometry": {
+    "width": 1920,
+    "height": 1080,
+    "scale": 1
+  },
+  "recorder": "wf-recorder CPU libx264, no-dmabuf, 30 fps, no audio",
+  "arguments": [
+    "wf-recorder",
+    "--no-dmabuf",
+    "--no-damage",
+    "-o",
+    "HDMI-A-5",
+    "-c",
+    "libx264",
+    "-p",
+    "preset=ultrafast",
+    "-p",
+    "crf=18",
+    "-x",
+    "yuv420p",
+    "-r",
+    "30",
+    "-f",
+    "<private-source>"
+  ],
+  "captured_utc": "2026-11-13T11:23:32Z",
+  "reused_from": "v0.1.0-alpha.1 / 06-flatpak-launch",
+  "requested_fps": 30,
+  "interrupted": false,
+  "edits": {
+    "classification": "feature",
+    "video_source_seconds": [
+      0,
+      14.933333
+    ],
+    "timing": "normal speed; no interpolation, masks, replaced or reversed frames",
+    "animation_excerpt_seconds": null,
+    "poster_seconds": 11.0,
+    "background": "Actual local animated DesktopHut wallpaper requested by user. Raw source excluded; code license grants no wallpaper rights. https://www.desktophut.com/black-and-white-look-live-wallpaper",
+    "persistent_caption": "ARCHIVE alpha.1 Flatpak session | new V2 launch failed"
+  },
+  "review": {
+    "privacy": "source and derivative frame inspection; see scene evidence",
+    "continuous_motion": "MOTION_REVIEW_PENDING: human end-to-end playback and three loop wraps required",
+    "smoothness_claim": false
+  },
+  "encoding_commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-ss",
+      "0",
+      "-i",
+      "<private-source>",
+      "-t",
+      "14.933333",
+      "-vf",
+      "drawtext=text='ARCHIVE alpha.1 Flatpak session | new V2 launch failed':expansion=none:fontcolor=white:fontsize=26:box=1:boxcolor=black@0.7:boxborderw=10:x=80:y=h-65",
+      "-an",
+      "-c:v",
+      "libx264",
+      "-preset",
+      "medium",
+      "-crf",
+      "20",
+      "-threads",
+      "4",
+      "-pix_fmt",
+      "yuv420p",
+      "-movflags",
+      "+faststart",
+      "showcase/revision-2/assets/flatpak-archive.mp4"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-ss",
+      "11.0",
+      "-i",
+      "<private-source>",
+      "-vf",
+      "drawtext=text='ARCHIVE alpha.1 Flatpak session | new V2 launch failed':expansion=none:fontcolor=white:fontsize=26:box=1:boxcolor=black@0.7:boxborderw=10:x=80:y=h-65",
+      "-frames:v",
+      "1",
+      "showcase/revision-2/assets/flatpak-archive.png"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "showcase/revision-2/assets/flatpak-archive.png",
+      "-vf",
+      "scale=960:-1:flags=lanczos",
+      "-q:v",
+      "2",
+      "showcase/revision-2/assets/flatpak-archive.jpg"
+    ]
+  ],
+  "published": [
+    {
+      "path": "showcase/revision-2/assets/flatpak-archive.mp4",
+      "bytes": 6093000,
+      "sha256": "3e96afc833058acaa4d3375e856238369cc1bc4247dfa9c85eb3439e57219e11",
+      "probe": {
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+            "profile": "High",
+            "codec_type": "video",
+            "codec_tag_string": "avc1",
+            "codec_tag": "0x31637661",
+            "mime_codec_string": "avc1.640028",
+            "width": 1920,
+            "height": 1080,
+            "coded_width": 1920,
+            "coded_height": 1080,
+            "has_b_frames": 2,
+            "sample_aspect_ratio": "1:1",
+            "display_aspect_ratio": "16:9",
+            "pix_fmt": "yuvj420p",
+            "level": 40,
+            "color_range": "pc",
+            "chroma_location": "left",
+            "field_order": "progressive",
+            "is_avc": "true",
+            "nal_length_size": "4",
+            "id": "0x1",
+            "r_frame_rate": "30/1",
+            "avg_frame_rate": "30/1",
+            "time_base": "1/15360",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 229376,
+            "duration": "14.933333",
+            "bit_rate": "3261257",
+            "bits_per_raw_sample": "8",
+            "nb_frames": "448",
+            "extradata_size": 48,
+            "disposition": {
+              "default": 1,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0,
+              "multilayer": 0
+            },
+            "tags": {
+              "language": "und",
+              "handler_name": "VideoHandler",
+              "encoder": "Lavc63.1.102 libx264"
+            }
+          }
+        ],
+        "format": {
+          "filename": "flatpak-archive.mp4",
+          "nb_streams": 1,
+          "nb_programs": 0,
+          "nb_stream_groups": 0,
+          "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+          "format_long_name": "QuickTime / MOV",
+          "start_time": "0.000000",
+          "duration": "14.933333",
+          "size": "6093000",
+          "bit_rate": "3264107",
+          "probe_score": 100,
+          "tags": {
+            "major_brand": "isom",
+            "minor_version": "512",
+            "compatible_brands": "isomiso2avc1mp41",
+            "encoder": "Lavf63.1.102"
+          }
+        }
+      }
+    },
+    {
+      "path": "showcase/revision-2/assets/flatpak-archive.png",
+      "bytes": 1161973,
+      "sha256": "198f7e313ea15ac3f4324e32643b784aeec246c3d38bc6b512f785c84f8a3fc7",
+      "probe": null
+    },
+    {
+      "path": "showcase/revision-2/assets/flatpak-archive.jpg",
+      "bytes": 94234,
+      "sha256": "13c4149f0156f7271eb0b96e07b09f913c397fd6b5fe1ac2d3ea39ac8ed18908",
+      "probe": null
+    }
+  ]
+}

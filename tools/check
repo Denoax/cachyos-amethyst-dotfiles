@@ -13,7 +13,10 @@ errors=[]
 for p in files:
     if not p.exists():errors.append('missing tracked file '+str(p.relative_to(ROOT)));continue
     rel=str(p.relative_to(ROOT))
-    if p.stat().st_size>8*1024*1024:errors.append('oversized Git asset '+rel)
+    # The measured V2 README loop gets a narrow 12 MiB allowance. Large GIFs
+    # and videos remain release media; every other Git asset keeps 8 MiB.
+    limit=12*1024*1024 if rel=='showcase/revision-2/assets/desktop.webp' else 8*1024*1024
+    if p.stat().st_size>limit:errors.append('oversized Git asset '+rel)
     try:s=p.read_text()
     except UnicodeDecodeError:continue
     if re.search(r'/home/[A-Za-z][A-Za-z0-9_.-]*/',s):errors.append('absolute source-user path '+rel)

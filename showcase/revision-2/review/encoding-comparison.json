@@ -1,0 +1,140 @@
+{
+  "source_sha256": "aa3e9804d81377b81dec229ff6fba37ec3dba001295cd1326d9beb33062b90f7",
+  "scene": "hero-clean",
+  "variants": [
+    {
+      "variant": "legacy-settings",
+      "width": 640,
+      "fps": 10,
+      "colors": 32,
+      "dither": "none",
+      "palette_analysis_accent_weighting": false,
+      "source_seconds": [
+        0.5,
+        10.5
+      ],
+      "bytes": 5005164,
+      "sha256": "1806e31dbe282742f34348c210c24c8e55af823eebba747c1e749295cda6d280",
+      "sample_purple_pixels": 0,
+      "encoding_wall_seconds": 0.66,
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-y",
+        "-ss",
+        "0.5",
+        "-t",
+        "10.0",
+        "-i",
+        "<private-source>",
+        "-filter_complex",
+        "fps=10,scale=640:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=32:reserve_transparent=0:stats_mode=full[p];[b][p]paletteuse=dither=none:diff_mode=rectangle",
+        "-loop",
+        "0",
+        ".build/gif-comparison/legacy-settings.gif"
+      ]
+    },
+    {
+      "variant": "full-palette",
+      "width": 960,
+      "fps": 25,
+      "colors": 256,
+      "dither": "none",
+      "palette_analysis_accent_weighting": false,
+      "source_seconds": [
+        0.5,
+        10.5
+      ],
+      "bytes": 46639241,
+      "sha256": "4280735612df8943d8062519b72a27ce0a3f7d7da8dae142fe9b76f7bb368102",
+      "sample_purple_pixels": 1004,
+      "encoding_wall_seconds": 2.08,
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-y",
+        "-ss",
+        "0.5",
+        "-t",
+        "10.0",
+        "-i",
+        "<private-source>",
+        "-filter_complex",
+        "fps=25,scale=960:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=256:reserve_transparent=0:stats_mode=full[p];[b][p]paletteuse=dither=none:diff_mode=rectangle",
+        "-loop",
+        "0",
+        ".build/gif-comparison/full-palette.gif"
+      ]
+    },
+    {
+      "variant": "ordered-dither",
+      "width": 960,
+      "fps": 25,
+      "colors": 256,
+      "dither": "bayer",
+      "palette_analysis_accent_weighting": false,
+      "source_seconds": [
+        0.5,
+        10.5
+      ],
+      "bytes": 48428718,
+      "sha256": "75d06c903666c2aefbb77ae732a1bec485e9505245be335d9d47adef13387722",
+      "sample_purple_pixels": 1002,
+      "encoding_wall_seconds": 2.07,
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-y",
+        "-ss",
+        "0.5",
+        "-t",
+        "10.0",
+        "-i",
+        "<private-source>",
+        "-filter_complex",
+        "fps=25,scale=960:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=256:reserve_transparent=0:stats_mode=full[p];[b][p]paletteuse=dither=bayer:diff_mode=rectangle",
+        "-loop",
+        "0",
+        ".build/gif-comparison/ordered-dither.gif"
+      ]
+    },
+    {
+      "variant": "reserved-amethyst",
+      "width": 960,
+      "fps": 25,
+      "colors": 256,
+      "dither": "bayer",
+      "palette_analysis_accent_weighting": true,
+      "source_seconds": [
+        0.5,
+        10.5
+      ],
+      "bytes": 50262995,
+      "sha256": "d32636931810c9ebeeab9213cd04c65ee8f495390f415060958d4e0ecb0a7c68",
+      "sample_purple_pixels": 1036,
+      "encoding_wall_seconds": 2.12,
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-y",
+        "-ss",
+        "0.5",
+        "-t",
+        "10.0",
+        "-i",
+        "<private-source>",
+        "-filter_complex",
+        "fps=25,scale=960:-1:flags=lanczos,split[a][b];[a]drawbox=x=0:y=0:w=iw:h=16:color=0xd559ff:t=fill,drawbox=x=0:y=16:w=iw:h=16:color=0xac79c4:t=fill,palettegen=max_colors=256:reserve_transparent=0:stats_mode=full[p];[b][p]paletteuse=dither=bayer:diff_mode=rectangle",
+        "-loop",
+        "0",
+        ".build/gif-comparison/reserved-amethyst.gif"
+      ]
+    }
+  ],
+  "gifski": "NOT_INSTALLED; no unreviewed binary added",
+  "continuous_motion": "MOTION_REVIEW_PENDING; sampled color measurements are not a motion pass"
+}

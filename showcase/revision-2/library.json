@@ -1,0 +1,148 @@
+{
+  "release": "showcase-v2-preview.1",
+  "clips": [
+    {
+      "id": "desktop-loop",
+      "file": "desktop",
+      "title": "The desktop, in a loop",
+      "description": "The real ten-second wallpaper period; launcher opens and closes. Same UI state at the endpoints. Three-wrap human seam review pending.",
+      "loop": true
+    },
+    {
+      "id": "launcher",
+      "file": "launcher",
+      "title": "Search, then open",
+      "description": "Actual launcher search and Calculator window. This is not the separate sandboxed-launch acceptance test."
+    },
+    {
+      "id": "picker",
+      "file": "picker",
+      "title": "Pick a window",
+      "description": "Cycle and accept the current visual picker. Focus changes to a different owned window. A capture-only PID allowlist excludes personal thumbnails."
+    },
+    {
+      "id": "gather",
+      "file": "gather",
+      "title": "Gather. Restore.",
+      "description": "Three text-fixture terminals arrive from three outputs, then return. Original workspaces and floating geometry were verified; fixture notes are not a new compiler run."
+    },
+    {
+      "id": "terminal-group",
+      "file": "terminal-group",
+      "title": "Three terminals, on demand",
+      "description": "Actual process/memory, system-information and visualizer surfaces. Three rehearsal cycles had exactly three children and stable sampled geometry; continuous motion review pending."
+    },
+    {
+      "id": "shortcuts",
+      "file": "shortcuts",
+      "title": "The shortcut guide",
+      "description": "The generated shipped guide, through the actual helper. Lock/logout actions were not exercised for this recording."
+    },
+    {
+      "id": "cpp-build",
+      "file": "cpp-build",
+      "title": "C++23 / saved input",
+      "description": "Real GCC build and saved-input run of increasing subsequence. Fresh actual output: 4. No stale terminal result is presented as a new run."
+    },
+    {
+      "id": "cpp-debug",
+      "file": "cpp-debug",
+      "title": "C++ / a breakpoint",
+      "description": "Actual GDB pause at line 16, locals n=7, value=4, index=0, expanded input vector and F10. Enlarged code in official Microsoft VS Code at 0.78 opacity."
+    },
+    {
+      "id": "cpp-interactive",
+      "file": "cpp-interactive",
+      "title": "C++ / interactive input",
+      "description": "Shift+F6, actual terminal input 7 and 4 1 5 2 6 3 7, followed by result 4."
+    },
+    {
+      "id": "templates",
+      "file": "templates",
+      "title": "A new problem",
+      "description": "Actual Ctrl+Alt+N creates contest-b from the shipped C++ template, preserving existing problem folders."
+    },
+    {
+      "id": "python",
+      "file": "python",
+      "title": "Python / actual result 5",
+      "description": "A fresh task run against saved input. The isolated workspace preserves the exported runner behavior."
+    },
+    {
+      "id": "java",
+      "file": "java",
+      "title": "Java / actual result 5",
+      "description": "A fresh compile and task run. Java is ready; one warning badge remains in the isolated project. The real outcome is exit 0 and output 5."
+    },
+    {
+      "id": "samples-stress",
+      "file": "samples-stress",
+      "title": "Samples / find the planted bug",
+      "description": "The sample passes with actual result 4. The intentionally faulty stress-demo solution produces the expected seed-42 counterexample and exit 1; this is not a passing submission."
+    },
+    {
+      "id": "dolphin",
+      "file": "dolphin",
+      "title": "Dolphin / files",
+      "description": "A real disposable sample-file workspace at 0.78 opacity, with the source wallpaper visible through the dark palette."
+    },
+    {
+      "id": "discover",
+      "file": "discover",
+      "title": "Discover / catalog, sources, detail",
+      "description": "Actual Flatpak-only Calculator search, Flathub Sources view and Calculator 51.1 application detail. The store screenshot is application metadata; this does not certify a new sandbox launch."
+    },
+    {
+      "id": "flatpak-archive",
+      "file": "flatpak-archive",
+      "title": "Flatpak / alpha.1 archive",
+      "description": "Historical alpha.1 sandbox session, persistently labeled in the video. Fresh V2 launch failed at the document-portal bind; this archive does not turn that failure into a pass."
+    },
+    {
+      "id": "clipboard",
+      "file": "clipboard",
+      "title": "Clipboard / a harmless selection",
+      "description": "Native clipboard picker with an isolated demo history. The real private history was neither opened nor erased."
+    },
+    {
+      "id": "notification",
+      "file": "notification",
+      "title": "A local notification",
+      "description": "A real notify-send popup. DND was temporarily disabled for this take and restored afterward; only the task notification was closed."
+    },
+    {
+      "id": "audio",
+      "file": "audio",
+      "title": "Speaker and microphone OSD",
+      "description": "Actual read-only controls. Audible output, microphone recording and device switching are not certified by this view."
+    },
+    {
+      "id": "dashboard",
+      "file": "dashboard",
+      "title": "The dashboard",
+      "description": "Current calendar, resource and media-metadata surface. No audio was recorded and existing playback was left alone."
+    }
+  ],
+  "chapters": [
+    {
+      "id": "desktop",
+      "time": 0
+    },
+    {
+      "id": "navigation",
+      "time": 4
+    },
+    {
+      "id": "coding",
+      "time": 27
+    },
+    {
+      "id": "daily",
+      "time": 53
+    },
+    {
+      "id": "details",
+      "time": 67
+    }
+  ]
+}

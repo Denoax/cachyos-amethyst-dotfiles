@@ -1,0 +1,22 @@
+[
+  {
+    "requested_fps": 30,
+    "duration": 7.933333,
+    "decoded_frames": 238,
+    "adjacent_identical_wallpaper_samples": 0,
+    "encoded_bytes": 27148033,
+    "source_hash": "aa2452605844e65cca40d6f2a7667edaf0a9739f652b8bbfe8c68df65ad238f0",
+    "wall_seconds": 8.055,
+    "motion_review": "PENDING observer; these measurements do not prove fluidity"
+  },
+  {
+    "requested_fps": 60,
+    "duration": 7.95,
+    "decoded_frames": 477,
+    "adjacent_identical_wallpaper_samples": 0,
+    "encoded_bytes": 37097965,
+    "source_hash": "cf3bc7f6aa3a7db5a4cbb74f6e6c9b35658c888bed87e3635380c6e768bf22c0",
+    "wall_seconds": 8.058,
+    "motion_review": "PENDING observer; these measurements do not prove fluidity"
+  }
+]
