@@ -1,0 +1,212 @@
+{
+  "scene": "discover-complete",
+  "sha256": "9c54cfb211068145cb7cfb23ba99421b64cae14179ed7c75ad05e586c7990883",
+  "configuration_commit": "ed870a928187ea94f0f2fbec8fe3f75fc14dd8f8",
+  "capture_tool_sha256": "9ba1f7fc930116041b496991d8bc884b513931cb98a9c2771c0e8e0c9cd541f5",
+  "output_geometry": {
+    "width": 1920,
+    "height": 1080,
+    "scale": 1,
+    "name": "DP-4",
+    "model": "Pixio PXC279",
+    "refreshRate": 240.299
+  },
+  "recorder": "wf-recorder CPU libx264, no-dmabuf, requested 60 fps, no audio",
+  "arguments": [
+    "wf-recorder",
+    "--no-dmabuf",
+    "--no-damage",
+    "-o",
+    "DP-4",
+    "-c",
+    "libx264",
+    "-p",
+    "preset=ultrafast",
+    "-p",
+    "crf=16",
+    "-x",
+    "yuv420p",
+    "-r",
+    "60",
+    "-f",
+    "<private-source>"
+  ],
+  "requested_fps": 60,
+  "wall_seconds": 30.1,
+  "interrupted": false,
+  "captured_utc": "2026-11-14T04:02:24Z",
+  "edits": {
+    "classification": "feature",
+    "video_source_seconds": [
+      0,
+      29.95
+    ],
+    "timing": "normal speed; no interpolation, masks, replaced or reversed frames",
+    "animation_excerpt_seconds": null,
+    "poster_seconds": 13.375,
+    "background": "Actual local animated DesktopHut wallpaper requested by user. Raw source excluded; code license grants no wallpaper rights. https://www.desktophut.com/black-and-white-look-live-wallpaper"
+  },
+  "review": {
+    "privacy": "source and derivative frame inspection; see scene evidence",
+    "continuous_motion": "MOTION_REVIEW_PENDING: human end-to-end playback and three loop wraps required",
+    "smoothness_claim": false
+  },
+  "encoding_commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-ss",
+      "0",
+      "-i",
+      "<private-source>",
+      "-t",
+      "29.95",
+      "-an",
+      "-c:v",
+      "libx264",
+      "-preset",
+      "medium",
+      "-crf",
+      "20",
+      "-threads",
+      "4",
+      "-pix_fmt",
+      "yuv420p",
+      "-movflags",
+      "+faststart",
+      "showcase/revision-2/assets/discover.mp4"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-ss",
+      "13.375",
+      "-i",
+      "<private-source>",
+      "-frames:v",
+      "1",
+      "showcase/revision-2/assets/discover.png"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "showcase/revision-2/assets/discover.png",
+      "-vf",
+      "scale=960:-1:flags=lanczos",
+      "-q:v",
+      "2",
+      "showcase/revision-2/assets/discover.jpg"
+    ]
+  ],
+  "published": [
+    {
+      "path": "showcase/revision-2/assets/discover.mp4",
+      "bytes": 23894385,
+      "sha256": "69e091c3d32f3fbc29129de8401968db3ac208571a24f789b2fe1b84b1f3eae6",
+      "probe": {
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+            "profile": "High",
+            "codec_type": "video",
+            "codec_tag_string": "avc1",
+            "codec_tag": "0x31637661",
+            "mime_codec_string": "avc1.64002a",
+            "width": 1920,
+            "height": 1080,
+            "coded_width": 1920,
+            "coded_height": 1080,
+            "has_b_frames": 2,
+            "sample_aspect_ratio": "1:1",
+            "display_aspect_ratio": "16:9",
+            "pix_fmt": "yuvj420p",
+            "level": 42,
+            "color_range": "pc",
+            "chroma_location": "left",
+            "field_order": "progressive",
+            "is_avc": "true",
+            "nal_length_size": "4",
+            "id": "0x1",
+            "r_frame_rate": "60/1",
+            "avg_frame_rate": "60/1",
+            "time_base": "1/15360",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 460032,
+            "duration": "29.950000",
+            "bit_rate": "6377337",
+            "bits_per_raw_sample": "8",
+            "nb_frames": "1797",
+            "extradata_size": 48,
+            "disposition": {
+              "default": 1,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0,
+              "multilayer": 0
+            },
+            "tags": {
+              "language": "und",
+              "handler_name": "VideoHandler",
+              "encoder": "Lavc63.1.102 libx264"
+            }
+          }
+        ],
+        "format": {
+          "filename": "discover.mp4",
+          "nb_streams": 1,
+          "nb_programs": 0,
+          "nb_stream_groups": 0,
+          "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+          "format_long_name": "QuickTime / MOV",
+          "start_time": "0.000000",
+          "duration": "29.950000",
+          "size": "23894385",
+          "bit_rate": "6382473",
+          "probe_score": 100,
+          "tags": {
+            "major_brand": "isom",
+            "minor_version": "512",
+            "compatible_brands": "isomiso2avc1mp41",
+            "encoder": "Lavf63.1.102"
+          }
+        }
+      }
+    },
+    {
+      "path": "showcase/revision-2/assets/discover.png",
+      "bytes": 1085189,
+      "sha256": "d695d2862c4b71aca611631e972d570c58ccca2fad0bbc9f38eeff3b9372ed59",
+      "probe": null
+    },
+    {
+      "path": "showcase/revision-2/assets/discover.jpg",
+      "bytes": 94507,
+      "sha256": "3d65c9291e9563e667319ee463fb53f7d29e1e8fc395c8846aa209e2020e8a52",
+      "probe": null
+    }
+  ]
+}

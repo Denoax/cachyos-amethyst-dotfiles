@@ -1,0 +1,26 @@
+{
+  "ffmpeg": "ffmpeg version n9.0.2 Copyright (c) 2000-2026 the FFmpeg developers",
+  "wf-recorder": "wf-recorder 0.6.0",
+  "gcc": "g++ (GCC) 16.2.1 20260810",
+  "gdb": "GNU gdb (GDB) 18.1",
+  "python": "Python 3.14.9",
+  "java": "openjdk version \"21.0.13\" 2026-10-20 LTS",
+  "editor": "Official Microsoft VS Code 1.146.0; isolated user-data profile; original editor retained",
+  "theme": {
+    "extension": "beem.monochromator",
+    "version": "0.36.1",
+    "primary": "#d559ff",
+    "sha256": "f7711d1472136e3d634c8bdf23b288ea4254bc24967ce400052b39a32078ae41"
+  },
+  "capture": {
+    "width": 1920,
+    "height": 1080,
+    "scale": 1,
+    "output": "DP-4",
+    "model": "Pixio PXC279",
+    "refresh_hz": 240.299,
+    "requested_fps": 60,
+    "film_fps": 30,
+    "audio": false
+  }
+}

@@ -1,0 +1,765 @@
+{
+  "schema_version": 2,
+  "release": "showcase-v2-preview.1",
+  "baseline": {
+    "tag": "v0.1.0-alpha.1",
+    "sha": "a2f360a11550c6c578f6eb3576752fdc6a00fc64"
+  },
+  "source_policy": "Only final optimized derivatives listed here are public. Raw wallpaper, raw captures, application profiles, private runtime state and reference downloads are excluded.",
+  "motion_review": "MOTION_REVIEW_PENDING",
+  "assets": [
+    {
+      "path": "showcase/revision-2/assets/amethyst-tour.mp4",
+      "bytes": 48603341,
+      "sha256": "2b82b9644a9738392e0871d94b3e1d806bc95da7bb199ae4b8dcf1f4b40cd8fa",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/amethyst-tour.mp4"
+    },
+    {
+      "path": "showcase/revision-2/assets/audio.mp4",
+      "bytes": 9184776,
+      "sha256": "4c59631be95a95790af03b729e4a7e17605cfa61bd7bd6fc83b575e67ec8dcb2",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/audio.mp4"
+    },
+    {
+      "path": "showcase/revision-2/assets/audio.png",
+      "bytes": 1448974,
+      "sha256": "01cde88017a63bab328c86efe66223d1de775cfb4bdd529740fd5998b1a6b3ce",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/audio.png"
+    },
+    {
+      "path": "showcase/revision-2/assets/audio.jpg",
+      "bytes": 110117,
+      "sha256": "32fdab5c5ad1868af8f1c240088d658d234741f6d7008733587cfb0b0f39d430",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/audio.jpg"
+    },
+    {
+      "path": "showcase/revision-2/assets/clipboard.mp4",
+      "bytes": 8785114,
+      "sha256": "eff5704a93d3f050d1c0501ae4128187394f78e7bdfde6f268ec55b7f6002f87",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/clipboard.mp4"
+    },
+    {
+      "path": "showcase/revision-2/assets/clipboard.png",
+      "bytes": 1505767,
+      "sha256": "fa6244e96692744539bb2930c99b70854fa8599f13acc8a4a467019ad9bfd228",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/clipboard.png"
+    },
+    {
+      "path": "showcase/revision-2/assets/clipboard.jpg",
+      "bytes": 96095,
+      "sha256": "d9565e8002e070aeed0020b03b2ef70180d898101434297d3a6e19b3fa120739",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/clipboard.jpg"
+    },
+    {
+      "path": "showcase/revision-2/assets/cpp-build.mp4",
+      "bytes": 7296446,
+      "sha256": "2be353fb106d0b299617d85a49156f5ee9ccaa4abad98f5254916fcd58075745",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/cpp-build.mp4"
+    },
+    {
+      "path": "showcase/revision-2/assets/cpp-build.png",
+      "bytes": 1194803,
+      "sha256": "608a7ec7309dcde0f06ebebd75480d19d4d81033755092a7baa186d8d91e1bde",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/cpp-build.png"
+    },
+    {
+      "path": "showcase/revision-2/assets/cpp-build.jpg",
+      "bytes": 110653,
+      "sha256": "30bbc4cc4de7023985c62500b5f05df4c33bcc0e7de5111a70861586580ebad3",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/cpp-build.jpg"
+    },
+    {
+      "path": "showcase/revision-2/assets/cpp-debug.mp4",
+      "bytes": 10455404,
+      "sha256": "57340a23783897465c16fb5a99cef394f73872c5dae16c464cb063145b58786a",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/cpp-debug.mp4"
+    },
+    {
+      "path": "showcase/revision-2/assets/cpp-debug.png",
+      "bytes": 1179746,
+      "sha256": "69d3111afacaa3460305f749528dc83c3cfb329528d3df2624206e6bb6bd537b",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/cpp-debug.png"
+    },
+    {
+      "path": "showcase/revision-2/assets/cpp-debug.jpg",
+      "bytes": 103573,
+      "sha256": "e2252372299a25770f863a4db786ffe87e075be3ec52aa0a8f2cbc6fbbe19fc0",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/cpp-debug.jpg"
+    },
+    {
+      "path": "showcase/revision-2/assets/cpp-interactive.mp4",
+      "bytes": 7173267,
+      "sha256": "aba30c7b9d3e6b591f0d7089ea95d6c16516c49975f0886667ae60b33fdd9222",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/cpp-interactive.mp4"
+    },
+    {
+      "path": "showcase/revision-2/assets/cpp-interactive.png",
+      "bytes": 1086411,
+      "sha256": "f7413d5a83ce19988a0f2a5e52a7906d5120ec5cf39ff63d45787f799a9b9bc3",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/cpp-interactive.png"
+    },
+    {
+      "path": "showcase/revision-2/assets/cpp-interactive.jpg",
+      "bytes": 113277,
+      "sha256": "ddd499a5c891691a7f5c04581de118fad80ece8521bddaf29964abb3d854bf36",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/cpp-interactive.jpg"
+    },
+    {
+      "path": "showcase/revision-2/assets/dashboard.mp4",
+      "bytes": 9469273,
+      "sha256": "5cb1c7cd1b4f8969b3e0651f19d6a512a3c7938686a9b7af8d337ff70873117b",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/dashboard.mp4"
+    },
+    {
+      "path": "showcase/revision-2/assets/dashboard.png",
+      "bytes": 1466732,
+      "sha256": "0b56a6bcec1c53ca48a4edbd4f56b42ac75d598ca3f44969e35314baec15e5fc",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/dashboard.png"
+    },
+    {
+      "path": "showcase/revision-2/assets/dashboard.jpg",
+      "bytes": 105730,
+      "sha256": "3f1a44f4e93be9a81cf151f5300d162fe9e89663cb70f1b29a2d5d37a8954186",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/dashboard.jpg"
+    },
+    {
+      "path": "showcase/revision-2/assets/desktop.mp4",
+      "bytes": 8987200,
+      "sha256": "aa45ce82eda770d41659b1a2a9e139e4daa5d28f8483c83a8fa297ceb680ddcd",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/desktop.mp4"
+    },
+    {
+      "path": "showcase/revision-2/assets/desktop.png",
+      "bytes": 1591494,
+      "sha256": "d9a4fe488247d41789196be63ae34d1175b9d4da6ee2836c6a7162404913286a",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/desktop.png"
+    },
+    {
+      "path": "showcase/revision-2/assets/desktop.jpg",
+      "bytes": 108166,
+      "sha256": "dd2de1e085b3ba8871473ba62a77412b523fce1296744fc89a4bfd1908338228",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/desktop.jpg"
+    },
+    {
+      "path": "showcase/revision-2/assets/desktop.gif",
+      "bytes": 46828880,
+      "sha256": "a628001bb7221eea6b643f62f3bb997d344163eda026a3b928ca3e0dc64d59f3",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/desktop.gif"
+    },
+    {
+      "path": "showcase/revision-2/assets/desktop.webp",
+      "bytes": 9003804,
+      "sha256": "c2541ac6e11ec4fe97e9f1ae31174bb1aa7f2b0458d5cb8c80115abece144e4f",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/desktop.webp"
+    },
+    {
+      "path": "showcase/revision-2/assets/code-detail.jpg",
+      "bytes": 209117,
+      "sha256": "e123fac0c7617adbc80152424f529bf56324a932ac3e64cdf86d9113764fc912",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/code-detail.jpg"
+    },
+    {
+      "path": "showcase/revision-2/assets/social-preview.jpg",
+      "bytes": 154991,
+      "sha256": "3b0faf8b9b3d73385f06367530ddbf1425f71a48e9f7b7f28e8a16c72efee7af",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/social-preview.jpg"
+    },
+    {
+      "path": "showcase/revision-2/assets/discover.mp4",
+      "bytes": 23894385,
+      "sha256": "69e091c3d32f3fbc29129de8401968db3ac208571a24f789b2fe1b84b1f3eae6",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/discover.mp4"
+    },
+    {
+      "path": "showcase/revision-2/assets/discover.png",
+      "bytes": 1085189,
+      "sha256": "d695d2862c4b71aca611631e972d570c58ccca2fad0bbc9f38eeff3b9372ed59",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/discover.png"
+    },
+    {
+      "path": "showcase/revision-2/assets/discover.jpg",
+      "bytes": 94507,
+      "sha256": "3d65c9291e9563e667319ee463fb53f7d29e1e8fc395c8846aa209e2020e8a52",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/discover.jpg"
+    },
+    {
+      "path": "showcase/revision-2/assets/dolphin.mp4",
+      "bytes": 5626055,
+      "sha256": "d69f992175ad9b40791907b9245349e6d203dfc15b3c93fbc110ea8ed6a18c00",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/dolphin.mp4"
+    },
+    {
+      "path": "showcase/revision-2/assets/dolphin.png",
+      "bytes": 1091423,
+      "sha256": "1848f66bc3ee03a0879af78fc86c2204b27a23fd253b5a064f8177664f17f7a6",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/dolphin.png"
+    },
+    {
+      "path": "showcase/revision-2/assets/dolphin.jpg",
+      "bytes": 80482,
+      "sha256": "817b13d3f89dd9dce982952bc8d64ee42d24c779f853eb9dde69298887413120",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/dolphin.jpg"
+    },
+    {
+      "path": "showcase/revision-2/assets/flatpak-archive.mp4",
+      "bytes": 6093000,
+      "sha256": "3e96afc833058acaa4d3375e856238369cc1bc4247dfa9c85eb3439e57219e11",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/flatpak-archive.mp4"
+    },
+    {
+      "path": "showcase/revision-2/assets/flatpak-archive.png",
+      "bytes": 1161973,
+      "sha256": "198f7e313ea15ac3f4324e32643b784aeec246c3d38bc6b512f785c84f8a3fc7",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/flatpak-archive.png"
+    },
+    {
+      "path": "showcase/revision-2/assets/flatpak-archive.jpg",
+      "bytes": 94234,
+      "sha256": "13c4149f0156f7271eb0b96e07b09f913c397fd6b5fe1ac2d3ea39ac8ed18908",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/flatpak-archive.jpg"
+    },
+    {
+      "path": "showcase/revision-2/assets/gather.mp4",
+      "bytes": 12092957,
+      "sha256": "de0c463bc9a78195aee4bbbbb447e9b2b46ba73805e73c03c8318121d94bfc7a",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/gather.mp4"
+    },
+    {
+      "path": "showcase/revision-2/assets/gather.png",
+      "bytes": 1397309,
+      "sha256": "8a5ade811a097e6f232f0dee5a6ac74f0d96cbd59c4f6ce8b09d5e4dcbaf1264",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/gather.png"
+    },
+    {
+      "path": "showcase/revision-2/assets/gather.jpg",
+      "bytes": 100046,
+      "sha256": "33bc538d2ea3792b5b0651ec2bee6acf08d1e4136d3434c37f912fa43a68af3a",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/gather.jpg"
+    },
+    {
+      "path": "showcase/revision-2/assets/java.mp4",
+      "bytes": 5999680,
+      "sha256": "8e5bc36706fa02cb5255436e62fd6499afa9aa846d5997ebc416569f87851c5c",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/java.mp4"
+    },
+    {
+      "path": "showcase/revision-2/assets/java.png",
+      "bytes": 1100089,
+      "sha256": "be994b4f80fd8c5b12be3165b7ec77a2a7bdd366b6144996154dbebd09f0fdaa",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/java.png"
+    },
+    {
+      "path": "showcase/revision-2/assets/java.jpg",
+      "bytes": 106454,
+      "sha256": "c3626f8a5b61656a04c64be7a2e4e6e7a91fa7e7e757cb11ce47e100481f0159",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/java.jpg"
+    },
+    {
+      "path": "showcase/revision-2/assets/launcher.mp4",
+      "bytes": 11580600,
+      "sha256": "059976faf3859e3e733fe7732faffdd0cd356e50d1fc42830250b2d908be93ad",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/launcher.mp4"
+    },
+    {
+      "path": "showcase/revision-2/assets/launcher.png",
+      "bytes": 1638287,
+      "sha256": "77325c77bae8127748ec9b3beb7cf7eb4ade8c87ddf5dd7eacc9c437210abcf8",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/launcher.png"
+    },
+    {
+      "path": "showcase/revision-2/assets/launcher.jpg",
+      "bytes": 108035,
+      "sha256": "7962fdca7e310d095ec1d9c9fd6edf9ff9eb868d251414302ecd514a51ec8daf",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/launcher.jpg"
+    },
+    {
+      "path": "showcase/revision-2/assets/notification.mp4",
+      "bytes": 9224612,
+      "sha256": "7240a40499a33af8539b30ceb29d9e246d3d972525f668d0c0640bb0386ea8f6",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/notification.mp4"
+    },
+    {
+      "path": "showcase/revision-2/assets/notification.png",
+      "bytes": 1677038,
+      "sha256": "cc71e8254d71d7b9b64964b54a60b944389c11733b997b568e06dc935e064538",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/notification.png"
+    },
+    {
+      "path": "showcase/revision-2/assets/notification.jpg",
+      "bytes": 109621,
+      "sha256": "36e598446577ed49b024ed6a3f662cede41404243e5064c6dfd7bbaedc4083fa",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/notification.jpg"
+    },
+    {
+      "path": "showcase/revision-2/assets/picker.mp4",
+      "bytes": 5492456,
+      "sha256": "8ecb16f9e2d698eb486d268f4abb54dfb04cbd520991a4ce7b9a5278a94a0ec4",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/picker.mp4"
+    },
+    {
+      "path": "showcase/revision-2/assets/picker.png",
+      "bytes": 957785,
+      "sha256": "f83a1b398a434df5aa647f26e6bb6c63f9f4c6bfc459e2c4e07b33576af85b73",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/picker.png"
+    },
+    {
+      "path": "showcase/revision-2/assets/picker.jpg",
+      "bytes": 80831,
+      "sha256": "5d2a80cf693fdcca2c7e4cd3a9ebc609c68efd63fef35d21ee10b592de800f64",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/picker.jpg"
+    },
+    {
+      "path": "showcase/revision-2/assets/python.mp4",
+      "bytes": 5598576,
+      "sha256": "eea3c0fa2c46915db9c4efb917e85e91aa82de1ee338e8cef57111cd07a69191",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/python.mp4"
+    },
+    {
+      "path": "showcase/revision-2/assets/python.png",
+      "bytes": 1106527,
+      "sha256": "8e70f7d0f32d180869a7386cd35e32c87e5023e8da8a3f47d11975131a921d94",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/python.png"
+    },
+    {
+      "path": "showcase/revision-2/assets/python.jpg",
+      "bytes": 100090,
+      "sha256": "62d7aa16acba81816fc63e837ac81e46b47b60bfd020b933b64c8a300004dc0c",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/python.jpg"
+    },
+    {
+      "path": "showcase/revision-2/assets/samples-stress.mp4",
+      "bytes": 9897771,
+      "sha256": "fa67ca697ebf822e3ce3b2ed916eb18e01d874e3694e899bb681f090827531cb",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/samples-stress.mp4"
+    },
+    {
+      "path": "showcase/revision-2/assets/samples-stress.png",
+      "bytes": 1245857,
+      "sha256": "05f753d75cfb56c10afa11c6be587ea7c1699b8fca15e1323c4538fae5d6668c",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/samples-stress.png"
+    },
+    {
+      "path": "showcase/revision-2/assets/samples-stress.jpg",
+      "bytes": 114238,
+      "sha256": "80845580233d847835410cafeac80915eaee204e8fdf7019f45901c0db80f747",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/samples-stress.jpg"
+    },
+    {
+      "path": "showcase/revision-2/assets/shortcuts.mp4",
+      "bytes": 8901823,
+      "sha256": "f780c3eef16cb8c4977749a94388ad52e022e059ab53477483144ad791f7bd5a",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/shortcuts.mp4"
+    },
+    {
+      "path": "showcase/revision-2/assets/shortcuts.png",
+      "bytes": 1316601,
+      "sha256": "59f06d5fecafb1cc159062997920bdadb56400f71eaf24387c0b01abc921bf4d",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/shortcuts.png"
+    },
+    {
+      "path": "showcase/revision-2/assets/shortcuts.jpg",
+      "bytes": 112442,
+      "sha256": "4b8b9ac2f7947920647cbe145ae09fc643fe1027b843f1f8b05a910014c03e5a",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/shortcuts.jpg"
+    },
+    {
+      "path": "showcase/revision-2/assets/templates.mp4",
+      "bytes": 6667660,
+      "sha256": "4c9b80e48873eab87dfc0e722fa81c19c420b938b4583ccb1b7885b5ba907ec9",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/templates.mp4"
+    },
+    {
+      "path": "showcase/revision-2/assets/templates.png",
+      "bytes": 1202127,
+      "sha256": "8b6b4281bca5bf91432e385faaaf6f978478dbff093eb3ca30d29738c31cfc82",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/templates.png"
+    },
+    {
+      "path": "showcase/revision-2/assets/templates.jpg",
+      "bytes": 107497,
+      "sha256": "041cc12f96b0e82a06b8a03ba00da3f25151c791a193aa52f6266e4d09b5978c",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/templates.jpg"
+    },
+    {
+      "path": "showcase/revision-2/assets/terminal-group.mp4",
+      "bytes": 10212453,
+      "sha256": "a8ec748ec9b4373738cd12b2079a712ec1c57b9617755a172ae50cd90e405604",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/terminal-group.mp4"
+    },
+    {
+      "path": "showcase/revision-2/assets/terminal-group.png",
+      "bytes": 909166,
+      "sha256": "52d73106641b319823fd75cab771b50949db8926c2007f9990f6e249f301ffe5",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/terminal-group.png"
+    },
+    {
+      "path": "showcase/revision-2/assets/terminal-group.jpg",
+      "bytes": 112984,
+      "sha256": "465336fa975cdba113d0b51174c1889c99bbbb62da46e9eacff9e6f95ff0f7b3",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/terminal-group.jpg"
+    }
+  ],
+  "lineage_files": [
+    "assets/amethyst-tour.json",
+    "assets/audio.json",
+    "assets/clipboard.json",
+    "assets/cpp-build.json",
+    "assets/cpp-debug.json",
+    "assets/cpp-interactive.json",
+    "assets/dashboard.json",
+    "assets/desktop.json",
+    "assets/details.json",
+    "assets/discover.json",
+    "assets/dolphin.json",
+    "assets/flatpak-archive.json",
+    "assets/gather.json",
+    "assets/java.json",
+    "assets/launcher.json",
+    "assets/notification.json",
+    "assets/picker.json",
+    "assets/python.json",
+    "assets/samples-stress.json",
+    "assets/shortcuts.json",
+    "assets/templates.json",
+    "assets/terminal-group.json"
+  ],
+  "film_edl": "film.json",
+  "site": {
+    "version": "showcase-v2-preview.1 \u00b7 source-PC evidence \u00b7 human motion review pending",
+    "tour": {
+      "title": "Amethyst / the 89-second tour",
+      "video": "media/amethyst-tour.mp4",
+      "poster": "assets/desktop.jpg",
+      "still": "assets/desktop.png",
+      "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/amethyst-tour.mp4",
+      "loop": false
+    },
+    "clips": [
+      {
+        "id": "desktop-loop",
+        "title": "The desktop, in a loop",
+        "description": "The real ten-second wallpaper period; launcher opens and closes. Same UI state at the endpoints. Three-wrap human seam review pending.",
+        "loop": true,
+        "video": "media/desktop.mp4",
+        "poster": "assets/desktop.jpg",
+        "still": "assets/desktop.png",
+        "durationLabel": "10s",
+        "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/desktop.mp4"
+      },
+      {
+        "id": "launcher",
+        "title": "Search, then open",
+        "description": "Actual launcher search and Calculator window. This is not the separate sandboxed-launch acceptance test.",
+        "video": "media/launcher.mp4",
+        "poster": "assets/launcher.jpg",
+        "still": "assets/launcher.png",
+        "durationLabel": "13s",
+        "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/launcher.mp4"
+      },
+      {
+        "id": "picker",
+        "title": "Pick a window",
+        "description": "Cycle and accept the current visual picker. Focus changes to a different owned window. A capture-only PID allowlist excludes personal thumbnails.",
+        "video": "media/picker.mp4",
+        "poster": "assets/picker.jpg",
+        "still": "assets/picker.png",
+        "durationLabel": "12s",
+        "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/picker.mp4"
+      },
+      {
+        "id": "gather",
+        "title": "Gather. Restore.",
+        "description": "Three text-fixture terminals arrive from three outputs, then return. Original workspaces and floating geometry were verified; fixture notes are not a new compiler run.",
+        "video": "media/gather.mp4",
+        "poster": "assets/gather.jpg",
+        "still": "assets/gather.png",
+        "durationLabel": "14s",
+        "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/gather.mp4"
+      },
+      {
+        "id": "terminal-group",
+        "title": "Three terminals, on demand",
+        "description": "Actual process/memory, system-information and visualizer surfaces. Three rehearsal cycles had exactly three children and stable sampled geometry; continuous motion review pending.",
+        "video": "media/terminal-group.mp4",
+        "poster": "assets/terminal-group.jpg",
+        "still": "assets/terminal-group.png",
+        "durationLabel": "13s",
+        "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/terminal-group.mp4"
+      },
+      {
+        "id": "shortcuts",
+        "title": "The shortcut guide",
+        "description": "The generated shipped guide, through the actual helper. Lock/logout actions were not exercised for this recording.",
+        "video": "media/shortcuts.mp4",
+        "poster": "assets/shortcuts.jpg",
+        "still": "assets/shortcuts.png",
+        "durationLabel": "10s",
+        "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/shortcuts.mp4"
+      },
+      {
+        "id": "cpp-build",
+        "title": "C++23 / saved input",
+        "description": "Real GCC build and saved-input run of increasing subsequence. Fresh actual output: 4. No stale terminal result is presented as a new run.",
+        "video": "media/cpp-build.mp4",
+        "poster": "assets/cpp-build.jpg",
+        "still": "assets/cpp-build.png",
+        "durationLabel": "15s",
+        "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/cpp-build.mp4"
+      },
+      {
+        "id": "cpp-debug",
+        "title": "C++ / a breakpoint",
+        "description": "Actual GDB pause at line 16, locals n=7, value=4, index=0, expanded input vector and F10. Enlarged code in official Microsoft VS Code at 0.78 opacity.",
+        "video": "media/cpp-debug.mp4",
+        "poster": "assets/cpp-debug.jpg",
+        "still": "assets/cpp-debug.png",
+        "durationLabel": "22s",
+        "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/cpp-debug.mp4"
+      },
+      {
+        "id": "cpp-interactive",
+        "title": "C++ / interactive input",
+        "description": "Shift+F6, actual terminal input 7 and 4 1 5 2 6 3 7, followed by result 4.",
+        "video": "media/cpp-interactive.mp4",
+        "poster": "assets/cpp-interactive.jpg",
+        "still": "assets/cpp-interactive.png",
+        "durationLabel": "14s",
+        "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/cpp-interactive.mp4"
+      },
+      {
+        "id": "templates",
+        "title": "A new problem",
+        "description": "Actual Ctrl+Alt+N creates contest-b from the shipped C++ template, preserving existing problem folders.",
+        "video": "media/templates.mp4",
+        "poster": "assets/templates.jpg",
+        "still": "assets/templates.png",
+        "durationLabel": "14s",
+        "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/templates.mp4"
+      },
+      {
+        "id": "python",
+        "title": "Python / actual result 5",
+        "description": "A fresh task run against saved input. The isolated workspace preserves the exported runner behavior.",
+        "video": "media/python.mp4",
+        "poster": "assets/python.jpg",
+        "still": "assets/python.png",
+        "durationLabel": "12s",
+        "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/python.mp4"
+      },
+      {
+        "id": "java",
+        "title": "Java / actual result 5",
+        "description": "A fresh compile and task run. Java is ready; one warning badge remains in the isolated project. The real outcome is exit 0 and output 5.",
+        "video": "media/java.mp4",
+        "poster": "assets/java.jpg",
+        "still": "assets/java.png",
+        "durationLabel": "12s",
+        "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/java.mp4"
+      },
+      {
+        "id": "samples-stress",
+        "title": "Samples / find the planted bug",
+        "description": "The sample passes with actual result 4. The intentionally faulty stress-demo solution produces the expected seed-42 counterexample and exit 1; this is not a passing submission.",
+        "video": "media/samples-stress.mp4",
+        "poster": "assets/samples-stress.jpg",
+        "still": "assets/samples-stress.png",
+        "durationLabel": "20s",
+        "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/samples-stress.mp4"
+      },
+      {
+        "id": "dolphin",
+        "title": "Dolphin / files",
+        "description": "A real disposable sample-file workspace at 0.78 opacity, with the source wallpaper visible through the dark palette.",
+        "video": "media/dolphin.mp4",
+        "poster": "assets/dolphin.jpg",
+        "still": "assets/dolphin.png",
+        "durationLabel": "12s",
+        "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/dolphin.mp4"
+      },
+      {
+        "id": "discover",
+        "title": "Discover / catalog, sources, detail",
+        "description": "Actual Flatpak-only Calculator search, Flathub Sources view and Calculator 51.1 application detail. The store screenshot is application metadata; this does not certify a new sandbox launch.",
+        "video": "media/discover.mp4",
+        "poster": "assets/discover.jpg",
+        "still": "assets/discover.png",
+        "durationLabel": "30s",
+        "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/discover.mp4"
+      },
+      {
+        "id": "flatpak-archive",
+        "title": "Flatpak / alpha.1 archive",
+        "description": "Historical alpha.1 sandbox session, persistently labeled in the video. Fresh V2 launch failed at the document-portal bind; this archive does not turn that failure into a pass.",
+        "video": "media/flatpak-archive.mp4",
+        "poster": "assets/flatpak-archive.jpg",
+        "still": "assets/flatpak-archive.png",
+        "durationLabel": "15s",
+        "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/flatpak-archive.mp4"
+      },
+      {
+        "id": "clipboard",
+        "title": "Clipboard / a harmless selection",
+        "description": "Native clipboard picker with an isolated demo history. The real private history was neither opened nor erased.",
+        "video": "media/clipboard.mp4",
+        "poster": "assets/clipboard.jpg",
+        "still": "assets/clipboard.png",
+        "durationLabel": "10s",
+        "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/clipboard.mp4"
+      },
+      {
+        "id": "notification",
+        "title": "A local notification",
+        "description": "A real notify-send popup. DND was temporarily disabled for this take and restored afterward; only the task notification was closed.",
+        "video": "media/notification.mp4",
+        "poster": "assets/notification.jpg",
+        "still": "assets/notification.png",
+        "durationLabel": "10s",
+        "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/notification.mp4"
+      },
+      {
+        "id": "audio",
+        "title": "Speaker and microphone OSD",
+        "description": "Actual read-only controls. Audible output, microphone recording and device switching are not certified by this view.",
+        "video": "media/audio.mp4",
+        "poster": "assets/audio.jpg",
+        "still": "assets/audio.png",
+        "durationLabel": "10s",
+        "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/audio.mp4"
+      },
+      {
+        "id": "dashboard",
+        "title": "The dashboard",
+        "description": "Current calendar, resource and media-metadata surface. No audio was recorded and existing playback was left alone.",
+        "video": "media/dashboard.mp4",
+        "poster": "assets/dashboard.jpg",
+        "still": "assets/dashboard.png",
+        "durationLabel": "11s",
+        "download": "https://github.com/Denoax/cachyos-amethyst-dotfiles/releases/download/showcase-v2-preview.1/dashboard.mp4"
+      }
+    ],
+    "stills": [
+      {
+        "src": "assets/desktop.jpg",
+        "full": "assets/desktop.png",
+        "title": "The desktop, in a loop"
+      },
+      {
+        "src": "assets/launcher.jpg",
+        "full": "assets/launcher.png",
+        "title": "Search, then open"
+      },
+      {
+        "src": "assets/picker.jpg",
+        "full": "assets/picker.png",
+        "title": "Pick a window"
+      },
+      {
+        "src": "assets/gather.jpg",
+        "full": "assets/gather.png",
+        "title": "Gather. Restore."
+      },
+      {
+        "src": "assets/terminal-group.jpg",
+        "full": "assets/terminal-group.png",
+        "title": "Three terminals, on demand"
+      },
+      {
+        "src": "assets/shortcuts.jpg",
+        "full": "assets/shortcuts.png",
+        "title": "The shortcut guide"
+      },
+      {
+        "src": "assets/cpp-build.jpg",
+        "full": "assets/cpp-build.png",
+        "title": "C++23 / saved input"
+      },
+      {
+        "src": "assets/cpp-debug.jpg",
+        "full": "assets/cpp-debug.png",
+        "title": "C++ / a breakpoint"
+      },
+      {
+        "src": "assets/cpp-interactive.jpg",
+        "full": "assets/cpp-interactive.png",
+        "title": "C++ / interactive input"
+      },
+      {
+        "src": "assets/templates.jpg",
+        "full": "assets/templates.png",
+        "title": "A new problem"
+      },
+      {
+        "src": "assets/python.jpg",
+        "full": "assets/python.png",
+        "title": "Python / actual result 5"
+      },
+      {
+        "src": "assets/java.jpg",
+        "full": "assets/java.png",
+        "title": "Java / actual result 5"
+      },
+      {
+        "src": "assets/samples-stress.jpg",
+        "full": "assets/samples-stress.png",
+        "title": "Samples / find the planted bug"
+      },
+      {
+        "src": "assets/dolphin.jpg",
+        "full": "assets/dolphin.png",
+        "title": "Dolphin / files"
+      },
+      {
+        "src": "assets/discover.jpg",
+        "full": "assets/discover.png",
+        "title": "Discover / catalog, sources, detail"
+      },
+      {
+        "src": "assets/flatpak-archive.jpg",
+        "full": "assets/flatpak-archive.png",
+        "title": "Flatpak / alpha.1 archive"
+      },
+      {
+        "src": "assets/clipboard.jpg",
+        "full": "assets/clipboard.png",
+        "title": "Clipboard / a harmless selection"
+      },
+      {
+        "src": "assets/notification.jpg",
+        "full": "assets/notification.png",
+        "title": "A local notification"
+      },
+      {
+        "src": "assets/audio.jpg",
+        "full": "assets/audio.png",
+        "title": "Speaker and microphone OSD"
+      },
+      {
+        "src": "assets/dashboard.jpg",
+        "full": "assets/dashboard.png",
+        "title": "The dashboard"
+      }
+    ],
+    "chapters": [
+      {
+        "id": "desktop",
+        "time": 0
+      },
+      {
+        "id": "navigation",
+        "time": 4
+      },
+      {
+        "id": "coding",
+        "time": 27
+      },
+      {
+        "id": "daily",
+        "time": 53
+      },
+      {
+        "id": "details",
+        "time": 67
+      }
+    ]
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "classification": "Edited presentation; complete uncut claim-sensitive source takes retained privately",
+  "fps": 30,
+  "duration_seconds": 89.0,
+  "timing": "1x normal speed; 60fps new sources downsampled to 30fps to match historical 30fps shot. No interpolation, retiming, reversed frames or replacement background.",
+  "audio": "none",
+  "motion_review": "MOTION_REVIEW_PENDING",
+  "cuts": [
+    {
+      "at": 0,
+      "scene": "hero-clean",
+      "in": 7.5,
+      "out": 11.5,
+      "transition": "hard cut",
+      "caption": "Amethyst / a workstation, in motion",
+      "purpose": "Amethyst / a workstation, in motion",
+      "archive": false
+    },
+    {
+      "at": 4.0,
+      "scene": "launcher",
+      "in": 0.5,
+      "out": 5.5,
+      "transition": "hard cut",
+      "caption": "Launcher / search and open",
+      "purpose": "Launcher / search and open",
+      "archive": false
+    },
+    {
+      "at": 9.0,
+      "scene": "picker-accept",
+      "in": 0.5,
+      "out": 6.5,
+      "transition": "hard cut",
+      "caption": "Visual picker / cycle and accept",
+      "purpose": "Visual picker / cycle and accept",
+      "archive": false
+    },
+    {
+      "at": 15.0,
+      "scene": "gather-final",
+      "in": 0.5,
+      "out": 6.5,
+      "transition": "hard cut",
+      "caption": "Gather / restore across three outputs",
+      "purpose": "Real gather and restore of three separated text-fixture terminals from three outputs; fixture text is not a new GCC run",
+      "archive": false
+    },
+    {
+      "at": 21.0,
+      "scene": "terminal-group",
+      "in": 0.5,
+      "out": 6.5,
+      "transition": "hard cut",
+      "caption": "The on-demand terminal group",
+      "purpose": "The on-demand terminal group",
+      "archive": false
+    },
+    {
+      "at": 27.0,
+      "scene": "cpp-build-composed",
+      "in": 1,
+      "out": 7,
+      "transition": "hard cut",
+      "caption": "C++23 / saved input / actual result 4",
+      "purpose": "C++23 / saved input / actual result 4",
+      "archive": false
+    },
+    {
+      "at": 33.0,
+      "scene": "cpp-debug-ready",
+      "in": 2,
+      "out": 10,
+      "transition": "hard cut",
+      "caption": "GDB / breakpoint, variables, step",
+      "purpose": "GDB / breakpoint, variables, step",
+      "archive": false
+    },
+    {
+      "at": 41.0,
+      "scene": "templates-composed",
+      "in": 4,
+      "out": 8,
+      "transition": "hard cut",
+      "caption": "A new problem / existing files preserved",
+      "purpose": "A new problem / existing files preserved",
+      "archive": false
+    },
+    {
+      "at": 45.0,
+      "scene": "python-composed",
+      "in": 1,
+      "out": 5,
+      "transition": "hard cut",
+      "caption": "Python / actual result 5",
+      "purpose": "Python / actual result 5",
+      "archive": false
+    },
+    {
+      "at": 49.0,
+      "scene": "java-clean",
+      "in": 1,
+      "out": 5,
+      "transition": "hard cut",
+      "caption": "Java / actual result 5",
+      "purpose": "Java / actual result 5",
+      "archive": false
+    },
+    {
+      "at": 53.0,
+      "scene": "dolphin-dark",
+      "in": 0.5,
+      "out": 5.5,
+      "transition": "hard cut",
+      "caption": "Dolphin / disposable sample files",
+      "purpose": "Dolphin / disposable sample files",
+      "archive": false
+    },
+    {
+      "at": 58.0,
+      "scene": "discover-complete",
+      "in": 11.375,
+      "out": 16.375,
+      "transition": "hard cut",
+      "caption": "Discover / Flatpak application detail",
+      "purpose": "Actual app detail after search and source view; no new sandbox-launch pass",
+      "archive": false
+    },
+    {
+      "at": 63.0,
+      "scene": "flatpak-archive",
+      "in": 7,
+      "out": 11,
+      "transition": "hard cut",
+      "caption": "ARCHIVE: alpha.1 Flatpak session / new V2 launch failed",
+      "purpose": "ARCHIVE: alpha.1 Flatpak session / new V2 launch failed",
+      "archive": true
+    },
+    {
+      "at": 67.0,
+      "scene": "clipboard-dark",
+      "in": 0.5,
+      "out": 4.5,
+      "transition": "hard cut",
+      "caption": "Clipboard / isolated demo history",
+      "purpose": "Clipboard / isolated demo history",
+      "archive": false
+    },
+    {
+      "at": 71.0,
+      "scene": "notification-visible",
+      "in": 1,
+      "out": 4,
+      "transition": "hard cut",
+      "caption": "A real local notification",
+      "purpose": "A real local notification",
+      "archive": false
+    },
+    {
+      "at": 74.0,
+      "scene": "audio-osd",
+      "in": 1,
+      "out": 5,
+      "transition": "hard cut",
+      "caption": "Speaker and microphone OSD / read-only",
+      "purpose": "Speaker and microphone OSD / read-only",
+      "archive": false
+    },
+    {
+      "at": 78.0,
+      "scene": "dashboard",
+      "in": 1,
+      "out": 5,
+      "transition": "hard cut",
+      "caption": "Dashboard / no audio recorded",
+      "purpose": "Dashboard / no audio recorded",
+      "archive": false
+    },
+    {
+      "at": 82.0,
+      "scene": "shortcuts",
+      "in": 1,
+      "out": 5,
+      "transition": "hard cut",
+      "caption": "The shipped shortcut guide",
+      "purpose": "The shipped shortcut guide",
+      "archive": false
+    },
+    {
+      "at": 86.0,
+      "scene": "hero-clean",
+      "in": 8.5,
+      "out": 11.5,
+      "transition": "hard cut",
+      "caption": "Amethyst / Denoax / experimental alpha",
+      "purpose": "Amethyst / Denoax / experimental alpha",
+      "archive": false
+    }
+  ]
+}

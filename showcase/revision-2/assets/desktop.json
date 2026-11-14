@@ -1,0 +1,338 @@
+{
+  "scene": "hero-final",
+  "sha256": "04115685347e6b30ee0d93bc0b5a869eea3bc11eeaf522f14729fd47894cee42",
+  "configuration_commit": "ed870a928187ea94f0f2fbec8fe3f75fc14dd8f8",
+  "capture_tool_sha256": "9ba1f7fc930116041b496991d8bc884b513931cb98a9c2771c0e8e0c9cd541f5",
+  "output_geometry": {
+    "width": 1920,
+    "height": 1080,
+    "scale": 1,
+    "name": "DP-4",
+    "model": "Pixio PXC279",
+    "refreshRate": 240.299
+  },
+  "recorder": "wf-recorder CPU libx264, no-dmabuf, requested 60 fps, no audio",
+  "arguments": [
+    "wf-recorder",
+    "--no-dmabuf",
+    "--no-damage",
+    "-o",
+    "DP-4",
+    "-c",
+    "libx264",
+    "-p",
+    "preset=ultrafast",
+    "-p",
+    "crf=16",
+    "-x",
+    "yuv420p",
+    "-r",
+    "60",
+    "-f",
+    "<private-source>"
+  ],
+  "requested_fps": 60,
+  "wall_seconds": 12.067,
+  "interrupted": false,
+  "captured_utc": "2026-11-14T04:00:27Z",
+  "edits": {
+    "classification": "loop",
+    "video_source_seconds": [
+      0.5,
+      10.5
+    ],
+    "timing": "normal speed; no interpolation, masks, replaced or reversed frames",
+    "animation_excerpt_seconds": [
+      0.5,
+      10.5
+    ],
+    "poster_seconds": 0.9,
+    "background": "Actual local animated DesktopHut wallpaper requested by user. Raw source excluded; code license grants no wallpaper rights. https://www.desktophut.com/black-and-white-look-live-wallpaper"
+  },
+  "review": {
+    "privacy": "source and derivative frame inspection; see scene evidence",
+    "continuous_motion": "MOTION_REVIEW_PENDING: human end-to-end playback and three loop wraps required",
+    "smoothness_claim": false
+  },
+  "encoding_commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-ss",
+      "0.5",
+      "-i",
+      "<private-source>",
+      "-t",
+      "10.0",
+      "-an",
+      "-c:v",
+      "libx264",
+      "-preset",
+      "medium",
+      "-crf",
+      "20",
+      "-threads",
+      "4",
+      "-pix_fmt",
+      "yuv420p",
+      "-movflags",
+      "+faststart",
+      "showcase/revision-2/assets/desktop.mp4"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-ss",
+      "0.9",
+      "-i",
+      "<private-source>",
+      "-frames:v",
+      "1",
+      "showcase/revision-2/assets/desktop.png"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "showcase/revision-2/assets/desktop.png",
+      "-vf",
+      "scale=960:-1:flags=lanczos",
+      "-q:v",
+      "2",
+      "showcase/revision-2/assets/desktop.jpg"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-ss",
+      "0.5",
+      "-t",
+      "10.0",
+      "-i",
+      "<private-source>",
+      "-filter_complex",
+      "fps=25,scale=960:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=256:reserve_transparent=0:stats_mode=full[p];[b][p]paletteuse=dither=none:diff_mode=rectangle",
+      "-loop",
+      "0",
+      "showcase/revision-2/assets/desktop.gif"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-ss",
+      "0.5",
+      "-t",
+      "10.0",
+      "-i",
+      "<private-source>",
+      "-vf",
+      "fps=25,scale=960:-1:flags=lanczos",
+      "-an",
+      "-c:v",
+      "libwebp_anim",
+      "-quality",
+      "75",
+      "-compression_level",
+      "6",
+      "-loop",
+      "0",
+      "showcase/revision-2/assets/desktop.webp"
+    ]
+  ],
+  "published": [
+    {
+      "path": "showcase/revision-2/assets/desktop.mp4",
+      "bytes": 8987200,
+      "sha256": "aa45ce82eda770d41659b1a2a9e139e4daa5d28f8483c83a8fa297ceb680ddcd",
+      "probe": {
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+            "profile": "High",
+            "codec_type": "video",
+            "codec_tag_string": "avc1",
+            "codec_tag": "0x31637661",
+            "mime_codec_string": "avc1.64002a",
+            "width": 1920,
+            "height": 1080,
+            "coded_width": 1920,
+            "coded_height": 1080,
+            "has_b_frames": 2,
+            "sample_aspect_ratio": "1:1",
+            "display_aspect_ratio": "16:9",
+            "pix_fmt": "yuvj420p",
+            "level": 42,
+            "color_range": "pc",
+            "chroma_location": "left",
+            "field_order": "progressive",
+            "is_avc": "true",
+            "nal_length_size": "4",
+            "id": "0x1",
+            "r_frame_rate": "60/1",
+            "avg_frame_rate": "60/1",
+            "time_base": "1/15360",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 153600,
+            "duration": "10.000000",
+            "bit_rate": "7183811",
+            "bits_per_raw_sample": "8",
+            "nb_frames": "600",
+            "extradata_size": 48,
+            "disposition": {
+              "default": 1,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0,
+              "multilayer": 0
+            },
+            "tags": {
+              "language": "und",
+              "handler_name": "VideoHandler",
+              "encoder": "Lavc63.1.102 libx264"
+            }
+          }
+        ],
+        "format": {
+          "filename": "desktop.mp4",
+          "nb_streams": 1,
+          "nb_programs": 0,
+          "nb_stream_groups": 0,
+          "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+          "format_long_name": "QuickTime / MOV",
+          "start_time": "0.000000",
+          "duration": "10.000000",
+          "size": "8987200",
+          "bit_rate": "7189760",
+          "probe_score": 100,
+          "tags": {
+            "major_brand": "isom",
+            "minor_version": "512",
+            "compatible_brands": "isomiso2avc1mp41",
+            "encoder": "Lavf63.1.102"
+          }
+        }
+      }
+    },
+    {
+      "path": "showcase/revision-2/assets/desktop.png",
+      "bytes": 1591494,
+      "sha256": "d9a4fe488247d41789196be63ae34d1175b9d4da6ee2836c6a7162404913286a",
+      "probe": null
+    },
+    {
+      "path": "showcase/revision-2/assets/desktop.jpg",
+      "bytes": 108166,
+      "sha256": "dd2de1e085b3ba8871473ba62a77412b523fce1296744fc89a4bfd1908338228",
+      "probe": null
+    },
+    {
+      "path": "showcase/revision-2/assets/desktop.gif",
+      "bytes": 46828880,
+      "sha256": "a628001bb7221eea6b643f62f3bb997d344163eda026a3b928ca3e0dc64d59f3",
+      "probe": {
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "gif",
+            "codec_long_name": "CompuServe GIF (Graphics Interchange Format)",
+            "codec_type": "video",
+            "codec_tag_string": "[0][0][0][0]",
+            "codec_tag": "0x0000",
+            "width": 960,
+            "height": 540,
+            "coded_width": 960,
+            "coded_height": 540,
+            "has_b_frames": 0,
+            "sample_aspect_ratio": "1:1",
+            "display_aspect_ratio": "16:9",
+            "pix_fmt": "bgra",
+            "level": -99,
+            "r_frame_rate": "25/1",
+            "avg_frame_rate": "25/1",
+            "time_base": "1/100",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 1000,
+            "duration": "10.000000",
+            "nb_frames": "250",
+            "disposition": {
+              "default": 0,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0,
+              "multilayer": 0
+            }
+          }
+        ],
+        "format": {
+          "filename": "desktop.gif",
+          "nb_streams": 1,
+          "nb_programs": 0,
+          "nb_stream_groups": 0,
+          "format_name": "gif",
+          "format_long_name": "CompuServe Graphics Interchange Format (GIF)",
+          "start_time": "0.000000",
+          "duration": "10.000000",
+          "size": "46828880",
+          "bit_rate": "37463104",
+          "probe_score": 100
+        }
+      }
+    },
+    {
+      "path": "showcase/revision-2/assets/desktop.webp",
+      "bytes": 9003804,
+      "sha256": "c2541ac6e11ec4fe97e9f1ae31174bb1aa7f2b0458d5cb8c80115abece144e4f",
+      "probe": null,
+      "animation": {
+        "frames": 250,
+        "duration_seconds": 10.0,
+        "canvas": [
+          960,
+          540
+        ]
+      }
+    }
+  ]
+}

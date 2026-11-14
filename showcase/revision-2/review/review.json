@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "baseline_tag": "v0.1.0-alpha.1",
+  "baseline_sha": "a2f360a11550c6c578f6eb3576752fdc6a00fc64",
+  "implementation": "PASS",
+  "visual_review": "PASS sampled source/derivative frames and actual rendered desktop/phone pages inspected by Codex; no Mani approval implied",
+  "motion_review": "MOTION_REVIEW_PENDING",
+  "motion_observer": null,
+  "motion_method": "No available continuous visual observer; decoding, CDP media time and frame sampling do not approve fluidity",
+  "theme_accent": "#d559ff",
+  "application_opacity": 0.78,
+  "film": {
+    "path": "assets/amethyst-tour.mp4",
+    "seconds": 89,
+    "fps": 30,
+    "speed": 1,
+    "timing_edits": "hard cuts only; persistent archival label; no audio"
+  },
+  "library": {
+    "focused_clips": 20,
+    "stills": 20
+  },
+  "checks": {
+    "media_hashes_pts_and_decode": "PASS all 65 initial final files; affected gather, launcher and tour streams decoded again after composition changes",
+    "boundary_tests": "PASS 5 process/publication boundary tests",
+    "github_light_dark": "PENDING final README; three trial candidates already rendered on GitHub",
+    "local_browser": "PASS actual Brave keyboard play/pause, seek, fullscreen, speed, chapters, direct links, history, offscreen pause, all 20 focused clips, responsive and reduced motion, explicit error fallback",
+    "hosted_playback": "NOT_RUN",
+    "restoration": {
+      "production_hashes_checked": 23,
+      "changed_hash_count": 0,
+      "failures": [],
+      "wallpaper_path_unchanged": true,
+      "original_editor_running": true,
+      "owned_process_cleanup_requested": 3,
+      "scope": "Latest completed capture batch. Historical batches also retained private restoration reports. Arbitrary clipboard MIME persistence and original byte-perfect clipboard acceptance are not claimed."
+    },
+    "zoom": "PASS 200% visual page zoom plus 720px reflow equivalent to 200% of 1440px; native browser-toolbar zoom not exercised"
+  },
+  "known_product_limits": [
+    "Current fresh Flatpak Calculator launch fails at missing document-portal bind; archive is historical only",
+    "Screen-sharing frame delivery failed",
+    "Secret portal failed",
+    "Fresh installation and first login pending",
+    "Physical laptop acceptance pending",
+    "Audio output, microphone recording and switching untested",
+    "One Java warning badge retained; actual task succeeds"
+  ],
+  "publication": {
+    "state": "NOT_STARTED",
+    "release": "showcase-v2-preview.1",
+    "expected_gallery": "https://denoax.github.io/cachyos-amethyst-dotfiles/"
+  },
+  "rubric": {
+    "observer": "Codex, subjective image inspection; 1\u20135 judgment, not objective metrics",
+    "view": "review/local-desktop.jpg, review/local-phone.jpg and candidate comparison screenshots",
+    "categories": {
+      "immediate_impact": {
+        "score": 4,
+        "reason": "One large desktop film leads the chosen A layout."
+      },
+      "wallpaper_continuity": {
+        "score": null,
+        "reason": "Source backend progression and sampled changing frames checked; continuous continuity/seam review pending."
+      },
+      "readability": {
+        "score": 4,
+        "reason": "19px code and a detail crop improve desktop inspection; phone code still requires full-size/landscape viewing."
+      },
+      "interaction_clarity": {
+        "score": 4,
+        "reason": "Focused actions and explicit controls; separated gather panes now show all three arrivals."
+      },
+      "motion_quality": {
+        "score": null,
+        "reason": "No continuous visual observer; MOTION_REVIEW_PENDING."
+      },
+      "feature_breadth": {
+        "score": 5,
+        "reason": "20 focused films and 20 stills cover shell, coding and daily controls."
+      },
+      "consistency": {
+        "score": 4,
+        "reason": "Actual black/white/amethyst desktop, shared captions and image ratios; historical Flatpak is clearly different and labeled."
+      },
+      "mobile_usability": {
+        "score": 4,
+        "reason": "390px view has readable text and controls; chapter row scrolls within its own bounds."
+      },
+      "truthful_scope": {
+        "score": 5,
+        "reason": "Current fresh Flatpak and portal failures, motion gate and laptop/fresh-install gaps remain explicit."
+      }
+    }
+  }
+}
