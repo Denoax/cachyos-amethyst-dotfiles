@@ -11,7 +11,7 @@ Read root `AGENTS.md`, `showcase/AGENTS.md`, `showcase/STORYBOARD.md`, and `docs
 2. Discover and inspect an existing showcase tool. If absent, implement the specified bounded capture/encode/verify wrapper using supported local recording tools. Run a short capture/probe before a full session.
 3. Prepare isolated demo workspaces and public-safe apps/data. Review wallpaper/artwork rights. Preserve private history and active work. Save presentation state for restoration.
 4. Run the required scenes, including shortcut/menu behavior, actual CP build/debug/template flows and Discover/Flatpak launch. Do not film an unavailable feature as a mockup.
-5. Store raw captures privately. Derive GIFs/videos/posters from real footage; record every trim, mask, crop and timing change. Avoid interpolation, invented telemetry and edits that hide the bug being verified.
+5. Store raw captures privately. Derive GIFs/videos/posters from real footage; record every trim, mask, crop and timing change. Revision 2 permits a separate edited film with explicit source in/out lineage alongside uncut evidence. Keep the actual animated wallpaper and requested 0.78 app opacity. Avoid interpolation, invented telemetry and edits that hide the bug being verified.
 6. Probe media, verify links/hashes/budgets, and watch complete motion plus loop seams at normal speed. Frame inspection alone cannot prove smoothness; mark motion review pending if continuous playback is unavailable.
 7. Inspect every public derivative for private content and rights. Restore wallpaper/DND/focus and stop only owned recorder processes. Verify no process or service leak.
 8. Build the README/gallery with readable posters and full-rate video links. Tie each feature claim to its evidence and actual tested status.

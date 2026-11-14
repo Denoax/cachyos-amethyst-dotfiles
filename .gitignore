@@ -8,3 +8,6 @@ private/
 handoff-source.bundle
 showcase/assets/*.mp4
 CODEX_RETURN.md
+CODEX_RETURN_SHOWCASE_V2.md
+showcase/revision-2/assets/*.mp4
+site/media/

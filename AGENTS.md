@@ -17,6 +17,8 @@ Read `START_HERE.md`, `docs/STATE_AND_SCOPE.md`, `docs/EXECUTION_PLAN.md`, and `
 
 ## Design and sources
 
+The user-requested [showcase revision 2 contract](showcase/revision-2/brief/AGENTS.md) supersedes earlier showcase-only constraints: retain the actual animated wallpaper through 0.78-opacity demo apps, compare three rendered layouts, permit an explicitly documented edited presentation film alongside uncut evidence, and prioritize readable media over the former tiny GIF budget. Preserve installer, ownership, privacy and truthfulness rules. Read `showcase/revision-2/STATE.md` before resuming V2 work.
+
 Use `$reference-led-design` if available. If missing, apply its essential rules here: inspect real upstream references; adapt the current desktop and existing components; use only owned or appropriately licensed assets; record actual UI; generate no AI images, video, audio or fake screenshots. Do not invent telemetry. For motion, watch continuous playback, including opening/closing and loop boundaries, before claiming smoothness.
 
 Keep black and white dominant. Derive the exact amethyst accent from the actual active Microsoft VS Code profile/theme override and existing desktop configuration. Do not guess a purple or globally recolor all text. Preserve layout and shortcut muscle memory. This project packages the current setup; it is not permission for another redesign.
