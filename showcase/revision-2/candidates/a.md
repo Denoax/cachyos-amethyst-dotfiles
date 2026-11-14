@@ -2,7 +2,9 @@
 
 A CachyOS workstation, in motion.
 
-[![Actual desktop and launcher](../../assets/01-desktop.png)](https://denoax.github.io/cachyos-amethyst-dotfiles/)
+https://github.com/user-attachments/assets/f40fbded-8122-4541-921e-3759bb0c7b21
+
+[Static desktop poster](../../assets/01-desktop.png)
 
 [Watch the tour](https://denoax.github.io/cachyos-amethyst-dotfiles/) · [Install](../../../docs/INSTALL.md) · [Shortcuts](../../../docs/SHORTCUTS.md)
 
