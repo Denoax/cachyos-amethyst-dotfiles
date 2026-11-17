@@ -29,6 +29,6 @@ Provide one original, tiny permissively licensed sample problem/solution shared 
 
 ## Import and visual proof
 
-Test import into an isolated official VS Code profile, including extensions, task execution and debugger integration. Use the actual keyboard workflow while recording. The showcase should make the editor text readable: source, input/output, task result, breakpoint/variables and template action. Full-resolution video is required because a small README GIF cannot prove code readability.
+Test import into an isolated official VS Code profile, including extensions, task execution and debugger integration. Use the actual keyboard workflow. Verify source, input/output, task result, breakpoint/variables and template action at full resolution; a small README image cannot prove code readability.
 
 Document the compiler/debugger/interpreter versions observed, extension IDs, shortcuts and exact tested command results. Describe the workflow as configured/tested; use 'optimized' performance claims only when accompanied by a reproducible baseline and measurement. Leave the user's current editing session running.

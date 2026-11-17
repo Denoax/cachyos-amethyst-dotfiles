@@ -18,4 +18,3 @@ fresh-login-install,NOT_RUN,no configured fresh CachyOS VM,KVM present; QEMU exe
 physical-laptop,NOT_RUN,no test laptop,Brightness/battery/lid/dock/suspend/GPU-specific portability unproven
 audio-mic-bluetooth-auth,NOT_RUN,existing source session,No disruptive device/pairing/credential or login tests; active services alone are not a flow pass
 lock-suspend,NOT_RUN,production source session,No lock/logout/suspend/reboot performed; safe disposable-session acceptance required
-continuous-media-review,BLOCKED,automation tooling,Hosted technical playback and sampled frames pass; full 1x human review and three wraps of V2 loops remain pending.

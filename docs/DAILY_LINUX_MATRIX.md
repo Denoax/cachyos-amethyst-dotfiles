@@ -2,7 +2,7 @@
 
 For each row save status, environment, date, exact observation and sanitized evidence path. Distinguish source PC, fresh VM and physical laptop. Fix scoped configuration defects; mark missing hardware as NOT_APPLICABLE or NOT_RUN with reason, not PASS. A screenshot of a settings panel does not prove the underlying operation.
 
-| Area | Implement/verify | Public showcase |
+| Area | Implement/verify | Flow evidence |
 |---|---|---|
 | Login/session | Fresh login in test environment; one shell/notification/polkit/idle owner; clean logout; no new failed units | Session identity and sanitized startup result |
 | Launcher | Kitty, Dolphin, official VS Code, browser and Discover open from current launcher | Search, select and launch |

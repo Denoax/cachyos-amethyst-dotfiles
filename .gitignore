@@ -7,7 +7,3 @@ private/
 *.raw.mp4
 handoff-source.bundle
 CODEX_RETURN.md
-
-site/node_modules/
-site/dist/
-site/.vite/

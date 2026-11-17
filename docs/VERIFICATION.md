@@ -23,12 +23,11 @@ The original observations below are dated 2026-11-13. The V2 follow-up is dated 
 | physical-laptop | **NOT_RUN** | no test laptop: Brightness/battery/lid/dock/suspend/GPU-specific portability unproven |
 | audio-mic-bluetooth-auth | **NOT_RUN** | existing source session: No disruptive device/pairing/credential or login tests; active services alone are not a flow pass |
 | lock-suspend | **NOT_RUN** | production source session: No lock/logout/suspend/reboot performed; safe disposable-session acceptance required |
-| continuous-media-review | **BLOCKED** | automation tooling: Posters/contact sheets and stream timing inspected. No continuous video playback observer available; normal-speed full motion and three wraps of V2 looping assets need human review |
 
-The [CSV](verification.csv) is the same machine-readable evidence summary. Raw logs, preimages, recorder masters and source inventories remain private. [Media metadata](../site/public/media/catalog.json) records the current selected derivatives.
+The [CSV](verification.csv) is the same machine-readable evidence summary. Raw logs, preimages, recorder masters and source inventories remain private. The retired website’s media catalog is no longer distributed.
 
 Temporary homes use the source PC’s already installed software and cannot establish package provisioning, login startup or hardware portability. The fixture migration deliberately starts with an older managed file and unrelated user edits; it is not an upgrade test from a nonexistent earlier public release.
 
-Before a stable release: provision and verify a fresh CachyOS test base, follow the guide exactly, exercise first login/logout/recovery and all core daily flows, resolve portal failures, test appropriate physical hardware, and watch every derivative at normal speed through three loop wraps. A running daemon, hash check, screenshot or contact sheet is not a substitute for those checks.
+Before a stable release: provision and verify a fresh CachyOS test base, follow the guide exactly, exercise first login/logout/recovery and all core daily flows, resolve portal failures, test appropriate physical hardware, and review any published motion evidence at normal speed through three loop wraps. A running daemon, hash check, screenshot or contact sheet is not a substitute for those checks.
 
-The portfolio-based showcase candidate uses fresh source-PC recordings at normal application opacity. Its website build, browser and visual checks are separate from installer acceptance. The requested Flatpak application was unavailable in Discover’s isolated demo catalog. Portal failures and fresh-system/laptop acceptance remain open. No lock/unlock flow is demonstrated. The review branch is not a production release.
+The website and non-banner showcase media are retired. Historical capture observations above remain scoped to their original environment; they do not certify the current installed environment. Portal failures and fresh-system/laptop acceptance remain open. The preserved README banner is presentation artwork, not installation evidence.

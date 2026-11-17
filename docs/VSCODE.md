@@ -15,7 +15,7 @@ In VS Code, run **Preferences: Open Profiles**, use the arrow beside **New Profi
 
 The profile contains sanitized settings, nine keyboard entries, algorithm snippets and eight extension IDs. Import was exercised through the actual Microsoft profile UI with independent user-data and extension directories; the resulting files and extension list were verified. Never share the live extensions directory with a temporary VS Code instance. Extensions may ask for publisher trust and download current versions.
 
-The theme is **Monochromator Dark Amethyst** (`beem.monochromator` 0.36.1 on the source). The exact syntax accent is `#d559ff`; the active profile's UI borders use `#ac79c4` and focus uses `#9361ad`. Font size is 14, ligatures off, and no font-family override was set in the active profile. Showcase clips use normal application/compositor opacity. The exported editor profile contains no custom CSS injection.
+The theme is **Monochromator Dark Amethyst** (`beem.monochromator` 0.36.1 on the source). The exact syntax accent is `#d559ff`; the active profile's UI borders use `#ac79c4` and focus uses `#9361ad`. Font size is 14, ligatures off, and no font-family override was set in the active profile. The exported editor profile contains no custom CSS injection.
 
 ## Work
 
