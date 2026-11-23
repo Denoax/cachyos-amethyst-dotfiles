@@ -13,8 +13,7 @@ errors=[]
 for p in files:
     if not p.exists():errors.append('missing tracked file '+str(p.relative_to(ROOT)));continue
     rel=str(p.relative_to(ROOT))
-    # The full natural-cycle README banner has a narrow measured allowance.
-    limit=12*1024*1024 if rel=='assets/banner/banner.gif' else 8*1024*1024
+    limit=8*1024*1024
     if p.stat().st_size>limit:errors.append('oversized Git asset '+rel)
     try:s=p.read_text()
     except UnicodeDecodeError:continue

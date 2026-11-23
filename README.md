@@ -1,19 +1,24 @@
-<picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/banner/banner.png">
-  <source type="image/webp" srcset="assets/banner/banner.webp">
-  <img src="assets/banner/banner.gif" width="100%" alt="AMETHYST over the current naturally animated monochrome wallpaper">
-</picture>
+<a href="https://denoax.github.io/cachyos-amethyst-dotfiles/"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/banner/amethyst-still.webp"><img src="assets/banner/amethyst-river.webp" alt="Amethyst crystal over the river. Open the interactive CachyOS desktop showcase." width="100%"></picture></a>
 
-A personal CachyOS desktop with Hyprland and Caelestia.
+# CachyOS Amethyst
 
-[Installation & recovery](docs/INSTALL.md) · [Shortcuts](docs/SHORTCUTS.md) · [Compatibility](docs/COMPATIBILITY.md) · [VS Code](docs/VSCODE.md)
+A monochrome Hyprland desktop built around Caelestia, with eleven accent colors, a keyboard-driven shell and a VS Code workspace for competitive programming.
 
-**Experimental alpha.** Fresh CachyOS installation, first login and physical-laptop acceptance remain unverified. Portal failures remain open; source-PC observations do not establish fresh-system compatibility.
+**[Enter the interactive showcase ↗](https://denoax.github.io/cachyos-amethyst-dotfiles/)** · [Installation and rollback](docs/INSTALL.md) · [Keyboard shortcuts](docs/SHORTCUTS.md)
 
-Review the generated file plan before applying it and retain the transaction ID for rollback. The installer manages selected user files; it does not install the OS or change boot, encryption or GPU drivers.
+Drag the crystal, scroll down to the recording panels and open **Colors** to switch the desktop palette. The river leads to the download and setup guide.
 
-[Verification](docs/VERIFICATION.md) · [Troubleshooting](docs/TROUBLESHOOTING.md) · [Updates](docs/UPDATE.md) · [Asset credits](docs/ASSETS.md) · [License](LICENSE)
+## Install on CachyOS
 
-[Banner GIF](assets/banner/banner.gif) · [Animated WebP](assets/banner/banner.webp) · [Banner MP4](assets/banner/banner.mp4) · [Static banner](assets/banner/banner.png)
+Start in a working CachyOS Hyprland session and install the [prerequisites](packages/README.md). From the extracted repository, run these checks before applying the laptop profile.
 
-The existing banner is preserved unchanged. Its wallpaper retains its [original rights](docs/ASSETS.md); the raw wallpaper is excluded from this distribution.
+```sh
+./install.sh doctor
+./install.sh plan --profile laptop --with shell-patch
+```
+
+Review the file plan and follow the [installation guide](docs/INSTALL.md) to apply, verify and retain the transaction ID for rollback.
+
+**Experimental alpha.** Fresh installation, first login and physical-laptop acceptance remain open. See [compatibility](docs/COMPATIBILITY.md) and [verification](docs/VERIFICATION.md) for the tested configurations and current portal issues.
+
+[VS Code setup](docs/VSCODE.md) · [Troubleshooting](docs/TROUBLESHOOTING.md) · [Updates](docs/UPDATE.md) · [Showcase files](https://github.com/Denoax/cachyos-amethyst-dotfiles/tree/gh-pages) · [Asset credits](docs/ASSETS.md) · [License](LICENSE)

@@ -30,4 +30,4 @@ Temporary homes use the source PC’s already installed software and cannot esta
 
 Before a stable release: provision and verify a fresh CachyOS test base, follow the guide exactly, exercise first login/logout/recovery and all core daily flows, resolve portal failures, test appropriate physical hardware, and review any published motion evidence at normal speed through three loop wraps. A running daemon, hash check, screenshot or contact sheet is not a substitute for those checks.
 
-The website and non-banner showcase media are retired. Historical capture observations above remain scoped to their original environment; they do not certify the current installed environment. Portal failures and fresh-system/laptop acceptance remain open. The preserved README banner is presentation artwork, not installation evidence.
+Historical capture observations above remain scoped to their original environment; they do not certify the current installed environment. Portal failures and fresh-system/laptop acceptance remain open. The README banner is presentation artwork, not installation evidence.
