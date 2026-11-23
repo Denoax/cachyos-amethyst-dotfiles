@@ -1,0 +1,1075 @@
+[
+  {
+    "id": "native-launcher",
+    "label": "Launcher",
+    "variants": {
+      "amethyst": {
+        "src": "./intro-media/capture/amethyst/native-launcher.mp4",
+        "poster": "./intro-media/capture/amethyst/native-launcher.webp"
+      },
+      "glacier": {
+        "src": "./intro-media/capture/glacier/native-launcher.mp4",
+        "poster": "./intro-media/capture/glacier/native-launcher.webp"
+      },
+      "amber": {
+        "src": "./intro-media/capture/amber/native-launcher.mp4",
+        "poster": "./intro-media/capture/amber/native-launcher.webp"
+      },
+      "crimson": {
+        "src": "./intro-media/capture/crimson/native-launcher.mp4",
+        "poster": "./intro-media/capture/crimson/native-launcher.webp"
+      },
+      "tangerine": {
+        "src": "./intro-media/capture/tangerine/native-launcher.mp4",
+        "poster": "./intro-media/capture/tangerine/native-launcher.webp"
+      },
+      "lemon": {
+        "src": "./intro-media/capture/lemon/native-launcher.mp4",
+        "poster": "./intro-media/capture/lemon/native-launcher.webp"
+      },
+      "leaf": {
+        "src": "./intro-media/capture/leaf/native-launcher.mp4",
+        "poster": "./intro-media/capture/leaf/native-launcher.webp"
+      },
+      "lagoon": {
+        "src": "./intro-media/capture/lagoon/native-launcher.mp4",
+        "poster": "./intro-media/capture/lagoon/native-launcher.webp"
+      },
+      "cobalt": {
+        "src": "./intro-media/capture/cobalt/native-launcher.mp4",
+        "poster": "./intro-media/capture/cobalt/native-launcher.webp"
+      },
+      "rose": {
+        "src": "./intro-media/capture/rose/native-launcher.mp4",
+        "poster": "./intro-media/capture/rose/native-launcher.webp"
+      },
+      "pearl": {
+        "src": "./intro-media/capture/pearl/native-launcher.mp4",
+        "poster": "./intro-media/capture/pearl/native-launcher.webp"
+      }
+    }
+  },
+  {
+    "id": "native-dashboard",
+    "label": "Dashboard",
+    "variants": {
+      "amethyst": {
+        "src": "./intro-media/capture/amethyst/native-dashboard.mp4",
+        "poster": "./intro-media/capture/amethyst/native-dashboard.webp"
+      },
+      "glacier": {
+        "src": "./intro-media/capture/glacier/native-dashboard.mp4",
+        "poster": "./intro-media/capture/glacier/native-dashboard.webp"
+      },
+      "amber": {
+        "src": "./intro-media/capture/amber/native-dashboard.mp4",
+        "poster": "./intro-media/capture/amber/native-dashboard.webp"
+      },
+      "crimson": {
+        "src": "./intro-media/capture/crimson/native-dashboard.mp4",
+        "poster": "./intro-media/capture/crimson/native-dashboard.webp"
+      },
+      "tangerine": {
+        "src": "./intro-media/capture/tangerine/native-dashboard.mp4",
+        "poster": "./intro-media/capture/tangerine/native-dashboard.webp"
+      },
+      "lemon": {
+        "src": "./intro-media/capture/lemon/native-dashboard.mp4",
+        "poster": "./intro-media/capture/lemon/native-dashboard.webp"
+      },
+      "leaf": {
+        "src": "./intro-media/capture/leaf/native-dashboard.mp4",
+        "poster": "./intro-media/capture/leaf/native-dashboard.webp"
+      },
+      "lagoon": {
+        "src": "./intro-media/capture/lagoon/native-dashboard.mp4",
+        "poster": "./intro-media/capture/lagoon/native-dashboard.webp"
+      },
+      "cobalt": {
+        "src": "./intro-media/capture/cobalt/native-dashboard.mp4",
+        "poster": "./intro-media/capture/cobalt/native-dashboard.webp"
+      },
+      "rose": {
+        "src": "./intro-media/capture/rose/native-dashboard.mp4",
+        "poster": "./intro-media/capture/rose/native-dashboard.webp"
+      },
+      "pearl": {
+        "src": "./intro-media/capture/pearl/native-dashboard.mp4",
+        "poster": "./intro-media/capture/pearl/native-dashboard.webp"
+      }
+    }
+  },
+  {
+    "id": "editor",
+    "label": "Editor",
+    "variants": {
+      "amethyst": {
+        "src": "./intro-media/capture/amethyst/editor.mp4",
+        "poster": "./intro-media/capture/amethyst/editor.webp"
+      },
+      "glacier": {
+        "src": "./intro-media/capture/glacier/editor.mp4",
+        "poster": "./intro-media/capture/glacier/editor.webp"
+      },
+      "amber": {
+        "src": "./intro-media/capture/amber/editor.mp4",
+        "poster": "./intro-media/capture/amber/editor.webp"
+      },
+      "crimson": {
+        "src": "./intro-media/capture/crimson/editor.mp4",
+        "poster": "./intro-media/capture/crimson/editor.webp"
+      },
+      "tangerine": {
+        "src": "./intro-media/capture/tangerine/editor.mp4",
+        "poster": "./intro-media/capture/tangerine/editor.webp"
+      },
+      "lemon": {
+        "src": "./intro-media/capture/lemon/editor.mp4",
+        "poster": "./intro-media/capture/lemon/editor.webp"
+      },
+      "leaf": {
+        "src": "./intro-media/capture/leaf/editor.mp4",
+        "poster": "./intro-media/capture/leaf/editor.webp"
+      },
+      "lagoon": {
+        "src": "./intro-media/capture/lagoon/editor.mp4",
+        "poster": "./intro-media/capture/lagoon/editor.webp"
+      },
+      "cobalt": {
+        "src": "./intro-media/capture/cobalt/editor.mp4",
+        "poster": "./intro-media/capture/cobalt/editor.webp"
+      },
+      "rose": {
+        "src": "./intro-media/capture/rose/editor.mp4",
+        "poster": "./intro-media/capture/rose/editor.webp"
+      },
+      "pearl": {
+        "src": "./intro-media/capture/pearl/editor.mp4",
+        "poster": "./intro-media/capture/pearl/editor.webp"
+      }
+    }
+  },
+  {
+    "id": "native-files",
+    "label": "Open Files",
+    "variants": {
+      "amethyst": {
+        "src": "./intro-media/capture/amethyst/native-files.mp4",
+        "poster": "./intro-media/capture/amethyst/native-files.webp"
+      },
+      "glacier": {
+        "src": "./intro-media/capture/glacier/native-files.mp4",
+        "poster": "./intro-media/capture/glacier/native-files.webp"
+      },
+      "amber": {
+        "src": "./intro-media/capture/amber/native-files.mp4",
+        "poster": "./intro-media/capture/amber/native-files.webp"
+      },
+      "crimson": {
+        "src": "./intro-media/capture/crimson/native-files.mp4",
+        "poster": "./intro-media/capture/crimson/native-files.webp"
+      },
+      "tangerine": {
+        "src": "./intro-media/capture/tangerine/native-files.mp4",
+        "poster": "./intro-media/capture/tangerine/native-files.webp"
+      },
+      "lemon": {
+        "src": "./intro-media/capture/lemon/native-files.mp4",
+        "poster": "./intro-media/capture/lemon/native-files.webp"
+      },
+      "leaf": {
+        "src": "./intro-media/capture/leaf/native-files.mp4",
+        "poster": "./intro-media/capture/leaf/native-files.webp"
+      },
+      "lagoon": {
+        "src": "./intro-media/capture/lagoon/native-files.mp4",
+        "poster": "./intro-media/capture/lagoon/native-files.webp"
+      },
+      "cobalt": {
+        "src": "./intro-media/capture/cobalt/native-files.mp4",
+        "poster": "./intro-media/capture/cobalt/native-files.webp"
+      },
+      "rose": {
+        "src": "./intro-media/capture/rose/native-files.mp4",
+        "poster": "./intro-media/capture/rose/native-files.webp"
+      },
+      "pearl": {
+        "src": "./intro-media/capture/pearl/native-files.mp4",
+        "poster": "./intro-media/capture/pearl/native-files.webp"
+      }
+    }
+  },
+  {
+    "id": "native-desktop",
+    "label": "Moving desktop",
+    "variants": {
+      "amethyst": {
+        "src": "./intro-media/capture/amethyst/native-desktop.mp4",
+        "poster": "./intro-media/capture/amethyst/native-desktop.webp"
+      },
+      "glacier": {
+        "src": "./intro-media/capture/glacier/native-desktop.mp4",
+        "poster": "./intro-media/capture/glacier/native-desktop.webp"
+      },
+      "amber": {
+        "src": "./intro-media/capture/amber/native-desktop.mp4",
+        "poster": "./intro-media/capture/amber/native-desktop.webp"
+      },
+      "crimson": {
+        "src": "./intro-media/capture/crimson/native-desktop.mp4",
+        "poster": "./intro-media/capture/crimson/native-desktop.webp"
+      },
+      "tangerine": {
+        "src": "./intro-media/capture/tangerine/native-desktop.mp4",
+        "poster": "./intro-media/capture/tangerine/native-desktop.webp"
+      },
+      "lemon": {
+        "src": "./intro-media/capture/lemon/native-desktop.mp4",
+        "poster": "./intro-media/capture/lemon/native-desktop.webp"
+      },
+      "leaf": {
+        "src": "./intro-media/capture/leaf/native-desktop.mp4",
+        "poster": "./intro-media/capture/leaf/native-desktop.webp"
+      },
+      "lagoon": {
+        "src": "./intro-media/capture/lagoon/native-desktop.mp4",
+        "poster": "./intro-media/capture/lagoon/native-desktop.webp"
+      },
+      "cobalt": {
+        "src": "./intro-media/capture/cobalt/native-desktop.mp4",
+        "poster": "./intro-media/capture/cobalt/native-desktop.webp"
+      },
+      "rose": {
+        "src": "./intro-media/capture/rose/native-desktop.mp4",
+        "poster": "./intro-media/capture/rose/native-desktop.webp"
+      },
+      "pearl": {
+        "src": "./intro-media/capture/pearl/native-desktop.mp4",
+        "poster": "./intro-media/capture/pearl/native-desktop.webp"
+      }
+    }
+  },
+  {
+    "id": "native-nexus",
+    "label": "Settings overview",
+    "variants": {}
+  },
+  {
+    "id": "native-terminal",
+    "label": "Open a terminal",
+    "variants": {
+      "amethyst": {
+        "src": "./intro-media/capture/amethyst/native-terminal.mp4",
+        "poster": "./intro-media/capture/amethyst/native-terminal.webp"
+      },
+      "glacier": {
+        "src": "./intro-media/capture/glacier/native-terminal.mp4",
+        "poster": "./intro-media/capture/glacier/native-terminal.webp"
+      },
+      "amber": {
+        "src": "./intro-media/capture/amber/native-terminal.mp4",
+        "poster": "./intro-media/capture/amber/native-terminal.webp"
+      },
+      "crimson": {
+        "src": "./intro-media/capture/crimson/native-terminal.mp4",
+        "poster": "./intro-media/capture/crimson/native-terminal.webp"
+      },
+      "tangerine": {
+        "src": "./intro-media/capture/tangerine/native-terminal.mp4",
+        "poster": "./intro-media/capture/tangerine/native-terminal.webp"
+      },
+      "lemon": {
+        "src": "./intro-media/capture/lemon/native-terminal.mp4",
+        "poster": "./intro-media/capture/lemon/native-terminal.webp"
+      },
+      "leaf": {
+        "src": "./intro-media/capture/leaf/native-terminal.mp4",
+        "poster": "./intro-media/capture/leaf/native-terminal.webp"
+      },
+      "lagoon": {
+        "src": "./intro-media/capture/lagoon/native-terminal.mp4",
+        "poster": "./intro-media/capture/lagoon/native-terminal.webp"
+      },
+      "cobalt": {
+        "src": "./intro-media/capture/cobalt/native-terminal.mp4",
+        "poster": "./intro-media/capture/cobalt/native-terminal.webp"
+      },
+      "rose": {
+        "src": "./intro-media/capture/rose/native-terminal.mp4",
+        "poster": "./intro-media/capture/rose/native-terminal.webp"
+      },
+      "pearl": {
+        "src": "./intro-media/capture/pearl/native-terminal.mp4",
+        "poster": "./intro-media/capture/pearl/native-terminal.webp"
+      }
+    }
+  },
+  {
+    "id": "settings-apps",
+    "label": "Settings: Apps",
+    "variants": {
+      "amethyst": {
+        "src": "./intro-media/capture/amethyst/settings-apps.mp4",
+        "poster": "./intro-media/capture/amethyst/settings-apps.webp"
+      },
+      "glacier": {
+        "src": "./intro-media/capture/glacier/settings-apps.mp4",
+        "poster": "./intro-media/capture/glacier/settings-apps.webp"
+      },
+      "amber": {
+        "src": "./intro-media/capture/amber/settings-apps.mp4",
+        "poster": "./intro-media/capture/amber/settings-apps.webp"
+      },
+      "crimson": {
+        "src": "./intro-media/capture/crimson/settings-apps.mp4",
+        "poster": "./intro-media/capture/crimson/settings-apps.webp"
+      },
+      "tangerine": {
+        "src": "./intro-media/capture/tangerine/settings-apps.mp4",
+        "poster": "./intro-media/capture/tangerine/settings-apps.webp"
+      },
+      "lemon": {
+        "src": "./intro-media/capture/lemon/settings-apps.mp4",
+        "poster": "./intro-media/capture/lemon/settings-apps.webp"
+      },
+      "leaf": {
+        "src": "./intro-media/capture/leaf/settings-apps.mp4",
+        "poster": "./intro-media/capture/leaf/settings-apps.webp"
+      },
+      "lagoon": {
+        "src": "./intro-media/capture/lagoon/settings-apps.mp4",
+        "poster": "./intro-media/capture/lagoon/settings-apps.webp"
+      },
+      "cobalt": {
+        "src": "./intro-media/capture/cobalt/settings-apps.mp4",
+        "poster": "./intro-media/capture/cobalt/settings-apps.webp"
+      },
+      "rose": {
+        "src": "./intro-media/capture/rose/settings-apps.mp4",
+        "poster": "./intro-media/capture/rose/settings-apps.webp"
+      },
+      "pearl": {
+        "src": "./intro-media/capture/pearl/settings-apps.mp4",
+        "poster": "./intro-media/capture/pearl/settings-apps.webp"
+      }
+    }
+  },
+  {
+    "id": "settings-audio",
+    "label": "Settings: Audio",
+    "variants": {
+      "amethyst": {
+        "src": "./intro-media/capture/amethyst/settings-audio.mp4",
+        "poster": "./intro-media/capture/amethyst/settings-audio.webp"
+      },
+      "glacier": {
+        "src": "./intro-media/capture/glacier/settings-audio.mp4",
+        "poster": "./intro-media/capture/glacier/settings-audio.webp"
+      },
+      "amber": {
+        "src": "./intro-media/capture/amber/settings-audio.mp4",
+        "poster": "./intro-media/capture/amber/settings-audio.webp"
+      },
+      "crimson": {
+        "src": "./intro-media/capture/crimson/settings-audio.mp4",
+        "poster": "./intro-media/capture/crimson/settings-audio.webp"
+      },
+      "tangerine": {
+        "src": "./intro-media/capture/tangerine/settings-audio.mp4",
+        "poster": "./intro-media/capture/tangerine/settings-audio.webp"
+      },
+      "lemon": {
+        "src": "./intro-media/capture/lemon/settings-audio.mp4",
+        "poster": "./intro-media/capture/lemon/settings-audio.webp"
+      },
+      "leaf": {
+        "src": "./intro-media/capture/leaf/settings-audio.mp4",
+        "poster": "./intro-media/capture/leaf/settings-audio.webp"
+      },
+      "lagoon": {
+        "src": "./intro-media/capture/lagoon/settings-audio.mp4",
+        "poster": "./intro-media/capture/lagoon/settings-audio.webp"
+      },
+      "cobalt": {
+        "src": "./intro-media/capture/cobalt/settings-audio.mp4",
+        "poster": "./intro-media/capture/cobalt/settings-audio.webp"
+      },
+      "rose": {
+        "src": "./intro-media/capture/rose/settings-audio.mp4",
+        "poster": "./intro-media/capture/rose/settings-audio.webp"
+      },
+      "pearl": {
+        "src": "./intro-media/capture/pearl/settings-audio.mp4",
+        "poster": "./intro-media/capture/pearl/settings-audio.webp"
+      }
+    }
+  },
+  {
+    "id": "settings-panels",
+    "label": "Settings: Panels",
+    "variants": {
+      "amethyst": {
+        "src": "./intro-media/capture/amethyst/settings-panels.mp4",
+        "poster": "./intro-media/capture/amethyst/settings-panels.webp"
+      },
+      "glacier": {
+        "src": "./intro-media/capture/glacier/settings-panels.mp4",
+        "poster": "./intro-media/capture/glacier/settings-panels.webp"
+      },
+      "amber": {
+        "src": "./intro-media/capture/amber/settings-panels.mp4",
+        "poster": "./intro-media/capture/amber/settings-panels.webp"
+      },
+      "crimson": {
+        "src": "./intro-media/capture/crimson/settings-panels.mp4",
+        "poster": "./intro-media/capture/crimson/settings-panels.webp"
+      },
+      "tangerine": {
+        "src": "./intro-media/capture/tangerine/settings-panels.mp4",
+        "poster": "./intro-media/capture/tangerine/settings-panels.webp"
+      },
+      "lemon": {
+        "src": "./intro-media/capture/lemon/settings-panels.mp4",
+        "poster": "./intro-media/capture/lemon/settings-panels.webp"
+      },
+      "leaf": {
+        "src": "./intro-media/capture/leaf/settings-panels.mp4",
+        "poster": "./intro-media/capture/leaf/settings-panels.webp"
+      },
+      "lagoon": {
+        "src": "./intro-media/capture/lagoon/settings-panels.mp4",
+        "poster": "./intro-media/capture/lagoon/settings-panels.webp"
+      },
+      "cobalt": {
+        "src": "./intro-media/capture/cobalt/settings-panels.mp4",
+        "poster": "./intro-media/capture/cobalt/settings-panels.webp"
+      },
+      "rose": {
+        "src": "./intro-media/capture/rose/settings-panels.mp4",
+        "poster": "./intro-media/capture/rose/settings-panels.webp"
+      },
+      "pearl": {
+        "src": "./intro-media/capture/pearl/settings-panels.mp4",
+        "poster": "./intro-media/capture/pearl/settings-panels.webp"
+      }
+    }
+  },
+  {
+    "id": "settings-services",
+    "label": "Settings: Services",
+    "variants": {
+      "amethyst": {
+        "src": "./intro-media/capture/amethyst/settings-services.mp4",
+        "poster": "./intro-media/capture/amethyst/settings-services.webp"
+      },
+      "glacier": {
+        "src": "./intro-media/capture/glacier/settings-services.mp4",
+        "poster": "./intro-media/capture/glacier/settings-services.webp"
+      },
+      "amber": {
+        "src": "./intro-media/capture/amber/settings-services.mp4",
+        "poster": "./intro-media/capture/amber/settings-services.webp"
+      },
+      "crimson": {
+        "src": "./intro-media/capture/crimson/settings-services.mp4",
+        "poster": "./intro-media/capture/crimson/settings-services.webp"
+      },
+      "tangerine": {
+        "src": "./intro-media/capture/tangerine/settings-services.mp4",
+        "poster": "./intro-media/capture/tangerine/settings-services.webp"
+      },
+      "lemon": {
+        "src": "./intro-media/capture/lemon/settings-services.mp4",
+        "poster": "./intro-media/capture/lemon/settings-services.webp"
+      },
+      "leaf": {
+        "src": "./intro-media/capture/leaf/settings-services.mp4",
+        "poster": "./intro-media/capture/leaf/settings-services.webp"
+      },
+      "lagoon": {
+        "src": "./intro-media/capture/lagoon/settings-services.mp4",
+        "poster": "./intro-media/capture/lagoon/settings-services.webp"
+      },
+      "cobalt": {
+        "src": "./intro-media/capture/cobalt/settings-services.mp4",
+        "poster": "./intro-media/capture/cobalt/settings-services.webp"
+      },
+      "rose": {
+        "src": "./intro-media/capture/rose/settings-services.mp4",
+        "poster": "./intro-media/capture/rose/settings-services.webp"
+      },
+      "pearl": {
+        "src": "./intro-media/capture/pearl/settings-services.mp4",
+        "poster": "./intro-media/capture/pearl/settings-services.webp"
+      }
+    }
+  },
+  {
+    "id": "launcher",
+    "label": "Search and launch",
+    "variants": {
+      "amethyst": {
+        "src": "./intro-media/capture/amethyst/launcher.mp4",
+        "poster": "./intro-media/capture/amethyst/launcher.webp"
+      },
+      "glacier": {
+        "src": "./intro-media/capture/glacier/launcher.mp4",
+        "poster": "./intro-media/capture/glacier/launcher.webp"
+      },
+      "amber": {
+        "src": "./intro-media/capture/amber/launcher.mp4",
+        "poster": "./intro-media/capture/amber/launcher.webp"
+      },
+      "crimson": {
+        "src": "./intro-media/capture/crimson/launcher.mp4",
+        "poster": "./intro-media/capture/crimson/launcher.webp"
+      },
+      "tangerine": {
+        "src": "./intro-media/capture/tangerine/launcher.mp4",
+        "poster": "./intro-media/capture/tangerine/launcher.webp"
+      },
+      "lemon": {
+        "src": "./intro-media/capture/lemon/launcher.mp4",
+        "poster": "./intro-media/capture/lemon/launcher.webp"
+      },
+      "leaf": {
+        "src": "./intro-media/capture/leaf/launcher.mp4",
+        "poster": "./intro-media/capture/leaf/launcher.webp"
+      },
+      "lagoon": {
+        "src": "./intro-media/capture/lagoon/launcher.mp4",
+        "poster": "./intro-media/capture/lagoon/launcher.webp"
+      },
+      "cobalt": {
+        "src": "./intro-media/capture/cobalt/launcher.mp4",
+        "poster": "./intro-media/capture/cobalt/launcher.webp"
+      },
+      "rose": {
+        "src": "./intro-media/capture/rose/launcher.mp4",
+        "poster": "./intro-media/capture/rose/launcher.webp"
+      },
+      "pearl": {
+        "src": "./intro-media/capture/pearl/launcher.mp4",
+        "poster": "./intro-media/capture/pearl/launcher.webp"
+      }
+    }
+  },
+  {
+    "id": "dashboard",
+    "label": "Dashboard tabs",
+    "variants": {
+      "amethyst": {
+        "src": "./intro-media/capture/amethyst/dashboard.mp4",
+        "poster": "./intro-media/capture/amethyst/dashboard.webp"
+      },
+      "glacier": {
+        "src": "./intro-media/capture/glacier/dashboard.mp4",
+        "poster": "./intro-media/capture/glacier/dashboard.webp"
+      },
+      "amber": {
+        "src": "./intro-media/capture/amber/dashboard.mp4",
+        "poster": "./intro-media/capture/amber/dashboard.webp"
+      },
+      "crimson": {
+        "src": "./intro-media/capture/crimson/dashboard.mp4",
+        "poster": "./intro-media/capture/crimson/dashboard.webp"
+      },
+      "tangerine": {
+        "src": "./intro-media/capture/tangerine/dashboard.mp4",
+        "poster": "./intro-media/capture/tangerine/dashboard.webp"
+      },
+      "lemon": {
+        "src": "./intro-media/capture/lemon/dashboard.mp4",
+        "poster": "./intro-media/capture/lemon/dashboard.webp"
+      },
+      "leaf": {
+        "src": "./intro-media/capture/leaf/dashboard.mp4",
+        "poster": "./intro-media/capture/leaf/dashboard.webp"
+      },
+      "lagoon": {
+        "src": "./intro-media/capture/lagoon/dashboard.mp4",
+        "poster": "./intro-media/capture/lagoon/dashboard.webp"
+      },
+      "cobalt": {
+        "src": "./intro-media/capture/cobalt/dashboard.mp4",
+        "poster": "./intro-media/capture/cobalt/dashboard.webp"
+      },
+      "rose": {
+        "src": "./intro-media/capture/rose/dashboard.mp4",
+        "poster": "./intro-media/capture/rose/dashboard.webp"
+      },
+      "pearl": {
+        "src": "./intro-media/capture/pearl/dashboard.mp4",
+        "poster": "./intro-media/capture/pearl/dashboard.webp"
+      }
+    }
+  },
+  {
+    "id": "dolphin",
+    "label": "Create a folder",
+    "variants": {
+      "amethyst": {
+        "src": "./intro-media/capture/amethyst/dolphin.mp4",
+        "poster": "./intro-media/capture/amethyst/dolphin.webp"
+      },
+      "glacier": {
+        "src": "./intro-media/capture/glacier/dolphin.mp4",
+        "poster": "./intro-media/capture/glacier/dolphin.webp"
+      },
+      "amber": {
+        "src": "./intro-media/capture/amber/dolphin.mp4",
+        "poster": "./intro-media/capture/amber/dolphin.webp"
+      },
+      "crimson": {
+        "src": "./intro-media/capture/crimson/dolphin.mp4",
+        "poster": "./intro-media/capture/crimson/dolphin.webp"
+      },
+      "tangerine": {
+        "src": "./intro-media/capture/tangerine/dolphin.mp4",
+        "poster": "./intro-media/capture/tangerine/dolphin.webp"
+      },
+      "lemon": {
+        "src": "./intro-media/capture/lemon/dolphin.mp4",
+        "poster": "./intro-media/capture/lemon/dolphin.webp"
+      },
+      "leaf": {
+        "src": "./intro-media/capture/leaf/dolphin.mp4",
+        "poster": "./intro-media/capture/leaf/dolphin.webp"
+      },
+      "lagoon": {
+        "src": "./intro-media/capture/lagoon/dolphin.mp4",
+        "poster": "./intro-media/capture/lagoon/dolphin.webp"
+      },
+      "cobalt": {
+        "src": "./intro-media/capture/cobalt/dolphin.mp4",
+        "poster": "./intro-media/capture/cobalt/dolphin.webp"
+      },
+      "rose": {
+        "src": "./intro-media/capture/rose/dolphin.mp4",
+        "poster": "./intro-media/capture/rose/dolphin.webp"
+      },
+      "pearl": {
+        "src": "./intro-media/capture/pearl/dolphin.mp4",
+        "poster": "./intro-media/capture/pearl/dolphin.webp"
+      }
+    }
+  },
+  {
+    "id": "terminal-group",
+    "label": "Terminal group",
+    "variants": {
+      "amethyst": {
+        "src": "./intro-media/capture/amethyst/terminal-group.mp4",
+        "poster": "./intro-media/capture/amethyst/terminal-group.webp"
+      },
+      "glacier": {
+        "src": "./intro-media/capture/glacier/terminal-group.mp4",
+        "poster": "./intro-media/capture/glacier/terminal-group.webp"
+      },
+      "amber": {
+        "src": "./intro-media/capture/amber/terminal-group.mp4",
+        "poster": "./intro-media/capture/amber/terminal-group.webp"
+      },
+      "crimson": {
+        "src": "./intro-media/capture/crimson/terminal-group.mp4",
+        "poster": "./intro-media/capture/crimson/terminal-group.webp"
+      },
+      "tangerine": {
+        "src": "./intro-media/capture/tangerine/terminal-group.mp4",
+        "poster": "./intro-media/capture/tangerine/terminal-group.webp"
+      },
+      "lemon": {
+        "src": "./intro-media/capture/lemon/terminal-group.mp4",
+        "poster": "./intro-media/capture/lemon/terminal-group.webp"
+      },
+      "leaf": {
+        "src": "./intro-media/capture/leaf/terminal-group.mp4",
+        "poster": "./intro-media/capture/leaf/terminal-group.webp"
+      },
+      "lagoon": {
+        "src": "./intro-media/capture/lagoon/terminal-group.mp4",
+        "poster": "./intro-media/capture/lagoon/terminal-group.webp"
+      },
+      "cobalt": {
+        "src": "./intro-media/capture/cobalt/terminal-group.mp4",
+        "poster": "./intro-media/capture/cobalt/terminal-group.webp"
+      },
+      "rose": {
+        "src": "./intro-media/capture/rose/terminal-group.mp4",
+        "poster": "./intro-media/capture/rose/terminal-group.webp"
+      },
+      "pearl": {
+        "src": "./intro-media/capture/pearl/terminal-group.mp4",
+        "poster": "./intro-media/capture/pearl/terminal-group.webp"
+      }
+    }
+  },
+  {
+    "id": "gather",
+    "label": "Gather windows",
+    "variants": {
+      "amethyst": {
+        "src": "./intro-media/capture/amethyst/gather.mp4",
+        "poster": "./intro-media/capture/amethyst/gather.webp"
+      },
+      "glacier": {
+        "src": "./intro-media/capture/glacier/gather.mp4",
+        "poster": "./intro-media/capture/glacier/gather.webp"
+      },
+      "amber": {
+        "src": "./intro-media/capture/amber/gather.mp4",
+        "poster": "./intro-media/capture/amber/gather.webp"
+      },
+      "crimson": {
+        "src": "./intro-media/capture/crimson/gather.mp4",
+        "poster": "./intro-media/capture/crimson/gather.webp"
+      },
+      "tangerine": {
+        "src": "./intro-media/capture/tangerine/gather.mp4",
+        "poster": "./intro-media/capture/tangerine/gather.webp"
+      },
+      "lemon": {
+        "src": "./intro-media/capture/lemon/gather.mp4",
+        "poster": "./intro-media/capture/lemon/gather.webp"
+      },
+      "leaf": {
+        "src": "./intro-media/capture/leaf/gather.mp4",
+        "poster": "./intro-media/capture/leaf/gather.webp"
+      },
+      "lagoon": {
+        "src": "./intro-media/capture/lagoon/gather.mp4",
+        "poster": "./intro-media/capture/lagoon/gather.webp"
+      },
+      "cobalt": {
+        "src": "./intro-media/capture/cobalt/gather.mp4",
+        "poster": "./intro-media/capture/cobalt/gather.webp"
+      },
+      "rose": {
+        "src": "./intro-media/capture/rose/gather.mp4",
+        "poster": "./intro-media/capture/rose/gather.webp"
+      },
+      "pearl": {
+        "src": "./intro-media/capture/pearl/gather.mp4",
+        "poster": "./intro-media/capture/pearl/gather.webp"
+      }
+    }
+  },
+  {
+    "id": "clipboard",
+    "label": "Clipboard",
+    "variants": {
+      "amethyst": {
+        "src": "./intro-media/capture/amethyst/clipboard.mp4",
+        "poster": "./intro-media/capture/amethyst/clipboard.webp"
+      },
+      "glacier": {
+        "src": "./intro-media/capture/glacier/clipboard.mp4",
+        "poster": "./intro-media/capture/glacier/clipboard.webp"
+      },
+      "amber": {
+        "src": "./intro-media/capture/amber/clipboard.mp4",
+        "poster": "./intro-media/capture/amber/clipboard.webp"
+      },
+      "crimson": {
+        "src": "./intro-media/capture/crimson/clipboard.mp4",
+        "poster": "./intro-media/capture/crimson/clipboard.webp"
+      },
+      "tangerine": {
+        "src": "./intro-media/capture/tangerine/clipboard.mp4",
+        "poster": "./intro-media/capture/tangerine/clipboard.webp"
+      },
+      "lemon": {
+        "src": "./intro-media/capture/lemon/clipboard.mp4",
+        "poster": "./intro-media/capture/lemon/clipboard.webp"
+      },
+      "leaf": {
+        "src": "./intro-media/capture/leaf/clipboard.mp4",
+        "poster": "./intro-media/capture/leaf/clipboard.webp"
+      },
+      "lagoon": {
+        "src": "./intro-media/capture/lagoon/clipboard.mp4",
+        "poster": "./intro-media/capture/lagoon/clipboard.webp"
+      },
+      "cobalt": {
+        "src": "./intro-media/capture/cobalt/clipboard.mp4",
+        "poster": "./intro-media/capture/cobalt/clipboard.webp"
+      },
+      "rose": {
+        "src": "./intro-media/capture/rose/clipboard.mp4",
+        "poster": "./intro-media/capture/rose/clipboard.webp"
+      },
+      "pearl": {
+        "src": "./intro-media/capture/pearl/clipboard.mp4",
+        "poster": "./intro-media/capture/pearl/clipboard.webp"
+      }
+    }
+  },
+  {
+    "id": "audio",
+    "label": "Audio outputs",
+    "variants": {
+      "amethyst": {
+        "src": "./intro-media/capture/amethyst/audio.mp4",
+        "poster": "./intro-media/capture/amethyst/audio.webp"
+      },
+      "glacier": {
+        "src": "./intro-media/capture/glacier/audio.mp4",
+        "poster": "./intro-media/capture/glacier/audio.webp"
+      },
+      "amber": {
+        "src": "./intro-media/capture/amber/audio.mp4",
+        "poster": "./intro-media/capture/amber/audio.webp"
+      },
+      "crimson": {
+        "src": "./intro-media/capture/crimson/audio.mp4",
+        "poster": "./intro-media/capture/crimson/audio.webp"
+      },
+      "tangerine": {
+        "src": "./intro-media/capture/tangerine/audio.mp4",
+        "poster": "./intro-media/capture/tangerine/audio.webp"
+      },
+      "lemon": {
+        "src": "./intro-media/capture/lemon/audio.mp4",
+        "poster": "./intro-media/capture/lemon/audio.webp"
+      },
+      "leaf": {
+        "src": "./intro-media/capture/leaf/audio.mp4",
+        "poster": "./intro-media/capture/leaf/audio.webp"
+      },
+      "lagoon": {
+        "src": "./intro-media/capture/lagoon/audio.mp4",
+        "poster": "./intro-media/capture/lagoon/audio.webp"
+      },
+      "cobalt": {
+        "src": "./intro-media/capture/cobalt/audio.mp4",
+        "poster": "./intro-media/capture/cobalt/audio.webp"
+      },
+      "rose": {
+        "src": "./intro-media/capture/rose/audio.mp4",
+        "poster": "./intro-media/capture/rose/audio.webp"
+      },
+      "pearl": {
+        "src": "./intro-media/capture/pearl/audio.mp4",
+        "poster": "./intro-media/capture/pearl/audio.webp"
+      }
+    },
+    "details": {
+      "amethyst": {
+        "id": "volume-step",
+        "label": "Adjust output volume",
+        "src": "./intro-media/capture/amethyst/volume-step.mp4",
+        "poster": "./intro-media/capture/amethyst/volume-step.webp"
+      },
+      "glacier": {
+        "id": "volume-step",
+        "label": "Adjust output volume",
+        "src": "./intro-media/capture/glacier/volume-step.mp4",
+        "poster": "./intro-media/capture/glacier/volume-step.webp"
+      },
+      "amber": {
+        "id": "volume-step",
+        "label": "Adjust output volume",
+        "src": "./intro-media/capture/amber/volume-step.mp4",
+        "poster": "./intro-media/capture/amber/volume-step.webp"
+      },
+      "crimson": {
+        "id": "volume-step",
+        "label": "Adjust output volume",
+        "src": "./intro-media/capture/crimson/volume-step.mp4",
+        "poster": "./intro-media/capture/crimson/volume-step.webp"
+      },
+      "tangerine": {
+        "id": "volume-step",
+        "label": "Adjust output volume",
+        "src": "./intro-media/capture/tangerine/volume-step.mp4",
+        "poster": "./intro-media/capture/tangerine/volume-step.webp"
+      },
+      "lemon": {
+        "id": "volume-step",
+        "label": "Adjust output volume",
+        "src": "./intro-media/capture/lemon/volume-step.mp4",
+        "poster": "./intro-media/capture/lemon/volume-step.webp"
+      },
+      "leaf": {
+        "id": "volume-step",
+        "label": "Adjust output volume",
+        "src": "./intro-media/capture/leaf/volume-step.mp4",
+        "poster": "./intro-media/capture/leaf/volume-step.webp"
+      },
+      "lagoon": {
+        "id": "volume-step",
+        "label": "Adjust output volume",
+        "src": "./intro-media/capture/lagoon/volume-step.mp4",
+        "poster": "./intro-media/capture/lagoon/volume-step.webp"
+      },
+      "cobalt": {
+        "id": "volume-step",
+        "label": "Adjust output volume",
+        "src": "./intro-media/capture/cobalt/volume-step.mp4",
+        "poster": "./intro-media/capture/cobalt/volume-step.webp"
+      },
+      "rose": {
+        "id": "volume-step",
+        "label": "Adjust output volume",
+        "src": "./intro-media/capture/rose/volume-step.mp4",
+        "poster": "./intro-media/capture/rose/volume-step.webp"
+      },
+      "pearl": {
+        "id": "volume-step",
+        "label": "Adjust output volume",
+        "src": "./intro-media/capture/pearl/volume-step.mp4",
+        "poster": "./intro-media/capture/pearl/volume-step.webp"
+      }
+    }
+  },
+  {
+    "id": "notification",
+    "label": "Notifications",
+    "variants": {
+      "amethyst": {
+        "src": "./intro-media/capture/amethyst/notification.mp4",
+        "poster": "./intro-media/capture/amethyst/notification.webp"
+      },
+      "glacier": {
+        "src": "./intro-media/capture/glacier/notification.mp4",
+        "poster": "./intro-media/capture/glacier/notification.webp"
+      },
+      "amber": {
+        "src": "./intro-media/capture/amber/notification.mp4",
+        "poster": "./intro-media/capture/amber/notification.webp"
+      },
+      "crimson": {
+        "src": "./intro-media/capture/crimson/notification.mp4",
+        "poster": "./intro-media/capture/crimson/notification.webp"
+      },
+      "tangerine": {
+        "src": "./intro-media/capture/tangerine/notification.mp4",
+        "poster": "./intro-media/capture/tangerine/notification.webp"
+      },
+      "lemon": {
+        "src": "./intro-media/capture/lemon/notification.mp4",
+        "poster": "./intro-media/capture/lemon/notification.webp"
+      },
+      "leaf": {
+        "src": "./intro-media/capture/leaf/notification.mp4",
+        "poster": "./intro-media/capture/leaf/notification.webp"
+      },
+      "lagoon": {
+        "src": "./intro-media/capture/lagoon/notification.mp4",
+        "poster": "./intro-media/capture/lagoon/notification.webp"
+      },
+      "cobalt": {
+        "src": "./intro-media/capture/cobalt/notification.mp4",
+        "poster": "./intro-media/capture/cobalt/notification.webp"
+      },
+      "rose": {
+        "src": "./intro-media/capture/rose/notification.mp4",
+        "poster": "./intro-media/capture/rose/notification.webp"
+      },
+      "pearl": {
+        "src": "./intro-media/capture/pearl/notification.mp4",
+        "poster": "./intro-media/capture/pearl/notification.webp"
+      }
+    }
+  },
+  {
+    "id": "shortcuts",
+    "label": "Shortcuts",
+    "variants": {
+      "amethyst": {
+        "src": "./intro-media/capture/amethyst/shortcuts.mp4",
+        "poster": "./intro-media/capture/amethyst/shortcuts.webp"
+      },
+      "glacier": {
+        "src": "./intro-media/capture/glacier/shortcuts.mp4",
+        "poster": "./intro-media/capture/glacier/shortcuts.webp"
+      },
+      "amber": {
+        "src": "./intro-media/capture/amber/shortcuts.mp4",
+        "poster": "./intro-media/capture/amber/shortcuts.webp"
+      },
+      "crimson": {
+        "src": "./intro-media/capture/crimson/shortcuts.mp4",
+        "poster": "./intro-media/capture/crimson/shortcuts.webp"
+      },
+      "tangerine": {
+        "src": "./intro-media/capture/tangerine/shortcuts.mp4",
+        "poster": "./intro-media/capture/tangerine/shortcuts.webp"
+      },
+      "lemon": {
+        "src": "./intro-media/capture/lemon/shortcuts.mp4",
+        "poster": "./intro-media/capture/lemon/shortcuts.webp"
+      },
+      "leaf": {
+        "src": "./intro-media/capture/leaf/shortcuts.mp4",
+        "poster": "./intro-media/capture/leaf/shortcuts.webp"
+      },
+      "lagoon": {
+        "src": "./intro-media/capture/lagoon/shortcuts.mp4",
+        "poster": "./intro-media/capture/lagoon/shortcuts.webp"
+      },
+      "cobalt": {
+        "src": "./intro-media/capture/cobalt/shortcuts.mp4",
+        "poster": "./intro-media/capture/cobalt/shortcuts.webp"
+      },
+      "rose": {
+        "src": "./intro-media/capture/rose/shortcuts.mp4",
+        "poster": "./intro-media/capture/rose/shortcuts.webp"
+      },
+      "pearl": {
+        "src": "./intro-media/capture/pearl/shortcuts.mp4",
+        "poster": "./intro-media/capture/pearl/shortcuts.webp"
+      }
+    }
+  },
+  {
+    "id": "discover",
+    "label": "Discover",
+    "variants": {
+      "amethyst": {
+        "src": "./intro-media/capture/amethyst/discover.mp4",
+        "poster": "./intro-media/capture/amethyst/discover.webp"
+      },
+      "glacier": {
+        "src": "./intro-media/capture/glacier/discover.mp4",
+        "poster": "./intro-media/capture/glacier/discover.webp"
+      },
+      "amber": {
+        "src": "./intro-media/capture/amber/discover.mp4",
+        "poster": "./intro-media/capture/amber/discover.webp"
+      },
+      "crimson": {
+        "src": "./intro-media/capture/crimson/discover.mp4",
+        "poster": "./intro-media/capture/crimson/discover.webp"
+      },
+      "tangerine": {
+        "src": "./intro-media/capture/tangerine/discover.mp4",
+        "poster": "./intro-media/capture/tangerine/discover.webp"
+      },
+      "lemon": {
+        "src": "./intro-media/capture/lemon/discover.mp4",
+        "poster": "./intro-media/capture/lemon/discover.webp"
+      },
+      "leaf": {
+        "src": "./intro-media/capture/leaf/discover.mp4",
+        "poster": "./intro-media/capture/leaf/discover.webp"
+      },
+      "lagoon": {
+        "src": "./intro-media/capture/lagoon/discover.mp4",
+        "poster": "./intro-media/capture/lagoon/discover.webp"
+      },
+      "cobalt": {
+        "src": "./intro-media/capture/cobalt/discover.mp4",
+        "poster": "./intro-media/capture/cobalt/discover.webp"
+      },
+      "rose": {
+        "src": "./intro-media/capture/rose/discover.mp4",
+        "poster": "./intro-media/capture/rose/discover.webp"
+      },
+      "pearl": {
+        "src": "./intro-media/capture/pearl/discover.mp4",
+        "poster": "./intro-media/capture/pearl/discover.webp"
+      }
+    }
+  }
+]

@@ -1,0 +1,5 @@
+CachyOS Amethyst by Mani Marami Milani
+Interactive scene, original Stillwater score and interface foley from the Amethyst project.
+The supplied portrait and its desktop recordings are published with permission for this showcase.
+Three.js — see Three-MIT.txt. Gooey navigation treatment adapted from Rare UI by Swami Malode — see Rare-UI.txt.
+Inter Medium — see ../fonts/Inter-OFL.txt.

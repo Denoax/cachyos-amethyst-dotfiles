@@ -1,6 +1,58 @@
 <!doctype html>
-<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CachyOS Amethyst by Mani Marami Milani</title>
-<style>html{color-scheme:dark}*{box-sizing:border-box}body{background:#100b15;color:#f4edf7;font:1.06rem/1.65 system-ui,sans-serif;margin:0}main{max-width:72rem;margin:clamp(2rem,9vh,7rem) auto;padding:0 clamp(1rem,3vw,3rem)}picture,img{display:block;width:100%;height:auto}h1{font-size:clamp(1.7rem,3vw,2.6rem);letter-spacing:-.05em;line-height:1.15;margin:2rem 0 .6rem}p{max-width:53ch;color:#d0c5d5}nav{display:flex;gap:.7rem 1.25rem;align-items:center;flex-wrap:wrap}a{color:#e6c8fa;text-underline-offset:.25rem}a:first-child{color:#21122a;background:#ecdafa;padding:.55rem 1rem;border-radius:2rem;text-decoration:none}a:focus-visible{outline:.18rem solid white;outline-offset:.25rem}</style>
-<main><picture><source media="(prefers-reduced-motion: reduce)" srcset="./amethyst.webp"><img src="https://raw.githubusercontent.com/Denoax/cachyos-amethyst-dotfiles/a36708437fb73498b5690926f0c7c1eb1e07cf1d/assets/banner/amethyst-river.webp" alt="An amethyst crystal floats over a dark river between purple mountains." width="1128" height="376"></picture>
-<h1>Get the dotfiles.</h1><p>My CachyOS desktop pairs Hyprland and Caelestia with eleven colorways. Thanks for visiting my desktop.</p><nav aria-label="Project"><a href="https://github.com/Denoax/cachyos-amethyst-dotfiles/archive/refs/heads/main.zip">Download ZIP ↓</a><a href="https://github.com/Denoax/cachyos-amethyst-dotfiles/blob/main/docs/INSTALL.md">Set up on CachyOS</a><a href="https://github.com/Denoax/cachyos-amethyst-dotfiles">View source</a></nav></main></html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#131315"><title>CachyOS Amethyst</title><link rel="icon" type="image/svg+xml" href="./amethyst.svg"><meta name="description" content="Explore Amethyst, a monochrome CachyOS desktop with eleven Caelestia colorways.">  <script type="module" crossorigin src="./assets/scene-018.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DcRndeZ5.css">
+</head>
+<body>
+<a class="skip" href="#recordings">Skip to recordings</a>
+<a class="skip" href="#desktop">Skip to desktop</a>
+<a class="skip" href="#download">Skip to downloads</a>
+<a class="skip" href="https://github.com/Denoax/cachyos-amethyst-dotfiles">Dotfiles ↗</a>
+<div class="world" aria-hidden="true"><canvas id="world"></canvas><div class="shade"></div></div>
+
+<header><div id="palette-switch" hidden></div><div class="controls"><div class="segment">
+<button type="button" id="about-trigger" disabled class="gooey-label" aria-controls="info-panel" aria-haspopup="dialog" aria-expanded="false">About me</button>
+</div><section id="info-panel" role="dialog" aria-labelledby="about-title" tabindex="-1" hidden>
+            <div id="about-glass" class="glass bio">
+              <button type="button" class="close-bio pane-close" aria-label="Close About me">×</button>
+              <img src="./profile/mani.png" width="84" height="84" alt="Luminous line character over a city">
+              <h2 id="about-title">Mani Marami Milani.</h2>
+              <p>I’m a dual major in Mathematics and Computer Science, and a developer for the Government of Canada.</p>
+              <small>Lethbridge, Canada</small>
+              <div class="bio-links">
+                <a href="mailto:mani.maramimilani@uleth.ca">Email ↗</a>
+                <a href="https://github.com/Denoax" target="_blank" rel="noreferrer">GitHub ↗</a>
+                <a href="./notices/credits.txt">Credits ↗</a>
+              </div>
+              <details class="soundtrack">
+                <summary>Soundtrack</summary>
+                <small>Stillwater · Original Amethyst score</small>
+                <div id="music-player" data-status="idle"></div>
+                <button type="button" id="music-retry" hidden>Retry music</button>
+              </details>
+            </div>
+          </section>
+</div></header>
+
+<button type="button" id="sound-toggle" disabled aria-label="Mute sound and music" aria-pressed="false" title="Mute sound and music"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10h4l5-4v12l-5-4H3z"/><path class="waves" d="M15 9q3 3 0 6m3-9q6 6 0 12"/><path class="slash" d="m16 9 6 6m0-6-6 6"/></svg></button>
+<main><section tabindex="-1" id="amethyst" aria-label="Opening"><div class="opening layer"><h1>CachyOS<br><span id="edition-name">Amethyst</span></h1></div></section>
+<section tabindex="-1" id="recordings" aria-label="Desktop recordings"><div class="gallery layer" inert>
+<div class="stage" role="group" aria-label="Choose a recording"></div><div class="legend"><div id="reel-progress" role="group" aria-label="Recording progress"></div><h2 id="clip-label">Recordings</h2><span class="sr-only" id="reel-announcement" role="status"></span><button type="button" id="retry-clip" hidden>Retry recording</button><small id="take-status" role="status" hidden></small><div id="detail-clips" hidden></div></div></div></section>
+<section tabindex="-1" id="desktop" aria-label="Desktop banner"><div class="finale layer" inert><div id="banner">
+          <picture>
+            <source media="(max-width: 1050px)" srcset="./intro-media/compact/amethyst-poster.webp">
+            <img src="./intro-media/amethyst-poster.webp" decoding="async" fetchpriority="high"
+              alt="A monochrome portrait with Amethyst and CachyOS lettering sweeping behind the figure.">
+          </picture>
+          <div id="lens" aria-hidden="true"></div></div>
+<button type="button" class="portrait-retry" aria-label="Portrait playback" hidden>Play portrait</button></div></section></main>
+<footer id="download" tabindex="-1" aria-labelledby="download-title"><div class="closing"><div class="closing-copy"><h2 id="download-title">Get the dotfiles.</h2><p>Thanks for visiting my desktop.</p></div><nav aria-label="Get the CachyOS configuration"><a id="download-repo" href="https://github.com/Denoax/cachyos-amethyst-dotfiles/archive/refs/tags/v0.1.0-alpha.1.zip">Download ZIP <span aria-hidden="true">↓</span></a><details class="setup"><summary>Set up on CachyOS</summary><div class="steps">
+<p>Start in a working x86-64 CachyOS Hyprland session. Install the <a href="https://github.com/Denoax/cachyos-amethyst-dotfiles/blob/v0.1.0-alpha.1/packages/README.md">prerequisites</a>, extract the ZIP, and open a terminal in the extracted folder.</p>
+<pre><code>./install.sh doctor
+./install.sh plan --profile laptop --with shell-patch</code></pre>
+<p>Review the file plan. If the installed shell differs from the pinned revision, follow the tagged guide. To apply the matching profile and patch, run these commands, save the transaction ID, then log back in to Hyprland.</p>
+<pre><code>./install.sh apply --profile laptop --with shell-patch
+./install.sh verify</code></pre>
+<a class="guide" href="https://github.com/Denoax/cachyos-amethyst-dotfiles/blob/v0.1.0-alpha.1/docs/INSTALL.md">Full setup and rollback ↗</a>
+</div></details>
+</nav></div></footer>
+<div id="cloud-passage" hidden aria-hidden="true"><div></div></div></body></html>
