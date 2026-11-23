@@ -1,6 +1,0 @@
-.build/
-.toolchains/
-.cp-source
-.cp-selected
-__pycache__/
-.venv/

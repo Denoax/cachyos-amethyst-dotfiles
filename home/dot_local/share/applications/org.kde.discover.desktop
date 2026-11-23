@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Discover (Flatpak)
-Exec=env QT_QPA_PLATFORMTHEME=kde plasma-discover --backends flatpak-backend %U
-Icon=plasmadiscover
-Categories=System;PackageManager;
-MimeType=x-scheme-handler/appstream;

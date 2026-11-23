@@ -1,5 +1,0 @@
-[Unit]
-Description=CachyOS Amethyst desktop integration
-Wants=caelestia-shell.service caelestia-polkit.service caelestia-clipboard-text.service caelestia-clipboard-image.service mono-theme.service mono-wallpaper.service mono-window-switcher.service
-After=graphical-session.target
-PartOf=graphical-session.target

@@ -1,5 +1,0 @@
-{
-  "preferred_output": "DP-4",
-  "requires_explicit_selection": true,
-  "layout_file": "profiles/workstation.example.lua"
-}

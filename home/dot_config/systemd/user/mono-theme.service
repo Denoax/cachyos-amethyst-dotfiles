@@ -1,7 +1,0 @@
-[Unit]
-Description=Apply locked neutral Caelestia palette once
-PartOf=amethyst-session.target graphical-session.target
-Before=caelestia-shell.service
-[Service]
-Type=oneshot
-ExecStart=%h/.local/bin/caelestia-neutral-theme

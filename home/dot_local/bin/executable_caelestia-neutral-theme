@@ -1,7 +1,0 @@
-#!/usr/bin/env python3
-from pathlib import Path
-import os
-p=Path.home();dst=p/'.local/state/caelestia/scheme.json';src=p/'.local/share/caelestia-monochrome/palette.json'
-content=src.read_bytes()
-if not dst.exists() or dst.read_bytes()!=content:
- tmp=dst.with_suffix('.mono-tmp');tmp.write_bytes(content);os.replace(tmp,dst)
