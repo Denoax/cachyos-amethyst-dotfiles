@@ -1,4 +1,4 @@
-<a href="https://denoax.github.io/cachyos-amethyst-dotfiles/"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/banner/amethyst-still.webp"><img src="assets/banner/amethyst-river.webp" alt="Amethyst crystal over the river. Open the interactive CachyOS desktop showcase." width="100%"></picture></a>
+<a href="https://denoax.github.io/cachyos-amethyst-dotfiles/"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/banner/cachyos-dotfiles-lagoon-still.webp"><img src="assets/banner/cachyos-dotfiles-lagoon-nod.webp" alt="CachyOS dotfiles. Open the interactive desktop showcase." width="100%"></picture></a>
 
 # CachyOS Amethyst
 
