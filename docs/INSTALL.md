@@ -65,3 +65,5 @@ It detects an existing system installation and avoids duplicating the app. It va
 The installer supplies a plain background and a live wallpaper player. Copy any wallpaper videos or stills you own to `~/Pictures/Wallpapers/Monochrome/` on the laptop. After signing in, open the library with **Super+Shift+W**, choose **All screens** or a detected output, and select the wallpaper. To match the reference capture, select the Crimson loop if you have a copy of it. The library remembers the selection on this device.
 
 The laptop profile uses the display's preferred mode and automatic scaling. The controls and dock use available displays automatically. For a local display override, use `~/.config/hypr/amethyst-local.lua`. Personal desktop files and state such as wallpapers, screenshots, clipboard history, alerts and focus notes remain on the device where they were saved.
+
+The system-info panel uses an ASCII logo by default. An optional local Fastfetch config at `~/.config/fastfetch/amethyst-arch.local.jsonc` can point to your own logo image.

@@ -13,11 +13,15 @@ while time.monotonic()<deadline:
  except (OSError,ValueError,KeyError):pass
  time.sleep(.03)
 
+config_dir = Path.home() / '.config/fastfetch'
+local_config = config_dir / 'amethyst-arch.local.jsonc'
+config = local_config if local_config.is_file() else config_dir / 'caelestia-arch.jsonc'
+
 def draw():
  # Delete placements and image data in this terminal before each native Fastfetch render.
  sys.stdout.write('\033_Ga=d,d=A\033\\\033[2J\033[3J\033[H');sys.stdout.flush()
  try:
-  p=subprocess.run(['fastfetch','--config',str(Path.home()/'.config/fastfetch/caelestia-arch.jsonc'),'--pipe','false'],timeout=6)
+  p=subprocess.run(['fastfetch','--config',str(config),'--pipe','false'],timeout=6)
   if p.returncode:print('Fastfetch could not render the configured image and system details.')
  except subprocess.TimeoutExpired:print('Fastfetch rendering timed out; press R then Enter to retry.')
  print('\nR + Enter: refresh   Q + Enter: close');sys.stdout.flush()

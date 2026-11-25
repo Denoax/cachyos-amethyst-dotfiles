@@ -17,6 +17,6 @@ Caelestia supplies notifications and idle/lock behavior. One polkit agent, one w
 
 The helper's preferred output is read from a small machine file. An empty preference uses the currently focused available display; a specified missing display produces a clear no-op rather than moving windows somewhere unexpected. Generic output rules use preferred mode, automatic position and scale. No GPU selectors, audio device IDs, battery IDs or sensors are copied.
 
-Super+D records window identities and normal-workspace locations, temporarily clears fullscreen where needed, gathers visible applications, and restores surviving matching PID/class identities. Super+Shift+D arranges three owned terminal classes while hidden, then reveals the group once. Recovery state is private and session-bound. The exported system-info pane uses native ASCII rather than the source PC's unlicensed local logo.
+Super+D records window identities and normal-workspace locations, temporarily clears fullscreen where needed, gathers visible applications, and restores surviving matching PID/class identities. Super+Shift+D arranges three owned terminal classes while hidden, then reveals the group once. Recovery state is private and session-bound. The system-info pane defaults to native ASCII and accepts a local Fastfetch config.
 
 The source desktop is the extraction/capture reference. Running the installer in a disposable home on that PC validates files against the installed runtime; it does not demonstrate first login or clean installation.
