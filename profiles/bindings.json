@@ -5,7 +5,7 @@
   },
   {
     "keys": "SUPER + SUPER_L",
-    "description": "Mono: Super tap \u2192 sidebar (no Kona pin state)"
+    "description": "Mono: Super tap → sidebar (no Kona pin state)"
   },
   {
     "keys": "SUPER + Return",
@@ -105,7 +105,7 @@
   },
   {
     "keys": "SUPER + Tab",
-    "description": "Mono: Window switcher"
+    "description": "Visual workspace overview"
   },
   {
     "keys": "SUPER + I",
@@ -137,11 +137,11 @@
   },
   {
     "keys": "SUPER + F1",
-    "description": "Mono: Actual shortcut migration / cheat sheet"
+    "description": "Search keyboard shortcuts"
   },
   {
     "keys": "SUPER + SHIFT + W",
-    "description": "Mono: Local wallpaper picker"
+    "description": "Wallpaper library"
   },
   {
     "keys": "SUPER + C",
@@ -414,5 +414,29 @@
   {
     "keys": "Alt_R",
     "description": "Accept visual window selection on Alt release"
+  },
+  {
+    "keys": "SUPER + CTRL + Tab",
+    "description": "Search open windows"
+  },
+  {
+    "keys": "SUPER + CTRL + Return",
+    "description": "Caelestia desktop controls"
+  },
+  {
+    "keys": "SUPER + ALT + I",
+    "description": "Toggle keep awake"
+  },
+  {
+    "keys": "SUPER + ALT + V",
+    "description": "Cycle audio output"
+  },
+  {
+    "keys": "SUPER + SHIFT + U",
+    "description": "Open software and updates"
+  },
+  {
+    "keys": "SUPER + SHIFT + V",
+    "description": "Graphical clipboard and emoji picker"
   }
 ]

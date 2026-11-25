@@ -7,3 +7,4 @@ private/
 *.raw.mp4
 handoff-source.bundle
 CODEX_RETURN.md
+/amethyst-laptop-*.tar.gz

@@ -1,7 +1,12 @@
 -- Shortcut behavior adapted from Denoax/konata-hyprland-dotfiles a9f433a (MIT).
 -- Copyright (c) 2026 Mani / Denoax; license in ~/.local/share/caelestia-monochrome/.
 -- No Kona shell, event-driven capture workers or startup session automation imported.
-local action = os.getenv("HOME").."/.local/bin/caelestia-desktop "
+local action = "~/.local/bin/caelestia-desktop "
+local function desktop_panel(page, fallback)
+    local command = "/usr/bin/qs -c mono-extras ipc call desktop toggle " .. page
+    if fallback then command = command .. " || " .. fallback end
+    return hl.dsp.exec_cmd(command)
+end
 local armed = false
 hl.on("input.keyboard.key", function(code, timestamp, state)
     if code ~= 133 and state ~= 0 then armed = false end
@@ -49,8 +54,8 @@ hl.bind("SUPER + SUPER_L",function() if armed then armed=false; hl.exec_cmd("cae
 hl.bind("SUPER + Return",hl.dsp.exec_cmd("kitty"),{description="Mono: Terminal"})
 hl.bind("ALT + Return",hl.dsp.exec_cmd("kitty"),{description="Mono: Terminal"})
 hl.bind("SUPER + SHIFT + Return",hl.dsp.exec_cmd("caelestia shell drawers toggle dashboard"),{description="Mono: Dashboard"})
-hl.bind("SUPER + Space",hl.dsp.exec_cmd("caelestia shell drawers toggle launcher"),{description="Native Caelestia application launcher"})
-hl.bind("SUPER + W",hl.dsp.exec_cmd("caelestia shell drawers toggle launcher"),{description="Native Caelestia application launcher"})
+hl.bind("SUPER + Space",hl.dsp.exec_cmd("~/.local/bin/caelestia-launcher"),{description="Native Caelestia application launcher"})
+hl.bind("SUPER + W",hl.dsp.exec_cmd("~/.local/bin/caelestia-launcher"),{description="Native Caelestia application launcher"})
 hl.bind("SUPER + E",hl.dsp.exec_cmd("dolphin"),{description="Mono: File manager"})
 hl.bind("SUPER + B",hl.dsp.exec_cmd("~/.local/bin/caelestia-desktop browser"),{description="Mono: Default browser desktop entry"})
 hl.bind("SUPER + Q",hl.dsp.window.close(),{description="Mono: Close window"})
@@ -70,7 +75,7 @@ hl.bind("SUPER + SHIFT + D",hl.dsp.exec_cmd("~/.local/bin/caelestia-desktop arch
 hl.bind("SUPER + H",mono.minimize,{description="Mono: Minimize just active window"})
 hl.bind("CTRL + H",mono.minimize,{description="Mono: Global minimize (intentionally overrides app Ctrl+H)"})
 hl.bind("SUPER + SHIFT + H",mono.restore,{description="Mono: Restore any tagged minimized window (not LIFO)"})
-hl.bind("SUPER + Tab",hl.dsp.exec_cmd("~/.local/bin/caelestia-desktop windows"),{description="Mono: Window switcher"})
+hl.bind("SUPER + Tab",desktop_panel("overview",action.."windows"),{description="Visual workspace overview"})
 hl.bind("SUPER + I",hl.dsp.exec_cmd("caelestia shell nexus open"),{description="Mono: Settings"})
 hl.bind("SUPER + CTRL + I",hl.dsp.exec_cmd("caelestia shell nexus open"),{description="Mono: Settings"})
 hl.bind("SUPER + SHIFT + A",hl.dsp.exec_cmd("pavucontrol --tab=3"),{description="Mono: Audio output devices / mixer"})
@@ -78,8 +83,8 @@ hl.bind("SUPER + CTRL + A",hl.dsp.exec_cmd("pavucontrol --tab=1"),{description="
 hl.bind("SUPER + CTRL + Space",hl.dsp.exec_cmd("caelestia shell drawers toggle sidebar"),{description="Mono: Notifications/control center"})
 hl.bind("SUPER + CTRL + D",hl.dsp.exec_cmd("caelestia shell drawers toggle sidebar"),{description="Mono: Notifications/control center"})
 hl.bind("SUPER + N",hl.dsp.exec_cmd("caelestia shell drawers toggle sidebar"),{description="Mono: Notifications/control center"})
-hl.bind("SUPER + F1",hl.dsp.exec_cmd("~/.local/bin/caelestia-desktop cheatsheet"),{description="Mono: Actual shortcut migration / cheat sheet"})
-hl.bind("SUPER + SHIFT + W",hl.dsp.exec_cmd("~/.local/bin/caelestia-desktop wallpaper"),{description="Mono: Local wallpaper picker"})
+hl.bind("SUPER + F1",desktop_panel("shortcuts",action.."cheatsheet"),{description="Search keyboard shortcuts"})
+hl.bind("SUPER + SHIFT + W",desktop_panel("wallpapers",action.."wallpaper"),{description="Wallpaper library"})
 hl.bind("SUPER + C",hl.dsp.exec_cmd("caelestia shell drawers toggle utilities"),{description="Mono: Quick settings"})
 hl.bind("SUPER + G",hl.dsp.exec_cmd("~/.local/bin/caelestia-desktop game"),{description="Mono: Current Caelestia visual gaming mode plus wallpaper pause"})
 hl.bind("SUPER + U",hl.dsp.exec_cmd("~/.local/bin/caelestia-desktop updates"),{description="Mono: Read-only updates and recovery terminal"})
@@ -150,3 +155,9 @@ hl.bind("XF86Calculator",hl.dsp.exec_cmd("gnome-calculator"),{description="Mono:
 -- Accept even a quick Alt release before the popup receives keyboard focus.
 hl.bind("Alt_L",hl.dsp.exec_cmd("qs ipc -c mono-switcher call switcher accept"),{release=true,ignore_mods=true,non_consuming=true,description="Accept visual window selection on Alt release"})
 hl.bind("Alt_R",hl.dsp.exec_cmd("qs ipc -c mono-switcher call switcher accept"),{release=true,ignore_mods=true,non_consuming=true,description="Accept visual window selection on Alt release"})
+hl.bind("SUPER + CTRL + Tab",hl.dsp.exec_cmd(action.."windows"),{description="Search open windows"})
+hl.bind("SUPER + CTRL + Return",desktop_panel("controls",action.."menu force"),{description="Caelestia desktop controls"})
+hl.bind("SUPER + ALT + I",hl.dsp.exec_cmd("caelestia shell idleInhibitor toggle"),{description="Toggle keep awake"})
+hl.bind("SUPER + ALT + V",hl.dsp.exec_cmd("caelestia shell audio cycleOutput"),{description="Cycle audio output"})
+hl.bind("SUPER + SHIFT + U",hl.dsp.exec_cmd(action.."software"),{description="Open software and updates"})
+hl.bind("SUPER + SHIFT + V",desktop_panel("clipboard","caelestia clipboard"),{description="Graphical clipboard and emoji picker"})

@@ -300,5 +300,5 @@
     "utils/scripts/fuzzysort.js": "19fdf028c3135674e346aedaa26b44b054437dc93b7d65a78fed14ec929184ba",
     "utils/scripts/fzf.js": "ce06080572d93af0465a74d114ab3ca034b7e51ce7cfe5b4769ca9e6fd084e6d"
   },
-  "patch_sha256": "9662d3bdb70c7fb778338e68b9b30d7a4fb0023bfb06695578cad70f096500bc"
+  "patch_sha256": "4a78063c331e3f31d5a2c8c3624ccb6a29fc54b599e03f37432d4c08c9aec9ef"
 }

@@ -13,3 +13,5 @@
 | Source PC's system-info image | Excluded. Its supplied image remains local; the portable default uses native ASCII |
 
 The [interactive showcase](https://denoax.github.io/cachyos-amethyst-dotfiles/) uses the supplied monochrome portrait and desktop recordings with permission for this publication. The permissions for this showcase are separate from the repository code license. The Pages branch contains the web editions and their notices. Local capture masters and review archives stay outside the public project.
+
+The installer reads user-supplied wallpapers from `~/Pictures/Wallpapers/Monochrome/`. The source desktop’s active Crimson loop and other locally stored colorway videos are outside the public installer. The public fallback remains the original neutral PNG. The companion panels load Google Sans Flex from the installed Caelestia package, whose font license ships with that package.

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Small on-demand Caelestia integrations. No Kona runtime or session automation."""
-import os,sys,json,subprocess,time,signal,fcntl,socket,shlex,configparser,shutil
+import os,sys,json,subprocess,time,signal,fcntl,socket,shlex,configparser,shutil,re
 from pathlib import Path
 HOME=Path.home();STATE=HOME/'.local/state/caelestia-monochrome';STATE.mkdir(parents=True,mode=0o700,exist_ok=True);RUN=Path(os.environ['XDG_RUNTIME_DIR'])/'caelestia-monochrome';RUN.mkdir(mode=0o700,exist_ok=True)
 SELF=str(HOME/'.local/bin/caelestia-desktop');WALL=HOME/'Pictures/Wallpapers/Monochrome'
@@ -18,8 +18,60 @@ def menu(rows,prompt):
  return p.stdout.strip() if p.returncode==0 else ''
 def ipc(*args):return text('caelestia','shell',*args)
 def mpvcmd(command):
- with socket.socket(socket.AF_UNIX) as s:
-  s.connect(str(RUN/'wallpaper.sock'));s.sendall(json.dumps({'command':command}).encode()+b'\n');return json.loads(s.recv(8192))
+    for endpoint in RUN.glob("wallpaper-*.sock"):
+        try:
+            with socket.socket(socket.AF_UNIX) as connection:
+                connection.settimeout(0.5)
+                connection.connect(str(endpoint))
+                connection.sendall(json.dumps({"command": command}).encode() + b"\n")
+        except OSError:
+            continue
+
+
+def wallpaper_run():
+    fallback = HOME / ".local/share/cachyos-amethyst/neutral.png"
+    players = {}
+
+    def selected(output):
+        for selection in (STATE / f"selected-wallpaper-{output}", STATE / "selected-wallpaper"):
+            if selection.is_file():
+                value = Path(selection.read_text().strip())
+                if value.is_file():
+                    return value
+        return fallback
+
+    def stop(process):
+        if process.poll() is None:
+            process.terminate()
+            try:
+                process.wait(timeout=1)
+            except subprocess.TimeoutExpired:
+                process.kill()
+                process.wait()
+
+    try:
+        while True:
+            outputs = {m["name"]: selected(m["name"]) for m in query("monitors")
+                       if re.fullmatch(r"[A-Za-z0-9_.-]+", m["name"])}
+            for output, (path, process) in list(players.items()):
+                if outputs.get(output) != path or process.poll() is not None:
+                    stop(process)
+                    del players[output]
+            for output, path in outputs.items():
+                if output in players:
+                    continue
+                endpoint = RUN / f"wallpaper-{output}.sock"
+                endpoint.unlink(missing_ok=True)
+                options = ("no-audio loop-file=inf hwdec=auto-safe terminal=no "
+                           'msg-level=all=warn image-display-duration=inf '
+                           f'input-ipc-server="{endpoint}"')
+                players[output] = (path, subprocess.Popen(
+                    ["mpvpaper", "-p", "-o", options, output, str(path)]))
+            time.sleep(2)
+    finally:
+        for _, process in players.values():
+            stop(process)
+
 def window_menu(overview=False):
  clients=query('clients');mons=query('monitors');rows={}
  if overview:
@@ -71,7 +123,8 @@ def special(which):
  dispatch('hl.dsp.workspace.toggle_special("scratch")')
 def record(mode):
  if subprocess.run(['systemctl','--user','is-active','--quiet','mono-record.service']).returncode==0:
-  call('systemctl','--user','stop','mono-record.service');return
+  call('systemctl','--user','stop','mono-record.service')
+  launch('qs','-c','mono-extras','ipc','call','desktop','refreshStatus');return
  m=next(m for m in query('monitors') if m['focused']);out=HOME/'Videos/Desktop Captures';out.mkdir(parents=True,exist_ok=True)
  args=['wf-recorder','--no-dmabuf','-c','libx264','-p','preset=ultrafast','-r','30']
  if mode=='region':
@@ -81,6 +134,7 @@ def record(mode):
  else:args+=['-o',m['name']]
  dest=out/('capture-'+time.strftime('%Y%m%d-%H%M%S')+'.mp4')
  call('systemd-run','--user','--collect','--unit=mono-record','--property=KillSignal=SIGINT',*args,'-f',str(dest))
+ launch('qs','-c','mono-extras','ipc','call','desktop','refreshStatus')
  notify('Recording started','Press either recording shortcut again to save. Video only; no microphone capture.')
 def screenshot(region=False):
  out=HOME/'Pictures/Screenshots';out.mkdir(parents=True,exist_ok=True);dest=out/('screenshot-'+time.strftime('%Y%m%d-%H%M%S')+'.png');args=['grim']
@@ -90,7 +144,9 @@ def screenshot(region=False):
   args+=['-g',p.stdout.strip()]
  call(*args,str(dest))
  if region:launch('swappy','-f',dest)
- else:notify('Screenshot saved',str(dest))
+ elif subprocess.run(['qs','-c','mono-extras','ipc','call','desktop','showCapture',str(dest)],
+                     stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode:
+  notify('Screenshot saved',str(dest))
 def session(action):
  p=STATE/'manual-session.json';commands={'kitty':['kitty'],'firefox':['firefox'],'org.kde.dolphin':['dolphin'],'code-oss':['code-oss'],'brave-browser':['brave'],'Spotify':['spotify'],'discord':['discord'],'Slack':['slack'],'org.telegram.desktop':['telegram-desktop'],'steam':['steam']}
  commands={k:v for k,v in commands.items() if shutil.which(v[0])}
@@ -140,16 +196,16 @@ def main():
    if not sid:notify('Logout not started','No session ID available; use your normal session exit.');return
    call('loginctl','terminate-session',sid)
   else:call('systemctl',{'shutdown':'poweroff','hibernate':'hibernate','reboot':'reboot'}[action])
+ elif cmd=='software':
+  if shutil.which('shelly'):launch('gtk-launch','com.shellyorg.shelly')
+  else:launch(SELF,'updates')
  elif cmd=='wallpaper':
-  paths=[p for p in [*(sorted(WALL.glob('*')) if WALL.exists() else [])] if p.is_file()];choices={p.name:p for p in paths};v=menu(choices,'Wallpaper')
-  if v in choices:
-   p=choices[v];(STATE/'selected-wallpaper').write_text(str(p));call('systemctl','--user','restart','mono-wallpaper.service')
- elif cmd=='wallpaper-run':
-  selection=STATE/'selected-wallpaper'
-  p=Path(selection.read_text().strip()) if selection.exists() else HOME/'.local/share/cachyos-amethyst/neutral.png'
-  if not p.is_file():p=HOME/'.local/share/cachyos-amethyst/neutral.png'
-  if not p.is_file():raise SystemExit('Selected wallpaper and recovery still are both unavailable.')
-  os.execvp('mpvpaper',['mpvpaper','-p','-o',f'no-audio loop-file=inf hwdec=auto-safe terminal=no msg-level=all=warn image-display-duration=inf input-ipc-server={RUN}/wallpaper.sock','*',str(p)])
+  fallback=HOME/'.local/share/cachyos-amethyst/neutral.png'
+  choices={str(p.relative_to(WALL)):p for p in sorted(WALL.rglob('*')) if p.is_file() and p.suffix.lower() in {'.jpg','.jpeg','.png','.webp','.bmp','.avif','.gif','.mp4','.webm','.mkv','.mov'}}
+  choices['Plain background']=fallback
+  choice=menu(choices,'Wallpaper')
+  if choice in choices:call(HOME/'.local/bin/caelestia-extras','wallpaper','all',choices[choice])
+ elif cmd=='wallpaper-run':wallpaper_run()
  elif cmd=='nightlight':
   p=RUN/'nightlight'
   if p.exists():call('gammastep','-x');p.unlink()
@@ -162,7 +218,7 @@ def main():
   k=a[1];p=next(Path('/sys/class/leds').glob('*::'+k),None)
   notify(k.title()+' Lock',('ON' if p and (p/'brightness').read_text().strip()=='1' else 'OFF'))
  elif cmd=='cheatsheet':launch('kitty','--class','MonoShortcutHelp','less','-R',HOME/'.local/share/cachyos-amethyst/SHORTCUTS.md')
- elif cmd=='updates':launch('kitty','--class','MonoUpdates','sh','-c',f'printf "Available updates (read only):\\n"; pacman -Qu; printf "\\nRecovery: the source checkout: ./install.sh rollback --transaction ID\\nNo update was started.\\n"; exec "${{SHELL:-/bin/sh}}"')
+ elif cmd=='updates':launch('kitty','--class','MonoUpdates','sh','-c','printf "Available updates (read only):\\n"; checkupdates; printf "\\nRecovery: the source checkout: ./install.sh rollback --transaction ID\\nNo update was started.\\n"; exec "${SHELL:-/bin/sh}"')
  elif cmd=='legacy':
   name=a[1];p=RUN/('notice-'+name)
   if not p.exists():notify('Not migrated: '+name,{'assistant':'Requires the old Kona/end-4 assistant, translator and anime surface.','profiles':'Requires Kona profile/theme/service orchestration; current monochrome settings are retained.','mosaic':'Requires the old Kona Mosaic shell component.'}[name]);p.touch()
@@ -172,7 +228,12 @@ def main():
    if m and (c['x']<m['x']+m['reserved'][0] or c['y']<m['y']+m['reserved'][1]):return
    visible=[m['activeWorkspace']['id'] for m in query('monitors')]
    if any(w['workspace'].get('id') in visible and w['at'][0]<=c['x']<w['at'][0]+w['size'][0] and w['at'][1]<=c['y']<w['at'][1]+w['size'][1] for w in query('clients') if w['mapped'] and not w['hidden']):return
-  choices=['Terminal','Files','Overview','Wallpapers','Settings','Audio','Shortcut help','Session controls'];v=menu(choices,'Desktop')
-  mapping={'Terminal':['kitty'],'Files':['dolphin'],'Overview':[SELF,'overview'],'Wallpapers':[SELF,'wallpaper'],'Settings':['caelestia','shell','nexus','open'],'Audio':['pavucontrol'],'Shortcut help':[SELF,'cheatsheet'],'Session controls':['caelestia','shell','drawers','toggle','session']}
-  if v in mapping:launch(*mapping[v])
+  panel=['qs','-c','mono-extras','ipc','call','desktop','open']
+  mapping={'Terminal':['kitty'],'Files':['dolphin'],'Settings':['caelestia','shell','nexus','open'],'Audio':['pavucontrol'],'Software and updates':[SELF,'software'],'Session controls':['caelestia','shell','drawers','toggle','session']}
+  extras={'Desktop controls':('controls',['caelestia','shell','nexus','open']),'Overview':('overview',[SELF,'overview']),'Wallpapers':('wallpapers',[SELF,'wallpaper']),'Shortcut help':('shortcuts',[SELF,'cheatsheet'])}
+  v=menu([*mapping,*extras],'Desktop')
+  if v in extras:
+   tab,fallback=extras[v]
+   if subprocess.run(panel+[tab],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode:launch(*fallback)
+  elif v in mapping:launch(*mapping[v])
 if __name__=='__main__':main()

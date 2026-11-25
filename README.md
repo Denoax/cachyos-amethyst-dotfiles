@@ -10,7 +10,7 @@ Drag the crystal, scroll down to the recording panels and open **Colors** to swi
 
 ## Install on CachyOS
 
-Start in a working CachyOS Hyprland session and install the [prerequisites](packages/README.md). From the extracted repository, run these checks before applying the laptop profile.
+Start in a working CachyOS Hyprland session and install the [prerequisites](packages/README.md). Use the [alpha.2 ZIP](https://github.com/Denoax/cachyos-amethyst-dotfiles/archive/refs/tags/v0.1.0-alpha.2.zip) for the current dock, desktop controls, workspace overview and wallpaper picker. From the extracted repository, review the laptop profile.
 
 ```sh
 ./install.sh doctor

@@ -1,5 +1,5 @@
 [Unit]
-Description=Single monochrome looping wallpaper backend
+Description=Looping wallpaper for connected displays
 PartOf=amethyst-session.target graphical-session.target
 After=caelestia-shell.service
 [Service]

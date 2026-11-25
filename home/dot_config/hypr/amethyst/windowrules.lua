@@ -117,3 +117,10 @@ hl.window_rule({
     no_focus = true,
 })
 
+-- Reopening Vesktop from the launcher should reveal its existing window.
+-- The Flatpak uses its reverse-DNS app ID as its Wayland window class.
+hl.window_rule({
+    name = "Vesktop launcher activation",
+    match = { class = "^(dev\\.vencord\\.Vesktop|vesktop)$" },
+    focus_on_activate = true,
+})

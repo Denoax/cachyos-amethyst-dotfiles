@@ -1,0 +1,10 @@
+singleton Theme 1.0 Theme.qml
+Action 1.0 Action.qml
+CapturePreview 1.0 CapturePreview.qml
+ControlCenter 1.0 ControlCenter.qml
+DesktopDock 1.0 DesktopDock.qml
+DesktopWidgets 1.0 DesktopWidgets.qml
+LabelText 1.0 LabelText.qml
+SearchField 1.0 SearchField.qml
+StatusPill 1.0 StatusPill.qml
+WorkspaceOverview 1.0 WorkspaceOverview.qml

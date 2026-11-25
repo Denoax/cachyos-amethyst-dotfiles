@@ -189,6 +189,31 @@
       "name": "adw-gtk-theme",
       "reason": "GTK dark appearance",
       "origin": "official"
+    },
+    {
+      "name": "gtk3",
+      "reason": "gtk-launch for desktop entries and browser shortcuts",
+      "origin": "official"
+    },
+    {
+      "name": "pacman-contrib",
+      "reason": "read-only checkupdates command for the control center",
+      "origin": "official"
+    },
+    {
+      "name": "brightnessctl",
+      "reason": "built-in display brightness where supported",
+      "origin": "official"
+    },
+    {
+      "name": "bibata-cursor-theme",
+      "reason": "Bibata Modern Ice cursor assets from CachyOS",
+      "origin": "official"
+    },
+    {
+      "name": "libcava",
+      "reason": "Caelestia audio capture library built against current system dependencies",
+      "origin": "AUR"
     }
   ],
   "dev-cp": [

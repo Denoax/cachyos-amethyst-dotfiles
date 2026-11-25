@@ -362,3 +362,30 @@
          watchChanges: true
          onFileChanged: reload()
          onLoaded: root.load(text(), false)
+--- a/services/Notifs.qml
++++ b/services/Notifs.qml
+@@ -23,0 +24,5 @@
++    property var mutedApps: ({})
++
++    function isSilenced(app: string): bool {
++        return mutedApps[app.trim().toLowerCase()] === true;
++    }
+@@ -99 +104 @@
+-                popup: root.shouldShowPopup(),
++                popup: root.shouldShowPopup() && !root.isSilenced(notif.appName),
+@@ -102,0 +108,11 @@
++        }
++    }
++
++    FileView {
++        path: Quickshell.env("HOME") + "/.local/state/mono-extras/notification-rules.json"
++        printErrors: false
++        watchChanges: true
++        onFileChanged: reload()
++        onLoaded: {
++            try { root.mutedApps = JSON.parse(text()); }
++            catch (error) { console.warn("Could not load notification popup rules:", error); }
+@@ -167,0 +184,3 @@
++        function isAppSilenced(app: string): bool {
++            return root.isSilenced(app);
++        }

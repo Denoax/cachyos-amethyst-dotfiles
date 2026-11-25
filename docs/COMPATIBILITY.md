@@ -1,6 +1,6 @@
 # Compatibility
 
-Observed 2026-11-13 on an existing x86-64 CachyOS desktop. Exact direct-package observations are in [observed-source.json](../packages/observed-source.json).
+Core packages rechecked on 2026-11-25 on an existing x86-64 CachyOS desktop. Exact direct-package observations are in [observed-source.json](../packages/observed-source.json).
 
 | Component | Observed |
 |---|---|
@@ -19,7 +19,7 @@ Observed 2026-11-13 on an existing x86-64 CachyOS desktop. Exact direct-package 
 | Environment | Status and boundary |
 |---|---|
 | Existing source desktop | Extracted; config parser, file transactions, CP flows and selected daily use/captures exercised |
-| Disposable home on source PC | Apply/repeat/verify/rollback/failure tests; uses host packages, not a clean distro |
+| Disposable and nested sessions on source PC | Alpha.1-to-alpha.2 file upgrade and rollback, Hyprland parser, Caelestia panel startup and wallpaper selection; uses host packages |
 | Fresh CachyOS VM | **NOT_RUN**: KVM device exists, but no configured VM, QEMU executable or CachyOS ISO was available; no privileged package/OS provisioning was performed |
 | Physical laptop | **NOT_RUN**: no test device; brightness, battery, lid, suspend and docking remain unproven |
 | Alternate GPUs/Arch derivatives/ARM | Outside this candidate's tested scope |

@@ -10,7 +10,7 @@ Keep a working terminal available. Complete CachyOS's normal full system update 
 sudo pacman -Syu --needed git chezmoi python
 git clone https://github.com/Denoax/cachyos-amethyst-dotfiles.git
 cd cachyos-amethyst-dotfiles
-git checkout v0.1.0-alpha.1
+git checkout v0.1.0-alpha.2
 ```
 
 Follow [packages/README.md](../packages/README.md) for the curated official and AUR prerequisites. Do not run `makepkg` as root. The shell patch checks the exact installed package files before writing configuration. If a newer package differs, rebase the patch in a disposable environment or omit `shell-patch` to use upstream shell behavior; the exact custom shell appearance then differs.
@@ -59,3 +59,9 @@ The supplied Discover desktop entry shadows the stock entry for this user and ex
 ```
 
 It detects an existing system installation and avoids duplicating the app. It validates an existing user `flathub` remote URL. No application is selected by default. Launcher export paths are included in the next session environment; clean-session discovery remains an acceptance check.
+
+## Match the reference wallpaper
+
+The installer supplies a plain background and a live wallpaper player. Copy any wallpaper videos or stills you own to `~/Pictures/Wallpapers/Monochrome/` on the laptop. After signing in, open the library with **Super+Shift+W**, choose **All screens** or a detected output, and select the wallpaper. To match the reference capture, select the Crimson loop if you have a copy of it. The library remembers the selection on this device.
+
+The laptop profile uses the display's preferred mode and automatic scaling. The controls and dock use available displays automatically. For a local display override, use `~/.config/hypr/amethyst-local.lua`. Personal desktop files and state such as wallpapers, screenshots, clipboard history, alerts and focus notes remain on the device where they were saved.

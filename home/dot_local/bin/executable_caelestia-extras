@@ -1,0 +1,328 @@
+#!/usr/bin/env python3
+"""Desktop controls shared by the Caelestia companion panels."""
+
+import argparse
+import fcntl
+import hashlib
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+from pathlib import Path
+
+
+HOME = Path.home()
+RUNTIME = Path(os.environ["XDG_RUNTIME_DIR"])
+STATE = HOME / ".local/state/mono-extras"
+WALL_STATE = HOME / ".local/state/caelestia-monochrome"
+WALLPAPERS = HOME / "Pictures/Wallpapers/Monochrome"
+FALLBACK_WALLPAPER = HOME / ".local/share/cachyos-amethyst/neutral.png"
+CACHE = HOME / ".cache/mono-extras"
+IMAGE_TYPES = {".jpg", ".jpeg", ".png", ".webp", ".bmp", ".avif", ".gif"}
+VIDEO_TYPES = {".mp4", ".webm", ".mkv", ".mov"}
+
+def run(*args, timeout=8, check=True):
+    return subprocess.run(args, capture_output=True, text=True, timeout=timeout, check=check)
+
+
+def hypr(name):
+    return json.loads(run("hyprctl", "-j", *name.split()).stdout)
+
+
+def monitors():
+    return [item for item in hypr("monitors all")
+            if re.fullmatch(r"[A-Za-z0-9_.-]+", item["name"]) and not item.get("disabled", False)]
+
+
+def selection_file(output):
+    suffix = "" if output == "all" else f"-{output}"
+    return WALL_STATE / f"selected-wallpaper{suffix}"
+
+
+def selected_path(output):
+    path = selection_file(output)
+    return path.read_text().strip() if path.is_file() else ""
+
+
+def status():
+    services = {
+        "Caelestia": "caelestia-shell.service",
+        "Screen sharing portal": "xdg-desktop-portal-hyprland.service",
+        "PipeWire audio": "pipewire.service",
+        "WirePlumber": "wireplumber.service",
+        "Wallpaper": "mono-wallpaper.service",
+        "Screen recording": "mono-record.service",
+    }
+    active = [run("systemctl", "--user", "is-active", unit, check=False).stdout.strip()
+              for unit in services.values()]
+    outputs = []
+    for monitor in sorted(monitors(), key=lambda item: (item["x"], item["y"])):
+        readout = run("qs", "-c", "caelestia", "ipc", "call", "brightness", "getFor",
+                      monitor["name"], check=False).stdout.strip()
+        try:
+            brightness = float(readout)
+        except ValueError:
+            brightness = -1
+        outputs.append({
+            "name": monitor["name"], "model": monitor["model"], "width": monitor["width"],
+            "height": monitor["height"], "rate": round(monitor["refreshRate"]),
+            "scale": monitor["scale"], "focused": monitor["focused"], "powered": monitor["dpmsStatus"],
+            "brightness": round(brightness * 100),
+        })
+    mem = dict((key.rstrip(":"), int(value)) for key, value, *_ in
+               (line.split() for line in Path("/proc/meminfo").read_text().splitlines()))
+    disk = shutil.disk_usage(HOME)
+    gpu = run("nvidia-smi", "--query-gpu=temperature.gpu,utilization.gpu",
+              "--format=csv,noheader,nounits", check=False, timeout=3).stdout.strip().splitlines() \
+        if shutil.which("nvidia-smi") else []
+    return {
+        "services": dict(zip(services, active)),
+        "documentMount": (RUNTIME / "doc").is_mount(),
+        "network": run("nmcli", "-t", "-f", "CONNECTIVITY", "general", check=False).stdout.strip() if shutil.which("nmcli") else "",
+        "memory": round((1 - mem["MemAvailable"] / mem["MemTotal"]) * 100),
+        "storage": round(disk.used / disk.total * 100),
+        "gpu": [part.strip() for part in gpu[0].split(",")] if gpu else [],
+        "outputs": outputs,
+        "power": run("powerprofilesctl", "get", check=False).stdout.strip() if shutil.which("powerprofilesctl") else "",
+    }
+
+
+def updates():
+    CACHE.mkdir(mode=0o700, exist_ok=True)
+    result = subprocess.run(
+        ["checkupdates"], capture_output=True, text=True, timeout=40,
+        env={**os.environ, "CHECKUPDATES_DB": str(CACHE / "pacman-checkupdates")},
+    )
+    if result.returncode not in (0, 2):
+        raise RuntimeError(result.stderr.strip() or "Update check failed")
+    return [line for line in result.stdout.splitlines() if " -> " in line]
+
+
+def video_preview(path):
+    CACHE.mkdir(mode=0o700, exist_ok=True)
+    signature = f"{path}:{path.stat().st_mtime_ns}"
+    target = CACHE / (hashlib.sha256(signature.encode()).hexdigest() + ".jpg")
+    if target.is_file():
+        return target
+    with tempfile.TemporaryDirectory(dir=CACHE) as directory:
+        frame = Path(directory) / "frame.jpg"
+        result = run("ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-i", str(path),
+                     "-frames:v", "1", "-vf", "scale=360:-2", "-q:v", "4", str(frame),
+                     check=False, timeout=10)
+        if result.returncode == 0 and frame.is_file():
+            frame.replace(target)
+            return target
+    return None
+
+
+def wallpapers():
+    result = []
+    paths = {path for path in WALLPAPERS.rglob("*")
+             if path.resolve().is_relative_to(WALLPAPERS.resolve())}
+    paths.add(FALLBACK_WALLPAPER)
+    for path in sorted(paths, key=lambda item: str(item).casefold()):
+        if not path.is_file() or path.suffix.lower() not in IMAGE_TYPES | VIDEO_TYPES:
+            continue
+        is_video = path.suffix.lower() in VIDEO_TYPES
+        preview = video_preview(path) if is_video else path
+        result.append({"name": path.stem.replace("-", " ").replace("_", " "), "path": str(path),
+                       "preview": preview.as_uri() if preview else "", "video": is_video})
+    outputs = [monitor["name"] for monitor in monitors()]
+    default = selected_path("all") or str(FALLBACK_WALLPAPER)
+    return {"items": result, "selections": {"all": default} | {
+        output: selected_path(output) or default for output in outputs}, "outputs": outputs}
+
+
+def replace_text(target, contents):
+    with tempfile.NamedTemporaryFile(mode="w", dir=target.parent, delete=False) as temporary:
+        temporary.write(contents)
+    Path(temporary.name).replace(target)
+
+
+def set_wallpaper(output, value):
+    path = Path(value).resolve(strict=True)
+    if (path != FALLBACK_WALLPAPER and not path.is_relative_to(WALLPAPERS.resolve())) or (
+            not path.is_file() or path.suffix.lower() not in IMAGE_TYPES | VIDEO_TYPES):
+        raise ValueError("Choose an image or video from the wallpaper library")
+    outputs = {monitor["name"] for monitor in monitors()}
+    if output != "all" and output not in outputs:
+        raise ValueError("That display is no longer available")
+    WALL_STATE.mkdir(mode=0o700, parents=True, exist_ok=True)
+    with (STATE / "wallpaper.lock").open("w") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        targets = [selection_file(output)]
+        if output == "all":
+            targets.extend(sorted(WALL_STATE.glob("selected-wallpaper-*")))
+        previous = {file: file.read_text() if file.is_file() else None for file in targets}
+        try:
+            replace_text(targets[0], str(path) + "\n")
+            for file in targets[1:]:
+                file.unlink(missing_ok=True)
+        except OSError:
+            for file, contents in previous.items():
+                if contents is None:
+                    file.unlink(missing_ok=True)
+                else:
+                    replace_text(file, contents)
+            raise
+
+
+def shortcuts():
+    masks = [(64, "Super"), (4, "Ctrl"), (8, "Alt"), (1, "Shift"),
+             (2, "Caps Lock"), (16, "Mod2"), (32, "Mod3"), (128, "Mod5")]
+    rows = []
+    for binding in hypr("binds"):
+        details = binding["description"].removeprefix("Mono: ")
+        key = binding["key"] or (f"Keycode {binding['keycode']}" if binding["keycode"] else "")
+        if not details or not key or details.startswith(("Arm left-Super", "cancel Super")):
+            continue
+        keys = [label for bit, label in masks if binding["modmask"] & bit]
+        formatted = "Left Super (tap)" if key == "SUPER_L" and binding["release"] \
+            else " + ".join([*keys, key.removeprefix("mouse:").replace("_", " ")])
+        entry = {"keys": formatted, "label": details}
+        if entry not in rows:
+            rows.append(entry)
+    return rows
+
+
+def clipboard():
+    lines = run("cliphist", "list").stdout.splitlines()[:60]
+    return [{"id": key, "label": value[:140]} for line in lines
+            for key, _, value in [line.partition("\t")] if key.isdecimal()]
+
+
+def copy_history(identifier):
+    # Copy binary clipboard entries without decoding image bytes into text.
+    entry = subprocess.run(["cliphist", "decode", identifier], capture_output=True, check=True, timeout=5)
+    subprocess.run(["wl-copy"], input=entry.stdout, stdout=subprocess.DEVNULL,
+                   stderr=subprocess.DEVNULL, check=True, timeout=5)
+
+
+def audio():
+    sinks = json.loads(run("pactl", "-f", "json", "list", "sinks").stdout)
+    streams = json.loads(run("pactl", "-f", "json", "list", "sink-inputs").stdout)
+    default = run("pactl", "get-default-sink").stdout.strip()
+    return {
+        "outputs": [{"id": sink["name"], "index": sink["index"], "label": sink["description"],
+                     "default": sink["name"] == default} for sink in sinks],
+        "apps": [{"id": str(stream["index"]), "sink": stream["sink"],
+                  "label": stream["properties"].get("application.name", "Playback stream")} for stream in streams],
+    }
+
+
+def processes():
+    rows = run("ps", "-eo", "pid,pcpu,pmem,comm", "--sort=-pcpu").stdout.splitlines()[1:]
+    cores = os.cpu_count() or 1
+    measured = [{"pid": pid, "cpu": round(float(cpu) / cores, 1), "memory": float(memory), "name": name}
+                for pid, cpu, memory, name in (line.split(maxsplit=3) for line in rows)]
+    return {"cpu": measured[:15],
+            "memory": sorted(measured, key=lambda process: process["memory"], reverse=True)[:15]}
+
+
+def captures():
+    paths = (HOME / "Pictures/Screenshots").glob("*.png")
+    return [{"path": str(path), "image": path.as_uri(), "name": path.name}
+            for path in sorted(paths, key=lambda path: path.stat().st_mtime, reverse=True)[:24]]
+
+
+def notification_rules():
+    file = STATE / "notification-rules.json"
+    rules = json.loads(file.read_text()) if file.is_file() else {}
+    history = HOME / ".local/state/caelestia/notifs.json"
+    recent = json.loads(history.read_text()) if history.is_file() else []
+    names = {item["appName"].strip() for item in recent if item.get("appName", "").strip()}
+    names.update(rules)
+    return [{"name": name, "silenced": name.lower() in rules} for name in sorted(names, key=str.lower)
+            if name == name.lower() or name.lower() not in names]
+
+
+def set_notification_rule(name, value):
+    name = name.strip().lower()
+    if not name or len(name) > 128 or any(ord(character) < 32 for character in name):
+        raise ValueError("Enter the notification app's name")
+    file = STATE / "notification-rules.json"
+    with (STATE / "notification-rules.lock").open("w") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        rules = json.loads(file.read_text()) if file.is_file() else {}
+        if value == "silence":
+            rules[name] = True
+        else:
+            rules.pop(name, None)
+        replace_text(file, json.dumps(rules, ensure_ascii=False) + "\n")
+
+
+def monitor_power(profile):
+    connected = monitors()
+    machine = HOME / ".config/cachyos-amethyst/machine.json"
+    preferred = json.loads(machine.read_text()).get("preferred_output") if machine.is_file() else ""
+    primary = next((m["name"] for m in connected if m["name"] == preferred), None)
+    primary = primary or next((m["name"] for m in connected if m["focused"]), None)
+    if not primary:
+        raise RuntimeError("No focused display is available")
+    outputs = [primary, *(m["name"] for m in connected if m["name"] != primary)]
+    for output in outputs:
+        mode = "on" if output == primary or profile == "all" else "off"
+        result = run("hyprctl", "dispatch", f'hl.dsp.dpms({{action="{mode}",monitor="{output}"}})')
+        if result.stdout.strip() != "ok":
+            raise RuntimeError(result.stdout.strip())
+
+
+def main():
+    STATE.mkdir(mode=0o700, parents=True, exist_ok=True)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("action")
+    parser.add_argument("values", nargs="*")
+    args = parser.parse_args()
+    queries = {
+        "status": status, "updates": updates, "wallpapers": wallpapers, "shortcuts": shortcuts,
+        "clipboard": clipboard, "audio": audio, "processes": processes, "captures": captures,
+        "notifications": notification_rules,
+    }
+    if args.action in queries:
+        print(json.dumps(queries[args.action](), ensure_ascii=False))
+        return
+    value = args.values
+    if args.action == "wallpaper" and len(value) == 2:
+        set_wallpaper(*value)
+    elif args.action == "copy" and len(value) == 1 and value[0].isdecimal():
+        copy_history(value[0])
+    elif args.action == "route" and len(value) == 2 and value[0].isdecimal():
+        if value[1] not in {sink["id"] for sink in audio()["outputs"]}:
+            raise ValueError("That output is no longer available")
+        run("pactl", "move-sink-input", *value)
+    elif args.action == "power" and value in (["balanced"], ["power-saver"], ["performance"]):
+        run("powerprofilesctl", "set", *value)
+    elif args.action == "displays" and value in (["all"], ["center"]):
+        monitor_power(value[0])
+    elif args.action == "brightness" and len(value) == 2 and value[0] in {m["name"] for m in monitors()} and value[1].isdecimal():
+        if not 0 <= int(value[1]) <= 100:
+            raise ValueError("Brightness must be between 0 and 100")
+        result = run("qs", "-c", "caelestia", "ipc", "call", "brightness", "setFor", value[0], value[1] + "%")
+        if result.stdout.startswith(("Invalid", "Failed")):
+            raise RuntimeError(result.stdout.strip())
+    elif args.action == "notification" and len(value) == 2 and value[1] in {"silence", "allow"}:
+        set_notification_rule(*value)
+    elif args.action == "copy-capture" and len(value) == 1:
+        path = Path(value[0]).resolve(strict=True)
+        if path.parent != (HOME / "Pictures/Screenshots").resolve() or path.suffix.lower() != ".png":
+            raise ValueError("Choose a saved screenshot")
+        with path.open("rb") as stream:
+            subprocess.run(["wl-copy", "--type", "image/png"], stdin=stream, stdout=subprocess.DEVNULL,
+                           stderr=subprocess.DEVNULL, check=True, timeout=5)
+    elif args.action == "clipboard-text" and len(value) == 1:
+        subprocess.run(["wl-copy"], input=value[0].encode(), stdout=subprocess.DEVNULL,
+                       stderr=subprocess.DEVNULL, check=True, timeout=5)
+    else:
+        parser.error("Invalid action or arguments")
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except (OSError, KeyError, ValueError, RuntimeError, subprocess.SubprocessError) as error:
+        details = getattr(error, "stderr", "")
+        print((details or str(error)).strip(), file=sys.stderr)
+        sys.exit(1)

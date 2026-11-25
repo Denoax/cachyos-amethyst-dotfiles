@@ -41,6 +41,19 @@ class InstallerTests(unittest.TestCase):
         self.cli('apply');self.assertEqual(self.manifest(),first)
         self.assertEqual(post,{p:(self.home/p).read_bytes() for p in post})
         self.rollback();self.assertFalse((self.home/'.config/hypr/hyprland.lua').exists())
+    def test_fresh_palette_seeds_private_runtime_state(self):
+        self.cli('apply')
+        helper = self.home / '.local/bin/caelestia-neutral-theme'
+        scheme = self.home / '.local/state/caelestia/scheme.json'
+        source = self.home / '.local/share/caelestia-monochrome/palette.json'
+        self.assertFalse(scheme.parent.exists())
+        subprocess.run([helper], check=True)
+        self.assertEqual(scheme.read_bytes(), source.read_bytes())
+        self.assertEqual(scheme.stat().st_mode & 0o777, 0o600)
+        stamp = scheme.stat().st_mtime_ns
+        subprocess.run([helper], check=True)
+        self.assertEqual(scheme.stat().st_mtime_ns, stamp)
+
     def test_existing_mode_symlink_and_unrelated_files(self):
         p=self.home/'.config/hypr/hyprland.lua';p.parent.mkdir(parents=True);p.write_text('original');p.chmod(0o640)
         unowned=p.parent/'unrelated.lua';unowned.write_text('keep')

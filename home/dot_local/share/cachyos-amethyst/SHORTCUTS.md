@@ -30,7 +30,7 @@ Generated from the shipped Lua bindings. Three unavailable Kona chords are inten
 | SUPER + H | Mono: Minimize just active window |
 | CTRL + H | Mono: Global minimize (intentionally overrides app Ctrl+H) |
 | SUPER + SHIFT + H | Mono: Restore any tagged minimized window (not LIFO) |
-| SUPER + Tab | Mono: Window switcher |
+| SUPER + Tab | Visual workspace overview |
 | SUPER + I | Mono: Settings |
 | SUPER + CTRL + I | Mono: Settings |
 | SUPER + SHIFT + A | Mono: Audio output devices / mixer |
@@ -38,8 +38,8 @@ Generated from the shipped Lua bindings. Three unavailable Kona chords are inten
 | SUPER + CTRL + Space | Mono: Notifications/control center |
 | SUPER + CTRL + D | Mono: Notifications/control center |
 | SUPER + N | Mono: Notifications/control center |
-| SUPER + F1 | Mono: Actual shortcut migration / cheat sheet |
-| SUPER + SHIFT + W | Mono: Local wallpaper picker |
+| SUPER + F1 | Search keyboard shortcuts |
+| SUPER + SHIFT + W | Wallpaper library |
 | SUPER + C | Mono: Quick settings |
 | SUPER + G | Mono: Current Caelestia visual gaming mode plus wallpaper pause |
 | SUPER + U | Mono: Read-only updates and recovery terminal |
@@ -108,5 +108,11 @@ Generated from the shipped Lua bindings. Three unavailable Kona chords are inten
 | XF86Calculator | Mono: Retained calculator key |
 | Alt_L | Accept visual window selection on Alt release |
 | Alt_R | Accept visual window selection on Alt release |
+| SUPER + CTRL + Tab | Search open windows |
+| SUPER + CTRL + Return | Caelestia desktop controls |
+| SUPER + ALT + I | Toggle keep awake |
+| SUPER + ALT + V | Cycle audio output |
+| SUPER + SHIFT + U | Open software and updates |
+| SUPER + SHIFT + V | Graphical clipboard and emoji picker |
 
 Super+D gathers visible application windows to the configured preferred output and restores them on a second press. On a single display it is a no-op. Super+Shift+D opens/closes only the owned process/info/visualizer group. Ctrl+H intentionally minimizes globally; use Ctrl+K, R for editor replace.

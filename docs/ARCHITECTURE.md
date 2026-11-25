@@ -6,14 +6,14 @@
 |---|---|
 | Hyprland | Root `hyprland.lua` and `amethyst/*.lua`; existing root is backed up; unrelated `config/*.lua` remain |
 | Local hardware | `amethyst-local.lua` is user-owned and untouched; workstation selection installs a separate example |
-| Caelestia | Minimal shell JSON; optional generated user overlay from the exact package base plus 19 modified QML files |
+| Caelestia | Minimal shell JSON; optional generated user overlay from the exact package base plus 20 modified QML files and the companion panels |
 | Session | Named user units and `amethyst-session.target`; start once through Hyprland's start event |
 | Palette | Source palette JSON, Kitty/GTK/Qt/KDE colors; runtime scheme state is generated on startup and excluded from Git |
-| Wallpaper | Original plain PNG; optional local video pointer remains private, outside the manifest |
+| Wallpaper | Original plain PNG; runtime selections and local media stay outside the manifest |
 | VS Code | Declarative profile and workspace source under `.local/share/cachyos-amethyst/vscode`; no live editor storage |
 | Recovery | Private per-transaction preimages/postimages/modes; no broad directory replacement or package rollback |
 
-Caelestia supplies notifications and idle/lock behavior. One polkit agent, one wallpaper player and one visual switcher have separate units. The clipboard's text/image watchers serve different MIME types. The shell startup is not duplicated in an XDG autostart entry. A functioning distro Hyprland login/session is a prerequisite; this project does not install UWSM or replace a display-manager/greeter.
+Caelestia supplies notifications and idle/lock behavior. One polkit agent, one wallpaper service and one visual switcher have separate units. The clipboard's text/image watchers serve different MIME types. The shell startup is not duplicated in an XDG autostart entry. A functioning distro Hyprland login/session is a prerequisite; this project does not install UWSM or replace a display-manager/greeter.
 
 The helper's preferred output is read from a small machine file. An empty preference uses the currently focused available display; a specified missing display produces a clear no-op rather than moving windows somewhere unexpected. Generic output rules use preferred mode, automatic position and scale. No GPU selectors, audio device IDs, battery IDs or sensors are copied.
 

@@ -31,3 +31,8 @@ Temporary homes use the source PC’s already installed software and cannot esta
 Before a stable release: provision and verify a fresh CachyOS test base, follow the guide exactly, exercise first login/logout/recovery and all core daily flows, resolve portal failures, test appropriate physical hardware, and review any published motion evidence at normal speed through three loop wraps. A running daemon, hash check, screenshot or contact sheet is not a substitute for those checks.
 
 Historical capture observations above remain scoped to their original environment; they do not certify the current installed environment. Portal failures and fresh-system/laptop acceptance remain open. The README banner is presentation artwork, not installation evidence.
+
+
+## Alpha.2 desktop sync
+
+On 2026-11-25, the installer applied and verified 407 managed files in a disposable laptop-profile home. The alpha.1-to-alpha.2 upgrade, repeat apply and rollback to 387 alpha.1 files passed. A nested single-display Hyprland session loaded the Caelestia shell and opened the overview, controls, displays, wallpaper, shortcut, focus and alert panels. A wallpaper selection reached the player. This used the desktop’s locally rebuilt `libcava` against the upgraded audio library. Audio routing, first login and physical laptop hardware remain unverified.

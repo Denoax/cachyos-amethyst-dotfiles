@@ -1,0 +1,14 @@
+[Unit]
+Description=Caelestia desktop controls, workspace overview and widgets
+PartOf=amethyst-session.target graphical-session.target
+After=caelestia-shell.service
+
+[Service]
+ExecStartPre=/usr/bin/mkdir -p %h/.local/state/mono-extras
+ExecStart=/usr/bin/qs -c mono-extras -n
+Restart=on-failure
+RestartSec=3
+UMask=0077
+
+[Install]
+WantedBy=amethyst-session.target
